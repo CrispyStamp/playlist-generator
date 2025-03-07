@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDC Playlist Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #ff6600;
+            text-align: center;
+        }
+        button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #artistsContainer {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .artist-checkbox {
+            margin: 5px 0;
+        }
+        #status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        #loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ff6600;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 10px auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Mobile specific styling */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EDC Playlist Creator</h1>
+        
+        <div>
+            <button id="authenticateBtn">1. Authenticate with Spotify</button>
+        </div>
+        
+        <div>
+            <label for="searchInput">2. Search for EDC artists:</label>
+            <input type="text" id="searchInput" placeholder="Search by artist name or event (e.g., EDC Las Vegas)" disabled>
+            <div id="loader"></div>
+            <div id="artistsContainer"></div>
+        </div>
+
+        <div>
+            <label for="playlistName">3. Enter playlist name:</label>
+            <input type="text" id="playlistName" value="My EDC Playlist" disabled>
+        </div>
+
+        <div>
+            <label for="tracksPerArtist">4. Number of tracks per artist:</label>
+            <select id="tracksPerArtist" disabled>
+                <option value="1">1 track</option>
+                <option value="2">2 tracks</option>
+                <option value="3" selected>3 tracks</option>
+                <option value="4">4 tracks</option>
+                <option value="5">5 tracks</option>
+            </select>
+        </div>
+
+        <div>
+            <button id="createPlaylistBtn" disabled>5. Create Playlist</button>
+        </div>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        // Spotify API configuration
+        const clientId = '7fcdc366306c426f9787e13e4f70da08'; // Replace with your Spotify Client ID
+        const redirectUri = window.location.href.split('?')[0];
+        let accessToken = null;
+        let artistsDictionary = null;
+
+        // DOM elements
+        const authenticateBtn = document.getElementById('authenticateBtn');
+        const searchInput = document.getElementById('searchInput');
+        const artistsContainer = document.getElementById('artistsContainer');
+        const playlistName = document.getElementById('playlistName');
+        const tracksPerArtist = document.getElementById('tracksPerArtist');
+        const createPlaylistBtn = document.getElementById('createPlaylistBtn');
+        const status = document.getElementById('status');
+        const loader = document.getElementById('loader');
+
+        // Event listeners
+        authenticateBtn.addEventListener('click', authenticate);
+        searchInput.addEventListener('input', searchArtists);
+        createPlaylistBtn.addEventListener('click', createPlaylist);
+
+        // Check if returning from Spotify auth
+        window.onload = function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const params = new URLSearchParams(hash);
+                accessToken = params.get('access_token');
+                if (accessToken) {
+                    handleSuccessfulAuthentication();
+                }
+            }
+            
+            // Load the artists dictionary from the separate file
+            loadArtistsDictionary();
+        };
+
+        // Function to load artists dictionary from separate file
+        function loadArtistsDictionary() {
+            loader.style.display = 'block';
+            
+            fetch('edc_artists.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Could not load artists dictionary");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    artistsDictionary = data;
+                    loader.style.display = 'none';
+                    console.log("Artists dictionary loaded successfully");
+                })
+                .catch(error => {
+                    console.error("Error loading artists dictionary:", error);
+                    loader.style.display = 'none';
+                    showStatus(`Error loading artists dictionary: ${error.message}`, false);
+                });
+        }
+
+        // Authenticate with Spotify
+        function authenticate() {
+            const scopes = 'playlist-modify-public playlist-modify-private user-read-private';
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}&show_dialog=true`;
+        }
+
+        // Handle successful authentication
+        function handleSuccessfulAuthentication() {
+            authenticateBtn.textContent = "Authenticated ✓";
+            authenticateBtn.disabled = true;
+            searchInput.disabled = false;
+            playlistName.disabled = false;
+            tracksPerArtist.disabled = false;
+            createPlaylistBtn.disabled = false;
+            
+            // Check if we have the dictionary loaded to enable search
+            if (!artistsDictionary) {
+                showStatus("Waiting for artists data to load...", false);
+            }
+        }
+
+        // Search for artists
+        function searchArtists() {
+            if (!artistsDictionary) {
+                showStatus("Artists data is still loading. Please wait...", false);
+                return;
+            }
+
+            const query = searchInput.value.toLowerCase();
+            artistsContainer.innerHTML = '';
+            
+            // If search is empty, don't show anything
+            if (!query) return;
+            
+            let matchedArtists = [];
+            
+            // Search in the dictionary
+            for (const [name, ids] of Object.entries(artistsDictionary)) {
+                if (name.toLowerCase().includes(query)) {
+                    matchedArtists.push({ name, ids });
+                }
+            }
+            
+            // Sort alphabetically
+            matchedArtists.sort((a, b) => a.name.localeCompare(b.name));
+            
+            // Add to display
+            if (matchedArtists.length > 0) {
+                matchedArtists.forEach(artist => {
+                    const artistElement = document.createElement('div');
+                    artistElement.className = 'artist-checkbox';
+                    artistElement.innerHTML = `
+                        <input type="checkbox" id="${artist.name}" data-id="${artist.ids}">
+                        <label for="${artist.name}">${artist.name}</label>
+                    `;
+                    artistsContainer.appendChild(artistElement);
+                });
+            } else {
+                artistsContainer.innerHTML = '<p>No artists found matching your search.</p>';
+            }
+        }
+
+        // Create playlist
+        async function createPlaylist() {
+            // Get selected artists
+            const selectedArtists = [];
+            document.querySelectorAll('#artistsContainer input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedArtists.push({
+                    name: checkbox.id,
+                    id: checkbox.dataset.id
+                });
+            });
+            
+            if (selectedArtists.length === 0) {
+                showStatus('Please select at least one artist', false);
+                return;
+            }
+            
+            loader.style.display = 'block';
+            createPlaylistBtn.disabled = true;
+            
+            try {
+                // Get user ID
+                const userResponse = await fetch('https://api.spotify.com/v1/me', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` }
+                });
+                
+                if (!userResponse.ok) throw new Error('Failed to get user profile');
+                
+                const userData = await userResponse.json();
+                const userId = userData.id;
+                
+                // Create playlist
+                const playlistResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: playlistName.value || 'My EDC Playlist',
+                        description: 'Created with EDC Playlist Creator',
+                        public: true
+                    })
+                });
+                
+                if (!playlistResponse.ok) throw new Error('Failed to create playlist');
+                
+                const playlistData = await playlistResponse.json();
+                const playlistId = playlistData.id;
+                
+                // Get tracks for each artist
+                let allTracks = [];
+                
+                for (const artist of selectedArtists) {
+                    const tracksResponse = await fetch(`https://api.spotify.com/v1/artists/${artist.id}/top-tracks?market=${userData.country || 'US'}`, {
+                        headers: { 'Authorization': `Bearer ${accessToken}` }
+                    });
+                    
+                    if (!tracksResponse.ok) continue;
+                    
+                    const tracksData = await tracksResponse.json();
+                    const tracks = tracksData.tracks.slice(0, parseInt(tracksPerArtist.value));
+                    allTracks = allTracks.concat(tracks.map(track => `spotify:track:${track.id}`));
+                }
+                
+                // Add tracks to playlist
+                const addTracksResponse = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        uris: allTracks
+                    })
+                });
+                
+                if (!addTracksResponse.ok) throw new Error('Failed to add tracks to playlist');
+                
+                showStatus(`Playlist "${playlistName.value}" created successfully with ${allTracks.length} tracks! <a href="${playlistData.external_urls.spotify}" target="_blank">Open in Spotify</a>`, true);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showStatus(`Error: ${error.message}`, false);
+            } finally {
+                loader.style.display = 'none';
+                createPlaylistBtn.disabled = false;
+            }
+        }
+
+        // Show status message
+        function showStatus(message, success) {
+            status.innerHTML = message;
+            status.style.display = 'block';
+            
+            if (success) {
+                status.className = 'success';
+            } else {
+                status.className = 'error';
+            }
+        }
+    </script>
+</body>
+</html>
