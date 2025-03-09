@@ -1,57 +1,1242 @@
 {
-  "Afrojack": "4D75GcNG95intPeWGdu5JS",
-  "Alesso": "4EVpmkEwrxYTBXCPXDlTMb",
-  "Alison Wonderland": "11gWrKZMBsGQWmobv3oNfW",
-  "Amelie Lens": "1taA80ud32EYxoGbxDXZvn",
-  "Armin van Buuren": "0SfsnGyD8FpIN4U4WCkBZ5",
-  "Artbat": "73jVPjQM3UM8F9IjxMvHvj",
-  "Baauer": "25fqWEebq6PoiGQIHIrdtv",
-  "Ben Böhmer": "60uh2KYYtVX4lG2VgG1s1T",
-  "Benny Benassi": "0oZYaVIOxZ6XPnzm1ncPxK",
-  "Boris Brejcha": "6bM2rNMAtlIKRPORGP8OkA",
-  "Calvin Harris": "7CajNmpbOovFoOoasH2HaY",
-  "Carl Cox": "2CqC9lobfwzWofaGHLwJbD",
-  "Carnage": "2svAygnnHKLpuT6ZdvdrC8",
-  "Charlotte de Witte": "3Q0jT2BvDtxHLjTuQ4A0FD",
-  "Claptone": "5J7fBhtjgKd8NUQCeY7SGD",
-  "Cosmic Gate": "6KkXUFNstbl5GB1MrA5jUr",
-  "Dash Berlin": "4cR92D1Ny7UcvcMY9N5JqM",
-  "Deadmau5": "2CIMQHirSU0MQqyYHq0eOx",
-  "Dillon Francis": "5R3Hr2cnCCjt220Jmt2xgd",
-  "Diplo": "5fMUXHkw8R8eOP2RNVYEZX",
-  "DJ Snake": "540vIaP2JwjQb9dm3aArA4",
-  "Don Diablo": "5jnCXhW9vLglXsMmZLw0Gf",
-  "Eric Prydz": "5sm0jQ1mq0dusiLtDJ2b4R",
-  "Fisher": "5Pwc4xIPtQLFEnJriah9YJ",
-  "Gareth Emery": "4V8D7AV0FCPaLJAUWYUQcR",
-  "Gorgon City": "6p4dTz6SXG0TEzRYDdEyp5",
-  "Green Velvet": "2SoYkJPOCHb6XfYt18wUHw",
-  "Illenium": "45eNHdiiabvmbp4erw26rg",
-  "Jauz": "5E63lbOHVECzZiYkbieBKk",
-  "Joyryde": "4xFadP7L1YVxeQKZZJtLWs",
-  "Kaskade": "6TQj5BFPooTa08A7pk8AQ1",
-  "Kayzo": "7CQY5ctPeJhY5VaQ3kUOfC",
-  "Knife Party": "2DuJi13MWHjRHrqRUwk8vH",
-  "Kygo": "23fqKkggKUBHNkbKtXEls4",
-  "Martin Garrix": "60d24wfXkVzDSfLS6hyCjZ",
-  "NGHTMRE": "76M2Ekj8bG8W7X2nbx2CpF",
-  "Nicky Romero": "5ChF3i5upKKDoJ4Tqt7jXo",
-  "Oliver Heldens": "4hQgqYnuUrrjhLQbgbTFwI",
-  "Paul Kalkbrenner": "5JYo7gm2dkyLLlWHjxS68J",
-  "Paul van Dyk": "6mEQK9m2krja17HfXPXvRd",
-  "Pendulum": "7MqnCTCAX6SsIYYdJCQj9B",
-  "RL Grime": "5eIbEEQnDM8yuDVB0bimSP",
-  "San Holo": "0jNDKefhfSbLR9sFvcPLHo",
-  "Seven Lions": "7wg1qvie3KqDNQbAkTdbX0",
-  "Skrillex": "5he5w2lnU9x7JFhnwcekXX",
-  "Slander": "20DZAfCuP1TKZl5KcY7z3Q",
-  "Steve Aoki": "77AiFEVeAVj2ORpC85QVJs",
-  "Tiesto": "2o5jDhtHVPhrJdv3cEQ99Z",
-  "Timmy Trumpet": "0kRPR7crCZBh8FqYnuhfxD",
-  "Vini Vici": "7sBbCjQtGe49hD3L6EitcG",
-  "Virtual Self": "36mCyQxcx04WN7VrT6QpAg",
-  "W&W": "2Lpr4F9ErZNdoDs6FJXZDz",
-  "Yellow Claw": "5MqyYv910dYELZm3oFlvz5",
-  "Zedd": "2qxJFvFYMEDqd7ui6kSAcq",
-  "Zeds Dead": "67qogtRNI0GjUr8PlaG6Zh"
+  "33 Below": {
+    "id": "4tMIsBBR8M0PsorDf0mNEz",
+    "genres": ["stutter house", "uk garage", "bassline"],
+    "stage": null
+  },
+  "6ejou": {
+    "id": "1k0U51DXyjFk4YnLZUIMP9",
+    "genres": ["hard techno", "techno", "tekno", "acid techno", "industrial", "hardcore techno", "rave"],
+    "stage": null
+  },
+  "Adam Ten": {
+    "id": "05tmGPn4fFdVpnsMt0YW5S",
+    "genres": ["indie dance", "melodic house", "melodic techno", "tech house"],
+    "stage": null
+  },
+  "Adrenalize": {
+    "id": "6GebWeCCtey5pbQepRYD6c",
+    "genres": ["hardstyle", "frenchcore"],
+    "stage": null
+  },
+  "Afrojack": {
+    "id": "4D75GcNG95ebPtNvoNVXhz",
+    "genres": ["edm", "big room"],
+    "stage": "KineticFIELD"
+  },
+  "AHEE": {
+    "id": "1gbDc1TANALgP8lLvO5UEf",
+    "genres": ["dangdut", "sholawat"],
+    "stage": "BassPOD"
+  },
+  "Ahmed Spins": {
+    "id": "4jercY4pUhY6jB8eQjpVJV",
+    "genres": ["afro house", "melodic house"],
+    "stage": "BionicJUNGLE"
+  },
+  "Airrica": {
+    "id": "57sPl5iWgq5t6AscVbMTOW",
+    "genres": ["Techno"],
+    "stage": null
+  },
+  "Alesso": {
+    "id": "4AVFqumd2ogHFlRbKIjp1t",
+    "genres": ["edm"],
+    "stage": "KineticFIELD"
+  },
+  "Alex Chapman": {
+    "id": "3c8wfedCs5BJGHcFyusyeh",
+    "genres": ["Pop"],
+    "stage": null
+  },
+  "Alignment": {
+    "id": "4eFbq5PZgW7YbtA65PP4wS",
+    "genres": ["lo-fi", "lo-fi beats", "Techno"],
+    "stage": "NeonGARDEN"
+  },
+  "Alison Wonderland": {
+    "id": "11gWrKZMBsGQWmobv3oNfW",
+    "genres": ["edm trap", "future bass", "edm", "trap"],
+    "stage": "CosmicMEADOW"
+  },
+  "ALLEYCVT": {
+    "id": "4JxRK2gxmri7L7OWaxnVD1",
+    "genres": ["dubstep"],
+    "stage": null
+  },
+  "Alok": {
+    "id": "0NGAZxHanS9e0iNHpR8f2W",
+    "genres": ["brazilian bass", "electronic", "slap house", "electro house"],
+    "stage": "KineticFIELD"
+  },
+  "Amal Nemer": {
+    "id": "4dJbkK58s6mj9RGElqCNhm",
+    "genres": ["latin house", "afro house", "tech house", "tribal house"],
+    "stage": "StereoBLOOM"
+  },
+  "Amelie Lens": {
+    "id": "5Ho1vKl1Uz8bJlk4vbmvmf",
+    "genres": ["techno", "acid techno", "hard techno", "tekno"],
+    "stage": "NeonGARDEN"
+  },
+  "AMÉMÉ": {
+    "id": "1txb9Qg5lJ3KATxPcIYyvO",
+    "genres": ["afro house", "latin house", "tribal house", "organic house"],
+    "stage": null
+  },
+  "Andromedik": {
+    "id": "7miXLG9boDOGHJaEelSL7T",
+    "genres": ["drum and bass", "liquid funk"],
+    "stage": "BassPOD"
+  },
+  "Andy C": {
+    "id": "75HK7rgkmDMTnWwwmcN53N",
+    "genres": ["drum and bass", "jungle"],
+    "stage": "BassPOD"
+  },
+  "ANGEL CANNON": {
+    "id": "4Ybj0IqmuPWSp023XnJpCD",
+    "genres": ["hard techno", "techno", "tekno"],
+    "stage": "WasteLAND"
+  },
+  "Annicka": {
+    "id": "2Nu6MRZ5HQQJUzUCjaTDh4",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Anoluxx": {
+    "id": "1NzlrGKNUnKuheUva6Tavz",
+    "genres": ["hard techno", "acid techno", "techno"],
+    "stage": null
+  },
+  "Apashe": {
+    "id": "1fd3fmwlhrDl2U5wbbPQYN",
+    "genres": ["electronic"],
+    "stage": null
+  },
+  "Argy": {
+    "id": "1NaQOKgddaJipUtmptb7GI",
+    "genres": ["melodic techno", "melodic house", "techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Armand Van Helden": {
+    "id": "3cQA9WH8liZfeja1DxcDYE",
+    "genres": ["disco house", "funky house", "house"],
+    "stage": null
+  },
+  "Armin van Buuren": {
+    "id": "0SfsnGyD8FpIN4U4WCkBZ5",
+    "genres": ["trance", "progressive house", "electronica", "edm"],
+    "stage": "KineticFIELD"
+  },
+  "ARMNHMR": {
+    "id": "0P2bZXPyjHYRW4guHVAFl1",
+    "genres": ["melodic bass", "future bass", "edm"],
+    "stage": null
+  },
+  "ARODES": {
+    "id": "4p2f8wUtltMAFuIJB4NR47",
+    "genres": ["afro house", "melodic house", "melodic techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "ARTBAT": {
+    "id": "3BkRu2TGd2I1uBxZKddfg1",
+    "genres": ["melodic techno", "melodic house", "techno", "progressive house"],
+    "stage": "KineticFIELD"
+  },
+  "ATLiens": {
+    "id": "74RET4rCZPTGzhsLjD0i3g",
+    "genres": ["riddim", "dubstep", "deathstep", "bass music", "edm"],
+    "stage": null
+  },
+  "Avalon": {
+    "id": "0SFwBkGokPRtTX212zO7xo",
+    "genres": ["psytrance"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Basstripper": {
+    "id": "1tSiIyp5dxfbEaS0nZGMEl",
+    "genres": ["drum and bass"],
+    "stage": "BassPOD"
+  },
+  "Basswell": {
+    "id": "4NzdIkiweEHJgVdg8q2Ruk",
+    "genres": ["hard techno", "techno", "tekno", "acid techno", "rave", "hardcore techno"],
+    "stage": null
+  },
+  "Beltran": {
+    "id": "1jgSqmZTBltb5O2L7ErmEP",
+    "genres": ["corrido", "corridos bélicos", "sierreño", "corridos tumbados", "electro corridos"],
+    "stage": "NeonGARDEN"
+  },
+  "Ben Hemsley": {
+    "id": "366L4EjZXBPYbHs9XDQILZ",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "Ben Nicky": {
+    "id": "3Bd1phrOZJuCev9U0bzdtA",
+    "genres": ["trance", "happy hardcore"],
+    "stage": "KineticFIELD"
+  },
+  "Ben Sterling": {
+    "id": "79uJoLQkQ621xZy7MyH4uL",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "Bicep": {
+    "id": "73A3bLnfnz5BoQjb4gNCga",
+    "genres": ["electronic"],
+    "stage": null
+  },
+  "BIIA": {
+    "id": "4Axsf7QVnPabbam5y6NwLt",
+    "genres": ["techno"],
+    "stage": "WasteLAND"
+  },
+  "Billy Gillies": {
+    "id": "0kmovylAP20DMJhS3BE2CO",
+    "genres": ["trance"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Biscits": {
+    "id": "052B9SONfhoScw7dgYWw5o",
+    "genres": ["tech house", "house"],
+    "stage": "StereoBLOOM"
+  },
+  "Black Tiger Sex Machine": {
+    "id": "0o9qzOHuHkGZ3xMFKpMFkC",
+    "genres": ["dubstep", "riddim", "deathstep", "edm"],
+    "stage": null
+  },
+  "BLOND:ISH": {
+    "id": "6zsJjoCtL1WByG0VsuFWzR",
+    "genres": ["afro house", "latin house"],
+    "stage": null
+  },
+  "Bontan": {
+    "id": "1tZgoMqNTa7lII4w9pV3ud",
+    "genres": ["tech house", "afro house", "tribal house"],
+    "stage": null
+  },
+  "Boys Noize": {
+    "id": "62k5LKMhymqlDNo2DWOvvv",
+    "genres": ["electro house"],
+    "stage": null
+  },
+  "Brutalismus 3000": {
+    "id": "6LtXxYMIiKSy2EGHnz1f5j",
+    "genres": ["techno", "hard techno", "tekno", "rave", "gabber", "acid techno"],
+    "stage": "CosmicMEADOW"
+  },
+  "Caravel": {
+    "id": "5od72ceH2aN3pS4hcHNzRy",
+    "genres": ["orchestra", "easy listening"],
+    "stage": null
+  },
+  "Carlita": {
+    "id": "1GVbOnrND8b3eh2JZ4opw8",
+    "genres": ["melodic house"],
+    "stage": null
+  },
+  "Caspa": {
+    "id": "4nMuaJ4kBLDJCRBizNESI6",
+    "genres": ["Dubstep"],
+    "stage": null
+  },
+  "Cera Khin": {
+    "id": "49QMv0RvuxcUG8Xk6YweEz",
+    "genres": ["hard techno", "techno", "acid techno", "tekno"],
+    "stage": null
+  },
+  "Champion": {
+    "id": "3cHya45cxGzLYIPg2LRCCR",
+    "genres": ["bedroom pop"],
+    "stage": "StereoBLOOM"
+  },
+  "Charlotte de Witte": {
+    "id": "1lJhME1ZpzsEa5M0wW6Mso",
+    "genres": ["techno", "acid techno", "hard techno", "tekno"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Chase & Status": {
+    "id": "3jNkaOXasoc7RsxdchvEVq",
+    "genres": ["drum and bass", "jungle"],
+    "stage": "BassPOD"
+  },
+  "ChaseWest": {
+    "id": "4770WxUOyJMOJ1CHiZi2d6",
+    "genres": ["tech house"],
+    "stage": "BionicJUNGLE"
+  },
+  "Chris Avantgarde": {
+    "id": "715OI7hiv58daVlEDXM47U",
+    "genres": ["melodic techno", "melodic house", "techno"],
+    "stage": null
+  },
+  "CHYL": {
+    "id": "15HOfHbNWedCAcJ3Cm1mbc",
+    "genres": ["bassline"],
+    "stage": "CosmicMEADOW"
+  },
+  "Clara Cuvé": {
+    "id": "7daFW9cX9jHmOxZ0PIofRm",
+    "genres": ["hard techno", "acid techno", "techno"],
+    "stage": null
+  },
+  "Classmatic": {
+    "id": "2vOQkFQDXp4QV77pnlet6m",
+    "genres": ["tech house", "latin house"],
+    "stage": null
+  },
+  "Claussa": {
+    "id": "5GDdOqYGxIkfMci9alGtYS",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "Clawz": {
+    "id": "0HUxQdvG9Db3gLJPEeWR3q",
+    "genres": ["melodic techno"],
+    "stage": null
+  },
+  "Cloonee": {
+    "id": "7MdlXmq2HViAJWo9cf30sR",
+    "genres": ["tech house", "house", "latin house", "techno"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Code Black": {
+    "id": "0I5is4tdxHhT3Ft2EzPjlB",
+    "genres": ["hardstyle", "happy hardcore", "frenchcore"],
+    "stage": null
+  },
+  "Cole Knight": {
+    "id": "6dZJom6MdxO0nNa0Ot7lqb",
+    "genres": ["tech house"],
+    "stage": "NeonGARDEN"
+  },
+  "Cosmic Gate": {
+    "id": "6ySxYu68zTsO5ghsThpGtS",
+    "genres": ["trance", "progressive trance"],
+    "stage": null
+  },
+  "Crankdat": {
+    "id": "5lCekoJW9jNq01B1wiqdAb",
+    "genres": ["dubstep", "riddim", "deathstep", "edm"],
+    "stage": "BassPOD"
+  },
+  "D-Sturb": {
+    "id": "7E6DrjKJieOdJKO8mbwCMO",
+    "genres": ["hardstyle", "frenchcore", "hardcore"],
+    "stage": "WasteLAND"
+  },
+  "Da Tweekaz": {
+    "id": "6UOk7DmvqlzWmo6gjhZvn6",
+    "genres": ["hardstyle", "frenchcore", "happy hardcore", "hardcore"],
+    "stage": "WasteLAND"
+  },
+  "Daniel Allan": {
+    "id": "5JQ1XqKJ2Art01rF4tu1Ra",
+    "genres": ["stutter house"],
+    "stage": null
+  },
+  "Danny Avila": {
+    "id": "1Xv1qZHJ1hnRlWHRTZ3uci",
+    "genres": ["techno"],
+    "stage": "KineticFIELD"
+  },
+  "Darren Styles": {
+    "id": "2gZzTzeACSwFqkMroVxmnm",
+    "genres": ["happy hardcore", "hardstyle", "hardcore techno"],
+    "stage": "WasteLAND"
+  },
+  "David Forbes": {
+    "id": "3kwdB3aUfg0uneHczX2vTG",
+    "genres": ["trance", "progressive trance"],
+    "stage": "QuantumnVALLEY"
+  },
+  "David Rust": {
+    "id": "31PQANabd071TUYth7bG5n",
+    "genres": ["trance", "hard house"],
+    "stage": null
+  },
+  "DEATH CODE": {
+    "id": "4TxNiQlZXcBj79ySTx9f2o",
+    "genres": ["hardstyle", "frenchcore"],
+    "stage": null
+  },
+  "Dennis Cruz": {
+    "id": "27mWOSZjlpmtoqsRjRwQyu",
+    "genres": ["tech house", "latin house", "tribal house", "techno"],
+    "stage": null
+  },
+  "Deorro": {
+    "id": "6VD4UEUPvtsemqD3mmTqCR",
+    "genres": ["melbourne bounce", "electro house"],
+    "stage": "KineticFIELD"
+  },
+  "Devin Wild": {
+    "id": "4ksdbwHbqSmv7sWP3W6L21",
+    "genres": ["hardstyle", "frenchcore", "hardcore"],
+    "stage": "WasteLAND"
+  },
+  "Dimension": {
+    "id": "1QMgre3BHX161ZHtWMUu6S",
+    "genres": ["salsa", "salsa romantica", "merengue"],
+    "stage": "KineticFIELD"
+  },
+  "Disco Dom": {
+    "id": "3q8DkzC4UfA5lKG1YG4004",
+    "genres": ["disco house", "nu disco"],
+    "stage": null
+  },
+  "Disco Lines": {
+    "id": "5Kmr0b3ip8g9P2i0dLTC3Z",
+    "genres": ["stutter house"],
+    "stage": "CosmicMEADOW"
+  },
+  "Distinct Motive": {
+    "id": "5KfqHG8bhfI18ZuTzZSdSM",
+    "genres": ["dubstep", "dub", "bass music", "riddim"],
+    "stage": "BassPOD"
+  },
+  "DJ AniMe": {
+    "id": "7JBPTTMrNDyLu8z19rxJPa",
+    "genres": ["hardcore"],
+    "stage": null
+  },
+  "DJ Fuckoff": {
+    "id": "47fPXXrqnkQcaQ951UA3cm",
+    "genres": ["miami bass", "breakbeat"],
+    "stage": null
+  },
+  "DJ Gigola": {
+    "id": "7feJmqQ32fTIPKBmPXwHXf",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "DJ Snake": {
+    "id": "540vIaP2JwjQb9dm3aArA4",
+    "genres": ["trap"],
+    "stage": "KineticFIELD"
+  },
+  "Dom Dolla": {
+    "id": "205i7E8fNVfojowcQSfK9m",
+    "genres": ["house", "tech house"],
+    "stage": "KineticFIELD"
+  },
+  "DRINKURWATER": {
+    "id": "4P4PUC5CstzTajr5dhwQZk",
+    "genres": ["riddim", "dubstep", "bass music"],
+    "stage": "BassPOD"
+  },
+  "Dual Damage": {
+    "id": "05bETZtzSdUI5fconFIKRX",
+    "genres": ["hardstyle", "hardcore", "frenchcore"],
+    "stage": "WasteLAND"
+  },
+  "Dylan Brady": {
+    "id": "2Cm6C9PNHioyjRKBfO7n9N",
+    "genres": ["hyperpop", "glitch"],
+    "stage": "BionicJUNGLE"
+  },
+  "Eli Brown": {
+    "id": "5lVNSw2GPci8kebrAQpZqU",
+    "genres": ["techno", "tech house"],
+    "stage": null
+  },
+  "Eric Prydz": {
+    "id": "5sm0jQ1mq0dusiLtDJ2b4R",
+    "genres": ["progressive house"],
+    "stage": "KineticFIELD"
+  },
+  "Excision": {
+    "id": "5FKchcZpQOkqFvXBj1aCvb",
+    "genres": ["dubstep", "riddim", "deathstep", "edm", "dub", "melodic bass", "bass music"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Fcukers": {
+    "id": "3UtzOHYm3lQALkKzVD4wyO",
+    "genres": ["techno"],
+    "stage": "BionicJUNGLE"
+  },
+  "Fisher": {
+    "id": "1VJ0briNOlXRtJUAzoUJdt",
+    "genres": ["tech house", "house", "techno"],
+    "stage": "KineticFIELD"
+  },
+  "Francis Mercier": {
+    "id": "44qAhQu52dYKcHOFQd3esf",
+    "genres": ["afro house", "melodic house", "latin house", "tribal house", "house"],
+    "stage": "StereoBLOOM"
+  },
+  "Funk Tribu": {
+    "id": "1vK8NnrPlBlF34LaiFX1SK",
+    "genres": ["phonk", "hard house", "techno", "hard techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Fury": {
+    "id": "7KxS1dL7Q7jxMkyb2ZvzXH",
+    "genres": ["future bass", "melodic bass"],
+    "stage": null
+  },
+  "Gesaffelstein": {
+    "id": "3hteYQFiMFbJY7wS0xDymP",
+    "genres": ["electronic"],
+    "stage": "CosmicMEADOW"
+  },
+  "Gorgon City": {
+    "id": "4VNQWV2y1E97Eqo2D5UTjx",
+    "genres": ["house"],
+    "stage": null
+  },
+  "GUDFELLA": {
+    "id": "3KjZMSSy0BaCVdvL0VABRO",
+    "genres": ["stutter house"],
+    "stage": null
+  },
+  "Hannah Laing": {
+    "id": "1QEd635szhierW6gzRiS1o",
+    "genres": ["techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Hedex": {
+    "id": "22I9QWygJ2IfxR855VsA3t",
+    "genres": ["drum and bass", "bassline"],
+    "stage": "CosmicMEADOW"
+  },
+  "horsegiirL": {
+    "id": "0auP293abZeTWwMUi3fZw2",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Hot Since 82": {
+    "id": "1tRBmMtER4fGrzrt8O9VpS",
+    "genres": ["tech house", "house", "deep house"],
+    "stage": "NeonGARDEN"
+  },
+  "HUGEL": {
+    "id": "5PlfkPxwCpRRWQJBxCa0By",
+    "genres": ["latin house", "afro house", "tech house"],
+    "stage": null
+  },
+  "I Hate Models": {
+    "id": "0KqSULB80ft2H3aFg6kJmN",
+    "genres": ["techno", "acid techno", "hard techno", "tekno", "rave"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Illenium": {
+    "id": "45eNHdiiabvmbp4erw26rg",
+    "genres": ["melodic bass", "future bass", "edm"],
+    "stage": "KineticFIELD"
+  },
+  "INFEKT": {
+    "id": "3I6KMDdmPiLE5UQ4XF8Kpl",
+    "genres": ["riddim", "dubstep", "deathstep", "bass music", "dub"],
+    "stage": null
+  },
+  "Interplanetary Criminal": {
+    "id": "6uJ51uV5rYzu1MJkC4CceI",
+    "genres": ["uk garage", "breakbeat"],
+    "stage": null
+  },
+  "INVT": {
+    "id": "7iS41tYQBUyJsZYcxCse0D",
+    "genres": ["uk funky", "breakbeat", "uk garage"],
+    "stage": null
+  },
+  "INZO": {
+    "id": "18Eu7uJEMPWwwt1QUdCglQ",
+    "genres": ["future bass"],
+    "stage": "BassPOD"
+  },
+  "it's murph": {
+    "id": "0VZ9xPNa8U2V3yKBrOQw3U",
+    "genres": ["dance", "electronic"],
+    "stage": null
+  },
+  "Jackie Hollander": {
+    "id": "5ykY9Uweo3gl5VFpb6z6pQ",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "James Hype": {
+    "id": "43BxCL6t4c73BQnIJtry5v",
+    "genres": ["house", "tech house"],
+    "stage": "KineticFIELD"
+  },
+  "Jessica Audiffred": {
+    "id": "4odLDriBk6oEZotzLPTSnD",
+    "genres": ["dubstep", "riddim", "deathstep", "melodic bass", "bass music"],
+    "stage": "BassPOD"
+  },
+  "Josh Baker": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["house"],
+    "stage": "BionicJUNGLE"
+  },
+  "Kami": {
+    "id": "0QJIPDAEDILuo8AIq3pMuU",
+    "genres": ["hip-hop/rap"],
+    "stage": null
+  },
+  "Kaskade": {
+    "id": "6TQj5BFPooTa08A7pk8AQ1",
+    "genres": ["house"],
+    "stage": "KineticFIELD"
+  },
+  "Kompany": {
+    "id": "7dtX3ykcuyVmts2HQnWgSP",
+    "genres": ["dubstep", "riddim", "deathstep", "bass music", "edm"],
+    "stage": null
+  },
+  "Korolova": {
+    "id": "0I6oCyQQ1Q50q97y9B9gAx",
+    "genres": ["melodic techno", "melodic house", "progressive house"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Ky William": {
+    "id": "2dIpuJtQApGRmGeUobllYq",
+    "genres": ["latin house", "tech house"],
+    "stage": "StereoBLOOM"
+  },
+  "Kyle Watson": {
+    "id": "7LJSAfWhO7jhjnewy6pKyZ",
+    "genres": ["tech house", "bass house", "house", "g-house"],
+    "stage": "StereoBLOOM"
+  },
+  "Lady Faith": {
+    "id": "1va2Hj3SvWvu3L6jAN6k01",
+    "genres": ["hardstyle"],
+    "stage": "WasteLAND"
+  },
+  "Lake Hills": {
+    "id": "5y5zEG94qXEAbvj1kP0SR5",
+    "genres": ["breakbeat"],
+    "stage": null
+  },
+  "Laura van Dam": {
+    "id": "6gmecOfbzCBnKd3OGkCQuz",
+    "genres": ["trance", "progressive trance", "melodic techno"],
+    "stage": null
+  },
+  "Lauren Mia": {
+    "id": "5HWKpmCYAFYybu5WKtxnnq",
+    "genres": ["melodic techno", "melodic house", "progressive house", "organic house"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Lavern": {
+    "id": "03y4yOxhLk6MDJ1bV424uO",
+    "genres": ["stutter house"],
+    "stage": "KineticFIELD"
+  },
+  "Layton Giordani": {
+    "id": "7mC3RkNNTV6p2j9w4F8Ip4",
+    "genres": ["techno", "melodic techno", "acid techno", "tech house"],
+    "stage": null
+  },
+  "Layz": {
+    "id": "6YvGJYjXJ9V8QjXq6Lr1KB",
+    "genres": ["dubstep"],
+    "stage": "BassPOD"
+  },
+  "Le Youth": {
+    "id": "1Zz6NBe8UIZjm88TvehFtx",
+    "genres": ["melodic house"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Level Up": {
+    "id": "1ZpDxqXS6HAvoZyCzQfKRb",
+    "genres": ["riddim", "dubstep", "deathstep", "edm"],
+    "stage": "BassPOD"
+  },
+  "Levenkhan": {
+    "id": "0ceEjm8IKMdK5BjMmnGMrd",
+    "genres": ["frenchcore", "hardstyle", "hardcore"],
+    "stage": null
+  },
+  "Levity": {
+    "id": "1PbO7aQiVeKbGp8GYWDL9C",
+    "genres": ["dubstep"],
+    "stage": "BassPOD"
+  },
+  "LF SYSTEM": {
+    "id": "0HxX6imltnNXJyQhu4nsiO",
+    "genres": ["house"],
+    "stage": null
+  },
+  "Lil Texas": {
+    "id": "76raIy8boaM9sf9gMGXGJ5",
+    "genres": ["frenchcore", "hardcore", "hardstyle", "gabber", "speedcore", "hardcore techno"],
+    "stage": null
+  },
+  "Linska": {
+    "id": "5f7jxYF5js7lD5lMyIPUBq",
+    "genres": ["melodic techno", "melodic house"],
+    "stage": "StereoBLOOM"
+  },
+  "Liquid Stranger": {
+    "id": "4YJsSCuag8W1TFTgSeEc2k",
+    "genres": ["dubstep", "bass music", "dub", "downtempo", "riddim"],
+    "stage": null
+  },
+  "Loco Dice": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["minimal techno", "tech house", "techno"],
+    "stage": null
+  },
+  "Lostly": {
+    "id": "39YXQGcflynecg2L3APfqf",
+    "genres": ["trance", "progressive trance"],
+    "stage": null
+  },
+  "Loud Luxury": {
+    "id": "6t1gpxYbY8OlLA7D2RiikQ",
+    "genres": ["house"],
+    "stage": "CosmicMEADOW"
+  },
+  "Maddix": {
+    "id": "0RMeG9M8QFzss9bAbq99KA",
+    "genres": ["big room", "techno", "hard techno", "rave", "acid techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Malaa": {
+    "id": "7w1eTNePApzDk8XtgykCPS",
+    "genres": ["g-house", "bass house", "future house"],
+    "stage": null
+  },
+  "MALUGI": {
+    "id": "50udUOTR7dQUgyPwPuCLM6",
+    "genres": ["hard house", "eurodance", "trance"],
+    "stage": null
+  },
+  "Marco Strous": {
+    "id": "56HtyYJoZvYc5aVdqDd94i",
+    "genres": ["tech house"],
+    "stage": "StereoBLOOM"
+  },
+  "Marie Vaunt": {
+    "id": "50KydUSYhBFGorhAgUcrL5",
+    "genres": ["acid techno", "techno", "hard techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Marlon Hoffstadt": {
+    "id": "0HHa7ZJZxUQlg5l2mB0N0f",
+    "genres": ["hard house", "eurodance", "techno"],
+    "stage": "KineticFIELD"
+  },
+  "Martin Garrix": {
+    "id": "60d24wfXkVzDSfLS6hyCjZ",
+    "genres": ["edm", "electronica", "progressive house"],
+    "stage": "KineticFIELD"
+  },
+  "Masha Mar": {
+    "id": "5VuWDNXNzHEO08J2Hv3bU2",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Matroda": {
+    "id": "45lcbTsX07JWzmTIjcdyBz",
+    "genres": ["bass house", "tech house", "g-house", "house", "electro house"],
+    "stage": "StereoBLOOM"
+  },
+  "Mau P": {
+    "id": "0w1sbtZVQoK6GzV4A4OkCv",
+    "genres": ["tech house"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Max Styler": {
+    "id": "3NKKngINK1tP6BFy0WOyWk",
+    "genres": ["tech house"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Maz": {
+    "id": "37w38cCSGgKLdayTRjna4W",
+    "genres": ["afro house"],
+    "stage": null
+  },
+  "MC Dino": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["drum & bass"],
+    "stage": null
+  },
+  "MCR-T": {
+    "id": "4m7q9onIm2bqhwHy9utqmw",
+    "genres": ["techno"],
+    "stage": "BionicJUNGLE"
+  },
+  "Meduza": {
+    "id": "0xRXCcSX89eobfrshSVdyu",
+    "genres": ["house"],
+    "stage": "KineticFIELD"
+  },
+  "Mike Posner": {
+    "id": "2KsP6tYLJlTBvSUxnwlVWa",
+    "genres": ["pop"],
+    "stage": null
+  },
+  "Mish": {
+    "id": "2NM1t8dMvgeu9Lfl06574g",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Miss Monique": {
+    "id": "29TpNOsTNYbLb6Xa10H0PR",
+    "genres": ["melodic techno", "melodic house", "progressive house", "techno"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Mita Gami": {
+    "id": "6Y9N9gdo5jpzGsExWDymS8",
+    "genres": ["indie dance", "melodic house", "melodic techno"],
+    "stage": "NeonGARDEN"
+  },
+  "Miyuki": {
+    "id": "3jy26GTtKFUsM26F4bUlwK",
+    "genres": ["kayokyoku", "enka", "j-pop"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Mochakk": {
+    "id": "0rTh1tAdrEbdKZBTiiAQSo",
+    "genres": ["tech house", "house"],
+    "stage": null
+  },
+  "Morten": {
+    "id": "19HFRWmRCl27kTk6LeqAO8",
+    "genres": ["edm"],
+    "stage": null
+  },
+  "MPH": {
+    "id": "62SCu33InHVq97VaWw3eof",
+    "genres": ["uk garage"],
+    "stage": "CosmicMEADOW"
+  },
+  "Mr. Brooks": {
+    "id": "7bXHsZgjppjPTXXsvGRT8u",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "MRD": {
+    "id": "3cdy10Sdneled46d13A74S",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Nala": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["ambient", "nu jazz"],
+    "stage": null
+  },
+  "Narciss": {
+    "id": "7jEmLGxzh2RuOwdj96tlyL",
+    "genres": ["spoken word", "folk punk"],
+    "stage": null
+  },
+  "Netsky": {
+    "id": "5TgQ66WuWkoQ2xYxaSTnVP",
+    "genres": ["drum and bass", "liquid funk", "chillstep"],
+    "stage": "BassPOD"
+  },
+  "NGHTMRE": {
+    "id": "76M2Ekj8bG8W7X2nbx2CpF",
+    "genres": ["dubstep", "edm", "edm trap", "future bass"],
+    "stage": null
+  },
+  "Nico Moreno": {
+    "id": "6fjhNhp9IoeiZpEXq9AT2S",
+    "genres": ["hard techno", "techno", "tekno", "acid techno", "rave", "hardcore techno"],
+    "stage": "NeonGARDEN"
+  },
+  "Nils Hoffmann": {
+    "id": "6sOEMfvCfHQ9dhSWyamXVb",
+    "genres": ["melodic house", "minimal techno", "melodic techno", "deep house", "chill house"],
+    "stage": null
+  },
+  "Noizu": {
+    "id": "3VRyybsQu0MDG0F2LBxnv7",
+    "genres": ["tech house", "house", "piano house"],
+    "stage": "KineticFIELD"
+  },
+  "Nora En Pure": {
+    "id": "24DO0PijjITGIEWsO8XaPs",
+    "genres": ["deep house", "melodic house", "chill house", "progressive house", "house"],
+    "stage": "KineticFIELD"
+  },
+  "Odd Mob": {
+    "id": "4qLwtWhlhyAoQ4S9mSrDW9",
+    "genres": ["tech house", "bass house"],
+    "stage": null
+  },
+  "Of The Trees": {
+    "id": "5V7NIXgCnX2KuQ01Bxg20c",
+    "genres": ["bass music"],
+    "stage": null
+  },
+  "OGUZ": {
+    "id": "2n6aFLFLpEBs61Kfy5EX5v",
+    "genres": ["turkish pop", "t-pop", "arabesk"],
+    "stage": "WasteLAND"
+  },
+  "Omiki": {
+    "id": "7pHwBqsYULdAdHgSwf1q9f",
+    "genres": ["psytrance", "progressive trance", "trance"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Omnom": {
+    "id": "3PYRXP25JcbqhvNaJYcnWy",
+    "genres": ["tech house"],
+    "stage": "StereoBLOOM"
+  },
+  "OMRI.": {
+    "id": "36jn1T9teX1BHEJYcPoazX",
+    "genres": ["techno"],
+    "stage": null
+  },
+  "Onlynumbers": {
+    "id": "14lZi2xEonJg9DyYk9JBak",
+    "genres": ["hard techno", "techno", "tekno", "rave", "hardcore techno", "acid techno"],
+    "stage": null
+  },
+  "Oppidan": {
+    "id": "338p7qzZTDJSHJzSjIZMFK",
+    "genres": ["uk garage", "bassline"],
+    "stage": "CosmicMEADOW"
+  },
+  "ØTTA": {
+    "id": "13Mv9xsTvpgUxCdth9MWnG",
+    "genres": ["trance", "progressive trance"],
+    "stage": null
+  },
+  "Pablo Bozzi": {
+    "id": "4DZM1e3XBfgjFkQkR1LKQL",
+    "genres": ["italo disco", "italo dance", "ebm", "indie dance", "hi-nrg"],
+    "stage": "BionicJUNGLE"
+  },
+  "Partiboi69": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["g-house", "miami bass", "hard house"],
+    "stage": "BionicJUNGLE"
+  },
+  "Paul Oakenfold": {
+    "id": "5MO2kbaGGA2a8kL4c9qqHq",
+    "genres": ["trance"],
+    "stage": null
+  },
+  "Pocket": {
+    "id": "2VizsdU66dsMBEg8h4Vkzo",
+    "genres": ["retro soul"],
+    "stage": null
+  },
+  "Popof": {
+    "id": "4f2K0RSYyxP4TUyZu1azYB",
+    "genres": ["minimal techno", "techno", "acid techno"],
+    "stage": null
+  },
+  "Prospa": {
+    "id": "6HabM2PUM519iIxervGWSb",
+    "genres": ["house"],
+    "stage": "BionicJUNGLE"
+  },
+  "Pryda": {
+    "id": "37U9sPqTZMd7AKJCWgcvkt",
+    "genres": ["progressive house"],
+    "stage": null
+  },
+  "RaeCola": {
+    "id": "4ZLYabLbKeMkfAsFNESfpj",
+    "genres": ["tech house"],
+    "stage": "StereoBLOOM"
+  },
+  "Ray Volpe": {
+    "id": "2K9qsrYnsu1EWt7ZQkkuXb",
+    "genres": ["dubstep", "riddim", "deathstep", "bass music", "melodic bass", "edm"],
+    "stage": "BassPOD"
+  },
+  "RayRay": {
+    "id": "4FS6bomikvJR2E9JHNwiAM",
+    "genres": ["bass house", "vinahouse", "g-house"],
+    "stage": "WasteLAND"
+  },
+  "Restricted": {
+    "id": "7mx6iGwPF157vXwYcl1DQ3",
+    "genres": ["hard techno", "techno"],
+    "stage": "WasteLAND"
+  },
+  "Rezz": {
+    "id": "4aKdmOXdUKX07HVd3sGgzw",
+    "genres": ["midtempo bass"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Riordan": {
+    "id": "68rU1sdZ0HjxjEC5YnSmao",
+    "genres": ["techno"],
+    "stage": "StereoBLOOM"
+  },
+  "Riot Ten": {
+    "id": "2Zxy5LwBatI5kw4uponwHQ",
+    "genres": ["dubstep", "riddim", "deathstep", "bass music", "edm"],
+    "stage": null
+  },
+  "RL Grime": {
+    "id": "5eIbEEQnDM8yuDVB0bimSP",
+    "genres": ["edm trap", "future bass"],
+    "stage": "CosmicMEADOW"
+  },
+  "Rooler": {
+    "id": "2lpFs8QJyIeVDb2Sq4vZYi",
+    "genres": ["hardstyle", "frenchcore", "hardcore", "gabber", "hardcore techno"],
+    "stage": "WasteLAND"
+  },
+  "Rossi.": {
+    "id": "7itMGcVGRKS43LcTQvJitf",
+    "genres": ["minimal house"],
+    "stage": null
+  },
+  "Rudim3ntal": {
+    "id": "4WN5naL3ofxrVBgFpguzKo",
+    "genres": ["drum & bass"],
+    "stage": null
+  },
+  "Rusko": {
+    "id": "4BTcOR2hEQZQQL5AMo5u10",
+    "genres": ["dubstep", "dub", "drum and bass"],
+    "stage": "BassPOD"
+  },
+  "RZRKT": {
+    "id": "28H813zcseKDMDftpws5ZC",
+    "genres": ["riddim", "dubstep", "deathstep", "bass music"],
+    "stage": null
+  },
+  "Sam Binga": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["uk garage", "jungle", "drum and bass", "drumstep", "breakbeat", "bassline", "uk funky"],
+    "stage": null
+  },
+  "Samplifire": {
+    "id": "57gGqESEggWfCpE3KOzdVa",
+    "genres": ["riddim", "deathstep", "dubstep", "bass music"],
+    "stage": null
+  },
+  "Sara Landry": {
+    "id": "7eILArMiTFTQf8SEh5fFHK",
+    "genres": ["hard techno", "techno", "acid techno", "tekno", "rave", "hardcore techno"],
+    "stage": "KineticFIELD"
+  },
+  "Selective Response": {
+    "id": "5ZHl0NazgmWTepb24O1P57",
+    "genres": ["hard techno", "techno", "acid techno"],
+    "stage": null
+  },
+  "Shades": {
+    "id": "3hZYcnuncZYCJzqO9pwpAK",
+    "genres": ["bass"],
+    "stage": null
+  },
+  "Shlømo": {
+    "id": "0ZdNs1hU6aAiaZxvFbtDWF",
+    "genres": ["hard techno", "techno", "acid techno", "tekno", "dub techno"],
+    "stage": null
+  },
+  "Showtek": {
+    "id": "3gk0OYeLFWYupGFRHqLSR7",
+    "genres": ["hardstyle", "big room", "edm", "electronica"],
+    "stage": null
+  },
+  "SIDEPIECE": {
+    "id": "5czbzNZZfWpyFgZyfT3Mkk",
+    "genres": ["tech house", "edm"],
+    "stage": "CosmicMEADOW"
+  },
+  "Simula": {
+    "id": "2KCmoJZgpL6hNFdT4l9PTl",
+    "genres": ["drum and bass", "bassline", "liquid funk", "jungle"],
+    "stage": null
+  },
+  "Skepta": {
+    "id": "2p1fiYHYiXz9qi0JJyxBzN",
+    "genres": ["grime"],
+    "stage": null
+  },
+  "Skream": {
+    "id": "2jbP92oFLWqPqogflK1wlW",
+    "genres": ["dubstep", "dub"],
+    "stage": "BionicJUNGLE"
+  },
+  "Slander": {
+    "id": "20DZAfCuP1TKZl5KcY7z3Q",
+    "genres": ["melodic bass", "edm", "future bass", "dubstep"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Slugg": {
+    "id": "5Q2x75NUXnoDOXCKItVxZ0",
+    "genres": ["hyphy"],
+    "stage": "BionicJUNGLE"
+  },
+  "Soothslayer": {
+    "id": "4oPb2z3ZbgZv6YbQ5nQX3G",
+    "genres": ["drum and bass"],
+    "stage": null
+  },
+  "Sorta": {
+    "id": "15FBTQcocm8O90hH90zLUA",
+    "genres": ["memphis rap"],
+    "stage": null
+  },
+  "Sosa": {
+    "id": "3JlN0MeWVJq0vjvsvWCRZ5",
+    "genres": ["chilean trap", "reggaeton chileno", "chilean mambo", "mambo"],
+    "stage": "CosmicMEADOW"
+  },
+  "Space 92": {
+    "id": "6TVdVlY6irsNPkMHT2HkfD",
+    "genres": ["techno", "acid techno", "hard techno", "tekno", "rave"],
+    "stage": null
+  },
+  "Steller": {
+    "id": "7fNu9x4iV166BQmQQKOmXl",
+    "genres": ["dubstep", "riddim", "bass music"],
+    "stage": "BassPOD"
+  },
+  "Sub Zero Project": {
+    "id": "4f0OXMMSxr0r8Ztx6CdpAl",
+    "genres": ["hardstyle", "frenchcore", "hardcore"],
+    "stage": "WasteLAND"
+  },
+  "Sullivan King": {
+    "id": "1CXuuw8HJhyN80HlNzvL1e",
+    "genres": ["deathstep", "dubstep", "riddim", "edm", "bass music"],
+    "stage": "BassPOD"
+  },
+  "Svdden Death": {
+    "id": "2u01kCKA5wDvvztuH8lyT0",
+    "genres": ["riddim", "dubstep", "deathstep", "bass music", "edm", "dub"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Tape B": {
+    "id": "59tlsKpLWoLTxjNNS2wdPi",
+    "genres": ["bass"],
+    "stage": "CosmicMEADOW"
+  },
+  "Tchami": {
+    "id": "1KpCi9BOfviCVhmpI4G2sY",
+    "genres": ["future house", "bass house", "g-house", "house"],
+    "stage": null
+  },
+  "TDJ": {
+    "id": "540RtWfpQokIlaRgMDjU9v",
+    "genres": ["eurodance", "trance"],
+    "stage": "BionicJUNGLE"
+  },
+  "The Martinez Brothers": {
+    "id": "7B1LLuCQk13H4Mb6CFBftU",
+    "genres": ["tech house", "latin house"],
+    "stage": "NeonGARDEN"
+  },
+  "Tiësto": {
+    "id": "2o5jDhtHVPhrJdv3cEQ99Z",
+    "genres": ["edm", "trance", "big room", "house", "dance"],
+    "stage": null
+  },
+  "TOKiMONSTA": {
+    "id": "3VwKSHAfgzV1DOHV0aANCI",
+    "genres": ["electronic"],
+    "stage": "CosmicMEADOW"
+  },
+  "Torren Foot": {
+    "id": "7lQOxDl96wmNoqGoW4kgv4",
+    "genres": ["tech house"],
+    "stage": "CircuitGROUNDS"
+  },
+  "Trance Wax": {
+    "id": "28Rn5KfDspTUHLpPfPF8EE",
+    "genres": ["trance", "progressive trance"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Trivecta": {
+    "id": "4AT7XlLBevgZIiKvZQ83ye",
+    "genres": ["melodic bass", "future bass", "dubstep", "edm", "chillstep"],
+    "stage": "CosmicMEADOW"
+  },
+  "Truth": {
+    "id": "0ZDCCJSvjcdJZH9hOl1uYc",
+    "genres": ["southern hip hop"],
+    "stage": "BassPOD"
+  },
+  "TWENTY SIX": {
+    "id": "6C2mFGFh8dz1vKp9l5Ce8P",
+    "genres": ["latin house", "tech house"],
+    "stage": "StereoBLOOM"
+  },
+  "Vastive": {
+    "id": "0Y0QSi6lz1bPik5Ffjr8sd",
+    "genres": ["deathstep", "dubstep", "riddim", "bass music"],
+    "stage": null
+  },
+  "Victor Ruiz": {
+    "id": "0xgdNNa5mIbnJKp8AG8S4z",
+    "genres": ["techno", "minimal techno", "melodic techno", "acid techno", "tech house"],
+    "stage": "QuantumnVALLEY"
+  },
+  "Villager": {
+    "id": "5NhirHwHO8nu6MrwjBizh7",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "Vini Vici": {
+    "id": "29zsVzEH33dD5QqxeL8dvy",
+    "genres": ["psytrance", "trance", "progressive trance"],
+    "stage": null
+  },
+  "Vintage Culture": {
+    "id": "28uJnu5EsrGml2tBd7y8ts",
+    "genres": ["brazilian bass", "electronic", "electro"],
+    "stage": "NeonGARDEN"
+  },
+  "VNSSA": {
+    "id": "6fjbZ7zQBYEy3kvB5JL5PM",
+    "genres": ["tech house", "bass house"],
+    "stage": "StereoBLOOM"
+  },
+  "Wakyin": {
+    "id": "2CnJJITnV40TB5UtCRhwIZ",
+    "genres": ["afro house", "latin house"],
+    "stage": null
+  },
+  "Walker & Royce": {
+    "id": "1lAwVq9MxNJkB0dEY6xNoV",
+    "genres": ["tech house", "bass house", "house"],
+    "stage": "StereoBLOOM"
+  },
+  "X CLUB.": {
+    "id": "4CYPaFp9yDrNduNptv0DPQ",
+    "genres": ["hard house", "techno"],
+    "stage": null
+  },
+  "Xandra": {
+    "id": "0R7QDPXqFaQ9F0FdTZUeca",
+    "genres": ["tech house"],
+    "stage": null
+  },
+  "YDG": {
+    "id": "286Ranmy5NZOVyIwNwAUE4",
+    "genres": ["riddim", "dubstep"],
+    "stage": "BassPOD"
+  },
+  "Yellow Claw": {
+    "id": "47z7ZrgFoBvVpCnElCE3Zh",
+    "genres": ["edm", "edm trap"],
+    "stage": "CosmicMEADOW"
+  },
+  "Yoji Biomehanika": {
+    "id": "59J5BYhI2gAZ8TFJx5VCPv",
+    "genres": ["hardstyle", "hard house", "trance"],
+    "stage": null
+  },
+  "Yosuf": {
+    "id": "0pceb68in41LfgvQbkvCzg",
+    "genres": ["hardstyle"],
+    "stage": "WasteLAND"
+  },
+  "Zoe Gitter": {
+    "id": "3uJz5rH6tZ0w8d6QGZ8r0u",
+    "genres": ["pop"],
+    "stage": null
+  }
 }
