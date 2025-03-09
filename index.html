@@ -184,7 +184,7 @@
         <div class="card-header">Loading Artist Data</div>
         <div class="card-body">
           <div class="loader"></div>
-          <p id="loadingMessage">Loading artist data...</p>
+          <p id="loadingMessage">Loading artist data from edc-artists.json...</p>
         </div>
       </div>
     </div>
@@ -375,75 +375,6 @@
     let selectedArtists = [];
     let filteredArtists = [];
 
-    // Sample artist data (in case the JSON file can't be loaded)
-    const sampleArtists = {
-      "Above & Beyond": {
-        "id": "10gzBoINW3cLJfZUka8Zoe",
-        "stage": "CircuitGROUNDS",
-        "genres": ["progressive house", "trance", "uk dance"]
-      },
-      "AC Slater": {
-        "id": "1ZlXIDNLAJrV5MmBPgygG6",
-        "stage": "CosmicMEADOW",
-        "genres": ["bass house", "uk dance"]
-      },
-      "Adam Beyer": {
-        "id": "3ToO2sR9XGtF77Z1G1lky6",
-        "stage": "neonGARDEN",
-        "genres": ["tech house", "techno", "minimal techno"]
-      }
-    };
-
-    // Embedded EDC artist data for mobile compatibility
-    const edcArtistsData = {
-      "33 Below": {
-        "id": "4tMIsBBR8M0PsorDf0mNEz",
-        "genres": ["stutter house", "uk garage", "bassline"],
-        "stage": null
-      },
-      "6ejou": {
-        "id": "1k0U51DXyjFk4YnLZUIMP9",
-        "genres": ["hard techno", "techno", "tekno", "acid techno", "industrial", "hardcore techno", "rave"],
-        "stage": null
-      },
-      "Adam Ten": {
-        "id": "05tmGPn4fFdVpnsMt0YW5S",
-        "genres": ["indie dance", "melodic house", "melodic techno", "tech house"],
-        "stage": null
-      },
-      "Adrenalize": {
-        "id": "6GebWeCCtey5pbQepRYD6c",
-        "genres": ["hardstyle", "frenchcore"],
-        "stage": null
-      },
-      "Afrojack": {
-        "id": "4D75GcNG95ebPtNvoNVXhz",
-        "genres": ["edm", "big room"],
-        "stage": "KineticFIELD"
-      },
-      "AHEE": {
-        "id": "1gbDc1TANALgP8lLvO5UEf",
-        "genres": ["dangdut", "sholawat"],
-        "stage": "BassPOD"
-      },
-      "Ahmed Spins": {
-        "id": "4jercY4pUhY6jB8eQjpVJV",
-        "genres": ["afro house", "melodic house"],
-        "stage": "BionicJUNGLE"
-      },
-      "Airrica": {
-        "id": "57sPl5iWgq5t6AscVbMTOW",
-        "genres": ["Techno"],
-        "stage": null
-      },
-      "Alesso": {
-        "id": "4AVFqumd2ogHFlRbKIjp1t",
-        "genres": ["edm"],
-        "stage": "KineticFIELD"
-      }
-      // This is a truncated list. In production, include all artists or load from JSON file
-    };
-
     // Check if this is a callback from Spotify
     document.addEventListener('DOMContentLoaded', function() {
       const hashParams = new URLSearchParams(window.location.hash.substring(1));
@@ -466,41 +397,34 @@
     // Function to load the artist data
     async function loadArtistData() {
       try {
-        // First, try to directly use the embedded data
-        if (Object.keys(edcArtistsData).length > 0) {
-          artists = edcArtistsData;
-          console.log('Artist data loaded from embedded data!', Object.keys(artists).length, 'artists found');
-          document.getElementById('loadingSection').style.display = 'none';
-          document.getElementById('loginSection').style.display = 'block';
-          return;
-        }
-        
-        // Second, try to load from the JSON file
+        // Load from the JSON file only
         const response = await fetch('edc-artists.json');
         if (response.ok) {
           artists = await response.json();
-          console.log('Artist data loaded from file!', Object.keys(artists).length, 'artists found');
+          console.log('Artist data loaded from edc-artists.json!', Object.keys(artists).length, 'artists found');
+          document.getElementById('loadingMessage').innerHTML = 'Artist data loaded successfully!';
         } else {
-          // If that fails, try to fetch with an absolute URL
+          // Try with an absolute URL if relative path fails
           const absoluteResponse = await fetch(window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/edc-artists.json');
           if (absoluteResponse.ok) {
             artists = await absoluteResponse.json();
             console.log('Artist data loaded from absolute URL!', Object.keys(artists).length, 'artists found');
+            document.getElementById('loadingMessage').innerHTML = 'Artist data loaded successfully!';
           } else {
-            // If loading from file fails, use the sample data
-            console.warn('Could not load artist data from file, using sample data');
-            artists = sampleArtists;
+            throw new Error('Could not load artist data from edc-artists.json');
           }
         }
       } catch (error) {
         console.error('Error loading artist data:', error);
-        // Use sample data as fallback
-        artists = sampleArtists;
-        document.getElementById('loadingMessage').innerHTML = 'Using sample artist data.';
+        document.getElementById('loadingMessage').innerHTML = 'Error loading artist data. Please ensure edc-artists.json exists and is accessible.';
+        showStatus('Failed to load artist data from edc-artists.json. The application cannot function without this file.', true, error);
+        return;
       } finally {
-        // Hide loading section and show login section
-        document.getElementById('loadingSection').style.display = 'none';
-        document.getElementById('loginSection').style.display = 'block';
+        // Hide loading section and show login section if artists were loaded
+        if (Object.keys(artists).length > 0) {
+          document.getElementById('loadingSection').style.display = 'none';
+          document.getElementById('loginSection').style.display = 'block';
+        }
       }
     }
 
@@ -785,3 +709,364 @@
         };
         artistsList.appendChild(item);
       });
+    }
+
+    // Filter functions for search boxes
+    function filterStages() {
+      const searchTerm = document.getElementById('stageSearch').value.toLowerCase();
+      const items = document.querySelectorAll('#stagesList .list-group-item');
+      
+      items.forEach(item => {
+        const stageName = item.innerText.toLowerCase();
+        if (stageName.includes(searchTerm) || stageName === 'all stages') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+    
+    function filterGenres() {
+      const searchTerm = document.getElementById('genreSearch').value.toLowerCase();
+      const items = document.querySelectorAll('#genresList .list-group-item');
+      
+      items.forEach(item => {
+        const genreName = item.innerText.toLowerCase();
+        if (genreName.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+    
+    function filterArtists() {
+      const searchTerm = document.getElementById('artistSearch').value.toLowerCase();
+      const items = document.querySelectorAll('#artistsList .list-group-item');
+      
+      items.forEach(item => {
+        const artistName = item.innerText.toLowerCase();
+        if (artistName.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+    
+    // Selection helper functions
+    function clearGenreSelection() {
+      document.querySelectorAll('#genresList .list-group-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      selectedGenres = [];
+      document.getElementById('genreSelectedCount').textContent = '0 selected';
+      document.getElementById('genreContinueBtn').style.display = 'none';
+    }
+    
+    function selectAllGenres() {
+      const visibleItems = Array.from(document.querySelectorAll('#genresList .list-group-item'))
+        .filter(item => item.style.display !== 'none');
+      
+      visibleItems.forEach(item => {
+        item.classList.add('active');
+        const genre = item.innerText;
+        if (!selectedGenres.includes(genre)) {
+          selectedGenres.push(genre);
+        }
+      });
+      
+      document.getElementById('genreSelectedCount').textContent = `${selectedGenres.length} selected`;
+      
+      if (selectedGenres.length > 0) {
+        filteredArtists = filterArtistsByGenres(selectedGenres);
+        document.getElementById('genreContinueBtn').style.display = 'block';
+      }
+    }
+    
+    function clearArtistSelection() {
+      document.querySelectorAll('#artistsList .list-group-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      selectedArtists = [];
+      document.getElementById('artistSelectedCount').textContent = '0 selected';
+      document.getElementById('artistContinueBtn').style.display = 'none';
+    }
+    
+    // Continue to step 3
+    function showStep3() {
+      document.getElementById('stageSelection').style.display = 'none';
+      document.getElementById('genreSelection').style.display = 'none';
+      document.getElementById('artistSelection').style.display = 'none';
+      document.getElementById('playlistOptions').style.display = 'block';
+      document.getElementById('createPlaylistBtn').style.display = 'block';
+      
+      // Load user playlists if needed
+      if (document.getElementById('existingPlaylists').options.length <= 1) {
+        fetchUserPlaylists();
+      }
+    }
+    
+    // Toggle between new and existing playlist forms
+    function togglePlaylistForm() {
+      const action = document.getElementById('playlistAction').value;
+      
+      if (action === 'new') {
+        document.getElementById('newPlaylistForm').style.display = 'block';
+        document.getElementById('existingPlaylistForm').style.display = 'none';
+      } else {
+        document.getElementById('newPlaylistForm').style.display = 'none';
+        document.getElementById('existingPlaylistForm').style.display = 'block';
+      }
+    }
+    
+    // Fetch user's playlists for the "add to existing" option
+    async function fetchUserPlaylists() {
+      try {
+        const selectElement = document.getElementById('existingPlaylists');
+        selectElement.innerHTML = '<option value="">Loading playlists...</option>';
+        
+        let allPlaylists = [];
+        let url = 'https://api.spotify.com/v1/me/playlists?limit=50';
+        
+        // Fetch all pages of playlists
+        while (url) {
+          const response = await fetch(url, {
+            headers: { 'Authorization': 'Bearer ' + accessToken }
+          });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error ${response.status}`);
+          }
+          
+          const data = await response.json();
+          allPlaylists = allPlaylists.concat(data.items);
+          
+          // Get next page URL if it exists
+          url = data.next;
+        }
+        
+        // Filter to only include playlists owned by the user
+        const userPlaylists = allPlaylists.filter(playlist => playlist.owner.id === userId);
+        
+        // Populate the dropdown
+        selectElement.innerHTML = '';
+        
+        if (userPlaylists.length === 0) {
+          selectElement.innerHTML = '<option value="">No playlists found</option>';
+        } else {
+          userPlaylists.forEach(playlist => {
+            const option = document.createElement('option');
+            option.value = playlist.id;
+            option.text = playlist.name;
+            selectElement.appendChild(option);
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching playlists:', error);
+        document.getElementById('existingPlaylists').innerHTML = 
+          '<option value="">Error loading playlists</option>';
+      }
+    }
+    
+    // Main function to create or update playlist
+    async function createPlaylist() {
+      try {
+        // Show progress section
+        document.getElementById('progressSection').style.display = 'block';
+        document.getElementById('createPlaylistBtn').disabled = true;
+        document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('statusMessage').textContent = 'Initializing...';
+        
+        if (filteredArtists.length === 0) {
+          throw new Error('No artists selected.');
+        }
+        
+        const tracksPerArtist = parseInt(document.getElementById('tracksPerArtist').value);
+        if (isNaN(tracksPerArtist) || tracksPerArtist < 1 || tracksPerArtist > 10) {
+          throw new Error('Please enter a valid number of tracks per artist (1-10).');
+        }
+        
+        // Determine if creating new or adding to existing
+        const playlistAction = document.getElementById('playlistAction').value;
+        let playlistId;
+        let playlistUrl;
+        
+        if (playlistAction === 'new') {
+          // Create a new playlist
+          const playlistName = document.getElementById('playlistName').value || 'My EDC Playlist';
+          const playlistDesc = document.getElementById('playlistDesc').value || 'Custom playlist created with EDC artists';
+          
+          updateStatus('Creating new playlist...', 5);
+          
+          const createResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ' + accessToken,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: playlistName,
+              description: playlistDesc,
+              public: true
+            })
+          });
+          
+          if (!createResponse.ok) {
+            throw new Error(`Error creating playlist: ${createResponse.status}`);
+          }
+          
+          const playlistData = await createResponse.json();
+          playlistId = playlistData.id;
+          playlistUrl = playlistData.external_urls.spotify;
+          
+        } else {
+          // Use existing playlist
+          playlistId = document.getElementById('existingPlaylists').value;
+          
+          if (!playlistId) {
+            throw new Error('Please select a playlist.');
+          }
+          
+          updateStatus('Using existing playlist...', 5);
+          
+          // Get the playlist URL
+          const playlistResponse = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+            headers: { 'Authorization': 'Bearer ' + accessToken }
+          });
+          
+          if (playlistResponse.ok) {
+            const playlistData = await playlistResponse.json();
+            playlistUrl = playlistData.external_urls.spotify;
+          }
+        }
+        
+        // Get top tracks for each artist
+        updateStatus('Finding top tracks for selected artists...', 10);
+        
+        const allTrackUris = [];
+        let processedArtists = 0;
+        
+        for (const artist of filteredArtists) {
+          if (!artist.id) continue;
+          
+          try {
+            // Update progress for each artist
+            processedArtists++;
+            const progress = 10 + Math.floor((processedArtists / filteredArtists.length) * 70);
+            updateStatus(`Processing ${artist.name} (${processedArtists}/${filteredArtists.length})...`, progress);
+            
+            // Get artist's top tracks
+            const tracksResponse = await fetch(
+              `https://api.spotify.com/v1/artists/${artist.id}/top-tracks?market=${userCountry || 'US'}`, {
+              headers: { 'Authorization': 'Bearer ' + accessToken }
+            });
+            
+            if (!tracksResponse.ok) {
+              console.warn(`Could not get top tracks for ${artist.name}, skipping`);
+              continue;
+            }
+            
+            const tracksData = await tracksResponse.json();
+            
+            // Add tracks up to the specified limit
+            const artistTracks = tracksData.tracks
+              .slice(0, tracksPerArtist)
+              .map(track => track.uri);
+            
+            allTrackUris.push(...artistTracks);
+            
+          } catch (artistError) {
+            console.warn(`Error processing artist ${artist.name}:`, artistError);
+            // Continue with next artist
+          }
+        }
+        
+        if (allTrackUris.length === 0) {
+          throw new Error('Could not find any tracks for the selected artists.');
+        }
+        
+        // Add tracks to playlist in batches of 100 (Spotify API limit)
+        updateStatus('Adding tracks to playlist...', 80);
+        
+        const batchSize = 100;
+        const batches = [];
+        
+        for (let i = 0; i < allTrackUris.length; i += batchSize) {
+          batches.push(allTrackUris.slice(i, i + batchSize));
+        }
+        
+        let batchesProcessed = 0;
+        
+        for (const batch of batches) {
+          batchesProcessed++;
+          updateStatus(`Adding tracks batch ${batchesProcessed}/${batches.length}...`, 
+            80 + Math.floor((batchesProcessed / batches.length) * 15));
+          
+          await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ' + accessToken,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              uris: batch
+            })
+          });
+        }
+        
+        // All done!
+        updateStatus('Playlist created successfully!', 100);
+        
+        // Show results
+        document.getElementById('resultsMessage').textContent = 
+          `Added ${allTrackUris.length} tracks from ${processedArtists} artists to your playlist.`;
+        
+        const playlistLink = document.getElementById('playlistLink');
+        playlistLink.href = playlistUrl;
+        
+        document.getElementById('resultsSection').style.display = 'block';
+        
+      } catch (error) {
+        console.error('Error creating playlist:', error);
+        updateStatus(`Error: ${error.message}`, 0);
+        document.getElementById('createPlaylistBtn').disabled = false;
+      }
+    }
+    
+    // Helper function to update the progress status
+    function updateStatus(message, progressPercent) {
+      document.getElementById('statusMessage').textContent = message;
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+    }
+    
+    // Reset app for creating another playlist
+    function resetApp() {
+      // Reset selections
+      selectedStage = '';
+      selectedGenres = [];
+      selectedArtists = [];
+      filteredArtists = [];
+      
+      // Reset UI
+      document.getElementById('step1').style.display = 'block';
+      document.getElementById('stageSelection').style.display = 'none';
+      document.getElementById('genreSelection').style.display = 'none';
+      document.getElementById('artistSelection').style.display = 'none';
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('progressSection').style.display = 'none';
+      document.getElementById('resultsSection').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+      document.getElementById('createPlaylistBtn').disabled = false;
+      
+      // Reset form values
+      document.getElementById('playlistAction').value = 'new';
+      document.getElementById('playlistName').value = '';
+      document.getElementById('playlistDesc').value = '';
+      document.getElementById('tracksPerArtist').value = '3';
+      
+      togglePlaylistForm();
+    }
+  </script>
+</body>
+</html>
