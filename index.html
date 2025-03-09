@@ -379,12 +379,12 @@
     const sampleArtists = {
       "Above & Beyond": {
         "id": "10gzBoINW3cLJfZUka8Zoe",
-        "stage": "Circuit Grounds",
+        "stage": "CircuitGROUNDS",
         "genres": ["progressive house", "trance", "uk dance"]
       },
       "AC Slater": {
         "id": "1ZlXIDNLAJrV5MmBPgygG6",
-        "stage": "Cosmic Meadow",
+        "stage": "CosmicMEADOW",
         "genres": ["bass house", "uk dance"]
       },
       "Adam Beyer": {
@@ -441,7 +441,7 @@
         "genres": ["edm"],
         "stage": "KineticFIELD"
       }
-      // NOTE: This is a truncated list to save space. In the real implementation, include all artists from the JSON file
+      // This is a truncated list. In production, include all artists or load from JSON file
     };
 
     // Check if this is a callback from Spotify
@@ -785,69 +785,3 @@
         };
         artistsList.appendChild(item);
       });
-    }
-
-    // Selection helper functions
-    function clearGenreSelection() {
-      document.querySelectorAll('#genresList .list-group-item').forEach(item => {
-        item.classList.remove('active');
-      });
-      selectedGenres = [];
-      document.getElementById('genreSelectedCount').textContent = '0 selected';
-      document.getElementById('genreContinueBtn').style.display = 'none';
-    }
-    
-    function selectAllGenres() {
-      const genres = getUniqueGenres();
-      document.querySelectorAll('#genresList .list-group-item').forEach(item => {
-        item.classList.add('active');
-      });
-      selectedGenres = genres;
-      document.getElementById('genreSelectedCount').textContent = `${genres.length} selected`;
-      filteredArtists = filterArtistsByGenres(selectedGenres);
-      document.getElementById('genreContinueBtn').style.display = 'block';
-    }
-    
-    function clearArtistSelection() {
-      document.querySelectorAll('#artistsList .list-group-item').forEach(item => {
-        item.classList.remove('active');
-      });
-      selectedArtists = [];
-      document.getElementById('artistSelectedCount').textContent = '0 selected';
-      document.getElementById('artistContinueBtn').style.display = 'none';
-    }
-
-    // Filter functions
-    function filterStages() {
-      const search = document.getElementById('stageSearch').value.toLowerCase();
-      document.querySelectorAll('#stagesList .list-group-item').forEach(item => {
-        const text = item.innerText.toLowerCase();
-        if (text === 'all stages' || text.includes(search)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-    
-    function filterGenres() {
-      const search = document.getElementById('genreSearch').value.toLowerCase();
-      document.querySelectorAll('#genresList .list-group-item').forEach(item => {
-        if (item.innerText.toLowerCase().includes(search)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-    
-    function filterArtists() {
-      const search = document.getElementById('artistSearch').value.toLowerCase();
-      document.querySelectorAll('#artistsList .list-group-item').forEach(item => {
-        if (item.innerText.toLowerCase().includes(search)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
