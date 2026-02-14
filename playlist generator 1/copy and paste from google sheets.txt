@@ -1,6 +1,0 @@
-copy and paste from google sheets
-"""6EJOU"": {
-  ""id"": ""1k0U51DXyjFk4YnLZUIMP9"",
-  ""genres"": [""Hard Techno"", ""Big Room Techno""],
-  ""stage"": ""WASTELAND""
-}"
