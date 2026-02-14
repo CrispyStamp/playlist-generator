@@ -1,0 +1,8 @@
+{
+  "name": "edc-playlist-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for EDC Playlist Generator",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
