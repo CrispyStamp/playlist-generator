@@ -9,10 +9,14 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ error: 'Authorization code not provided' })
     };
   }
-
+  
   const clientId = process.env.SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const redirectUri = 'https://festivalplaylistgenerator.netlify.app/.netlify/functions/spotify-callback';
+  
+  const isLocal = process.env.NETLIFY_DEV === 'true';
+  const redirectUri = isLocal 
+    ? 'http://127.0.0.1:8888/.netlify/functions/spotify-callback'
+    : 'https://festivalplaylistgenerator.netlify.app/.netlify/functions/spotify-callback';
 
   try {
     // Exchange code for access token
