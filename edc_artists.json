@@ -1,20 +1,13 @@
 {
   "AFROJACK": {
     "id": "4D75GcNG95ebPtNvoNVXhz",
-    "genres": [
-      "Hard Dance",
-      "Eurodance",
-      "Big Room Techno"
-    ],
+    "genres": ["Hard Dance", "Eurodance", "Big Room Techno"],
     "stage": "KINETIC FIELD",
     "day": "Friday"
   },
   "HUGEL": {
     "id": "5PlfkPxwCpRRWQJBxCa0By",
-    "genres": [
-      "Tech House",
-      "Latin House"
-    ],
+    "genres": ["Tech House", "Latin House"],
     "stage": "CIRCUIT GROUND, STEREO BLOOM",
     "day": "Sunday, Friday"
   }
