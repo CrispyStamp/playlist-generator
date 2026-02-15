@@ -1,14 +1,1430 @@
 {
-  "AFROJACK": {
-    "id": "4D75GcNG95ebPtNvoNVXhz",
-    "genres": ["Hard Dance", "Eurodance", "Big Room Techno"],
-    "stage": "KINETIC FIELD",
+  "1991": {
+    "id": "2IP71LH7CbwddhsEXBI0fy",
+    "genres": [],
+    "stage": null,
     "day": "Friday"
   },
-  "HUGEL": {
-    "id": "5PlfkPxwCpRRWQJBxCa0By",
-    "genres": ["Tech House", "Latin House"],
-    "stage": "CIRCUIT GROUND, STEREO BLOOM",
+  "999999999": {
+    "id": "6uD2LjPHUjxrpax0se17Nc",
+    "genres": [],
+    "stage": "Neon Garden",
     "day": "Sunday, Friday"
+  },
+  "A.M.C with MC PHANTOM": {
+    "id": "4JcpxmJZyJlRtDmVBquz13",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ABANA B2B JULIET MENDOZA": {
+    "id": "1NeZEhcwWoLpkNzByUetzR",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ABOVE & BEYOND (SUNRISE SET)": {
+    "id": "10gzBoINW3cLJfZUka8Zoe",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "ADIEL": {
+    "id": "1yetl1fEx0mE16k164jXvw",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ADRI?N MILLS": {
+    "id": "6H9sRmDCsXzsWK7jEg1thF",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "ADRIATIQUE": {
+    "id": "02DWGcShQivFepRvGJ7xhB",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "ADVENTURE CLUB (THROWBACK SET)": {
+    "id": "5CdJjUi9f0cVgo9nFuJrFa",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "?ON:MODE (SUNRISE SET)": {
+    "id": "41ouHqoKXNijIMFsQTmFQV",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "AHEE B2B LIQUID STRANGER": {
+    "id": "4YJsSCuag8W1TFTgSeEc2k",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "AHMED SPINS": {
+    "id": "4jercY4pUhY6jB8eQjpVJV",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ALISON WONDERLAND": {
+    "id": "11gWrKZMBsGQWmobv3oNfW",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ALVES": {
+    "id": "5IuRJkF6BqSdfGykaHfslU",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ALYSSA JOLEE": {
+    "id": "4339Su9vxGrlufPNpkRRAO",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "ANASTAZJA": {
+    "id": "3IczhDdwla9Jgo5fpGs8uw",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ANDREW RAYEL": {
+    "id": "1UtBjqMZBAmqIPlDrKu7Tr",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ANNA": {
+    "id": "4iS7gVZUawLaXYADeRZL36",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "AR/CO": {
+    "id": "7mGI9Sd66FqHjIkwzkgbG7",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ARGY": {
+    "id": "1NaQOKgddaJipUtmptb7GI",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ARMIN VAN BUUREN (SUNRISE SET)": {
+    "id": "0SfsnGyD8FpIN4U4WCkBZ5",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "ASTRIX": {
+    "id": "3dUltShd2gJQc98Kc7Syit",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ATLIENS": {
+    "id": "74RET4rCZPTGzhsLjD0i3g",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "AUDIOFREQ B2B CODE BLACK B2B TONESHIFTERZ": {
+    "id": "1zErXDrChp7heWGAjO00Xl",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "AVALON EMERSON": {
+    "id": "4yrO1N273PlTaixa4BNwBz",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "AVELLO B2B DENNETT": {
+    "id": "1ZR5GnPw0Jkb5M4hnBwzuZ",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "BAD BOOMBOX B2B OLLIE LISHMAN": {
+    "id": "6ZisvOKQY2LDItOkbsy2qd",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BASHKKA B2B SEDEF ADAS?": {
+    "id": "4jY1cwyuyqQATeSI16ZeYD",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BAUGRUPPE90": {
+    "id": "6pKJqozqp0jdugOsyFRGMx",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BELTRAN": {
+    "id": "1jgSqmZTBltb5O2L7ErmEP",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BELTRAN B2B SIMAS": {
+    "id": "1jgSqmZTBltb5O2L7ErmEP",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BENWAL": {
+    "id": "38nG2aneQSUwlhbhXXZhxl",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BILLY GILLIES": {
+    "id": "0kmovylAP20DMJhS3BE2CO",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BLACK TIGER SEX MACHINE": {
+    "id": "0o9qzOHuHkGZ3xMFKpMFkC",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BOLO": {
+    "id": "4qaAcBXIagTIWYkJRlxYZ7",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BOOGIE T B2B DISTINCT MOTIVE": {
+    "id": "4zlw0jXUzd4dRcqI3Y1OiY",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BOU": {
+    "id": "7a29ko2je7GUMrbmwn4t3I",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "BOYS NOIZE": {
+    "id": "62k5LKMhymqlDNo2DWOvvv",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BULLET TOOTH": {
+    "id": "4KWIkeAdOJfvUgXSq0bEWC",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "BUNT. (IN THE ROUND)": {
+    "id": "6MrdwyCIKbpXmTKQBlG3uq",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "THE CARRY NATION": {
+    "id": "0PDEs0724hDGxKb5vD5hj1",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CASSIAN": {
+    "id": "1ChtRJ3f4rbv4vtz87i6CD",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "THE CHAINSMOKERS": {
+    "id": "69GGBxA162lTqCwzJG5jLp",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "CHARLOTTE DE WITTE": {
+    "id": "1lJhME1ZpzsEa5M0wW6Mso",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "CHRIS LORENZO": {
+    "id": "7tm9Tuc70geXOOyKhtZHIj",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CHRIS STUSSY": {
+    "id": "3BxjasMelf9pKaE4f7Y0So",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CID": {
+    "id": "4FCzCS0KEgb0rgySWINItO",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CLAWZ": {
+    "id": "0HUxQdvG9Db3gLJPEeWR3q",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CLOONEE": {
+    "id": "7MdlXmq2HViAJWo9cf30sR",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CLOUDY": {
+    "id": "6T9GuyLe3Wkw5KRhhXUMC1",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "CLUB ANGEL": {
+    "id": "1reJK6xw6Lu0r1PMoTUTDj",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "COLD BLUE": {
+    "id": "3mbjJqO86kx786znlhmTrF",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CONFIDENCE MAN": {
+    "id": "0RwXnFrEoI8tltFvYpJgP6",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "COSMIC GATE": {
+    "id": "6ySxYu68zTsO5ghsThpGtS",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CRISTOPH": {
+    "id": "532SqCIYmJyXEdEiCJLgYG",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CULTURE SHOCK": {
+    "id": "6lp2VnIRXXpC9Wz7hSX6RE",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "CUTDWN": {
+    "id": "0qseyNzm7lfDwALRrlNXrn",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "CYCLOPS": {
+    "id": "1vOTVnnyLvVTeuwrZLghCN",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DA TWEEKAZ": {
+    "id": "6UOk7DmvqlzWmo6gjhZvn6",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "DABIN": {
+    "id": "7lZauDnRoAC3kmaYae2opv",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DARREN PORTER": {
+    "id": "04b2pmUXaBL8wHacSaOplA",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DARUDE": {
+    "id": "0LhHRmSd1EYM5QdNeNnCoQ",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DEAD X": {
+    "id": "1viO40zvthKBg0VNEnJoma",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DEATHPACT ? DEATHPACT": {
+    "id": "09C3CKFxKEw1n1Z7kvT3jb",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DELTA HEAVY": {
+    "id": "7GvVTb8yFV0ZrdI30Qce6T",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DISCIP": {
+    "id": "6K16NRv0isbkftsv5lmlMT",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DJ GIGOLA": {
+    "id": "7feJmqQ32fTIPKBmPXwHXf",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "DJ ISAAC": {
+    "id": "2FmgW6Jee0JQKtb6EnBWCq",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "DJ MANDY": {
+    "id": "4p2xDjEJLI7pgml2xOb3iT",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DJ TENNIS B2B CHLO? CAILLET": {
+    "id": "68ywCN6ZpInbcilOfLBa3a",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DJ TENNIS B2B RED AXES": {
+    "id": "0Lv0xXr9fo9miAAK46RrON",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DOCTOR P B2B FLUX PAVILION B2B FUNTCASE": {
+    "id": "7muzHifhMdnfN1xncRLOqk",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "D?MINA": {
+    "id": "2SaPpXmlY9agJpvlEbLMKD",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DREYA V": {
+    "id": "4EFAuQI8Ou0bmpf5Vh1P5P",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "DYEN": {
+    "id": "6LFELkZXRJs04hi8gywM2A",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "EAZYBAKED": {
+    "id": "1ZbT8FIqEc0cktnu6mNlvv",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ELI & FUR": {
+    "id": "5CkVLGKUJkIc1pmSk10QP4",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ELI BROWN": {
+    "id": "5lVNSw2GPci8kebrAQpZqU",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "EPTIC B2B SPACE LACES": {
+    "id": "37PZXblQTqpEWGdjctNcGP",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "FALLEN WITH MC DINO": {
+    "id": "5hPdACTROoi69yZpLpSVbs",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "FISHER": {
+    "id": "1VJ0briNOlXRtJUAzoUJdt",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "FRANKIE BONES": {
+    "id": "2Host7cq2V5Xf3bkzYW06Z",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "FROST CHILDREN": {
+    "id": "6R1kfr0GIWnwxY4zW11Vag",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "FUNK TRIBU": {
+    "id": "1vK8NnrPlBlF34LaiFX1SK",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GARETH EMERY": {
+    "id": "0hprEC0nsWuQPSHag1O2Vi",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GETTER": {
+    "id": "3QryVD03gGZOLQQXjy3EoA",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GHENGAR": {
+    "id": "6g6OqIpMMbEkhhtEODZaGf",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GORILLAT": {
+    "id": "3zcOegUrWqti1S0lu4juJz",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GRAVAGERZ": {
+    "id": "2zoy9aYWHueNXCIqh2MStc",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GRAVEDGR": {
+    "id": "1kiZfWU37oS0pCOV7Os1Pj",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "GRIZ B2B WOOLI": {
+    "id": "1Uyqa2sdHm1bL5JK4IC4zc",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "HAAI B2B LUKE ALESSI": {
+    "id": "3Foat3c8Ui3HkvZghZAzQp",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HAMDI": {
+    "id": "7vvicoei9BbKpZix8qSeLg",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HANNAH LAING": {
+    "id": "1QEd635szhierW6gzRiS1o",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HARDWELL": {
+    "id": "6BrvowZBreEkXzJQMpL174",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HAYLA": {
+    "id": "4yX6mpMyBGf9UfvBB8JJrc",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HEIDI LAWDEN B2B MASHA MAR": {
+    "id": "78kOxZT91FGSl9PJRc0YTS",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HEYZ": {
+    "id": "5X1EM1jg35YB5jmw7qVIlh",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HNTR": {
+    "id": "3R0yz9xgTmCOLQMPcJ6MuU",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "HOL!": {
+    "id": "75YeSAKC6xPhgkjnltCmGB",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "HOLY PRIEST": {
+    "id": "5UG2ipdnA4vk8Eevkf1s06",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "HYBRID MINDS": {
+    "id": "05lF0DUkLJqiW5o70SScyR",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "I HATE MODELS": {
+    "id": "0KqSULB80ft2H3aFg6kJmN",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "ILAN BLUESTONE": {
+    "id": "1yoZuH2j43vVSWsOwYuQyn",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "INDIRA PAGANOTTO": {
+    "id": "0JXc5G7ZImFTwPg3y8MTfR",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "INFEKT B2B SAMPLIFIRE": {
+    "id": "57gGqESEggWfCpE3KOzdVa",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "INNELLEA": {
+    "id": "71rqI5HtraA3qXBwatyG6e",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "INTERPLANETARY CRIMINAL": {
+    "id": "6uJ51uV5rYzu1MJkC4CceI",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ISABELLA": {
+    "id": "4wMQTWavQZgr8ySlo5s2Tt",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "JACKIE HOLLANDER": {
+    "id": "5ykY9Uweo3gl5VFpb6z6pQ",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "JOHN SUMMIT": {
+    "id": "7kNqXtgeIwFtelmRjWv205",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "JOSEPH CAPRIATI": {
+    "id": "7onsqSWPufMm5ZnUCECDpf",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "JOSH BAKER": {
+    "id": "4zf8Awb8y1X9qwL4oiVRd6",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KAI WACHI": {
+    "id": "2fNr4ldujwq97v1jWeqs8K",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "KASKADE": {
+    "id": "6TQj5BFPooTa08A7pk8AQ1",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "KETTAMA": {
+    "id": "3an9rnsXKPCAMlZgH4A0n4",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "KEVIN DE VRIES": {
+    "id": "11aPF3sc8lDWNqPVInm4Zx",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KI/KI": {
+    "id": "0UMs6dTf23FC2fHc40fXNS",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "KINAHAU": {
+    "id": "3C7Tv0IqIGLjA9rpVaeHRB",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KLANGKUENSTLER": {
+    "id": "6H77vD9YyhyxHBTkRpbMBk",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "KLO": {
+    "id": "2QlABGwVVmqOu8SHMyyZMq",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KOROLOVA": {
+    "id": "0I6oCyQQ1Q50q97y9B9gAx",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KREAM": {
+    "id": "0DdDnziut7wOo6cAYWVZC5",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "KUKO B2B JOHANNES SCHUSTER": {
+    "id": "4sCQPElBVBfJNFGydeWwnU",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "LADY FAITH B2B LNY TNZ": {
+    "id": "1x0ScxgiyFRQDKT4VwcLHa",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LAIDBACK LUKE B2B CHUCKIE": {
+    "id": "53cQZtWDwDJwVCNZlfJ6Qk",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LAYTON GIORDANI": {
+    "id": "7mC3RkNNTV6p2j9w4F8Ip4",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LEVEL UP": {
+    "id": "1ZpDxqXS6HAvoZyCzQfKRb",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "LEVITY": {
+    "id": "1PbO7aQiVeKbGp8GYWDL9C",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "LIL TEXAS": {
+    "id": "76raIy8boaM9sf9gMGXGJ5",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "LILLY PALMER": {
+    "id": "4h8IEOdrg60WM5XGyNOCVU",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LINSKA": {
+    "id": "5f7jxYF5js7lD5lMyIPUBq",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LU.RE": {
+    "id": "4lbpVz8PpHRQaZC6vqO0EN",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LUCIANO": {
+    "id": "3CJKkU0XuElRT1z8rEtIYg",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LUKE DEAN": {
+    "id": "2BhXOZ96YbOdXz8F6HVUw4",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "LUUK VAN DIJK": {
+    "id": "1KFfk3NtblIJtGEqyiR31t",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MADDIX": {
+    "id": "0RMeG9M8QFzss9bAbq99KA",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MALUGI": {
+    "id": "50udUOTR7dQUgyPwPuCLM6",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MARIA HEALY": {
+    "id": "2BFFr1SrdrJwXm1Y1Wr4F3",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MARTIN GARRIX": {
+    "id": "60d24wfXkVzDSfLS6hyCjZ",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "MARY DROPPINZ": {
+    "id": "4tPVnr7VB15UA9TRsie3cS",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MASSANO": {
+    "id": "6htWLP8aiuf19FYMA4VQAZ",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MASSIMILIANO PAGLIARA": {
+    "id": "6rr6POhpIL25CJFS3o3Dym",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MATHAME": {
+    "id": "6QSwQEz8CDMg8Rqk8dEkxS",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MATTY RALPH": {
+    "id": "37HNoMIyEavGIJnIPCA6Kv",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MAX DEAN": {
+    "id": "65TLDWbTJxYASqadmNAxvc",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MCR-T": {
+    "id": "4m7q9onIm2bqhwHy9utqmw",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MEDUZA?": {
+    "id": "0xRXCcSX89eobfrshSVdyu",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "M?STIZA": {
+    "id": "1l6pQ0SDItjXzbG9zloE2n",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MINK": {
+    "id": "021q1fOEcfqxtlCtJs868v",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MISH": {
+    "id": "65kwwmTEJIlKRldGhmUM0b",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "MORGAN SEATREE": {
+    "id": "0GInfEJXl2kGPhSsVqEqXh",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MPH": {
+    "id": "62SCu33InHVq97VaWw3eof",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "MURPHY'S LAW": {
+    "id": "3EVzblmlRt3zPoB982Gr0G",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "MUZZ": {
+    "id": "4UNnRb4LN2hGtbtMfPzMhg",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "NICO MORENO": {
+    "id": "6fjhNhp9IoeiZpEXq9AT2S",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "NIGHTSTALKER WITH MC DINO": {
+    "id": "5qBuIjfPbG4jBVCeFnCpQN",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "NOIZU": {
+    "id": "3VRyybsQu0MDG0F2LBxnv7",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "NOSTALGIX": {
+    "id": "6CarTAUaWnQb6bp7yjP0Zz",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "NOTION": {
+    "id": "1uRVM0wBdtyEuU582EeKJM",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "OBSK?R": {
+    "id": "29MTNlaVntQaQiDyj8KGwx",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "OMAR+": {
+    "id": "06HO1b1nd4kQzRakdZBTSc",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "OMNOM": {
+    "id": "3PYRXP25JcbqhvNaJYcnWy",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "THE OUTLAW": {
+    "id": "4h2OHnVfEazkhccAdagyPE",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PARAMIDA": {
+    "id": "3bFxfwnZ1vmvzoNYz8z2vh",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PAUL OAKENFOLD": {
+    "id": "5MO2kbaGGA2a8kL4c9qqHq",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PAUL VAN DYK": {
+    "id": "7wU1naftD3lNq7rNsiDvOR",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PEEKABOO": {
+    "id": "4Ok1Cm5YX5StCQZgH0r2xF",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PEGASSI": {
+    "id": "2A4uiWrfuBpVFugyvxAt4c",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PEGGY GOU": {
+    "id": "2mLA48B366zkELXYx7hcDN",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "PLAYER DAVE": {
+    "id": "1rQItbnVgtRiJkTxHRBUc0",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "PORTER ROBINSON (DJ SET)": {
+    "id": "3dz0NnIZhtKKeXZxLOxCam",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
+  },
+  "THE PRODIGY": {
+    "id": "4k1ELeJKT1ISyDv8JivPpB",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "PROSPA": {
+    "id": "6HabM2PUM519iIxervGWSb",
+    "genres": [],
+    "stage": "Neon Garden",
+    "day": null
+  },
+  "THE PURGE": {
+    "id": "4CyjDlfEi7Sb4NLgWP0x3w",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "RAY VOLPE": {
+    "id": "2K9qsrYnsu1EWt7ZQkkuXb",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "REBEKAH": {
+    "id": "7rmuxvt1D8dIU920lNcR67",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "REB?KE": {
+    "id": "113reBz1jA6rVxbXl55mlj",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "RESTRICTED": {
+    "id": "7mx6iGwPF157vXwYcl1DQ3",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "RIOT": {
+    "id": "2TTfkn3oA5dSvqmvVxjUxR",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ROB GEE B2B LENNY DEE": {
+    "id": "5wY9R35VmZOg7NxQvKJXdH",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "RODDY LIMA": {
+    "id": "0Bg1joLOL52mJS0kf0pIDx",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "ROOLER": {
+    "id": "2lpFs8QJyIeVDb2Sq4vZYi",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "R?Z": {
+    "id": "0aULg7LximLNhI6lLzxcXI",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "THE SAINTS": {
+    "id": "6OWPd5ByKaNSFAZ3TCe5AO",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SALUTE B2B CHLO? CAILLET": {
+    "id": "68ywCN6ZpInbcilOfLBa3a",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SAMA' ABDULHADI": {
+    "id": "6aDuXoEw6Kn8QIjFZafAmm",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SAMMY VIRJI": {
+    "id": "1GuqTQbuixFHD6eBkFwVcb",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "SAN HOLO (WHOLESOME RIDDIM SET)": {
+    "id": "75YeSAKC6xPhgkjnltCmGB",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "SAN PACHO": {
+    "id": "5jBerZvTAajwYvdxt3UhgU",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SARAH DE WARREN": {
+    "id": "2V431yZGG08uroH2CZAgur",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SERAFINA": {
+    "id": "5LVJ8sYOyxYjnNEkL540x2",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SEVEN LIONS": {
+    "id": "6fcTRFpz0yH79qSKfof7lp",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "SHINGO NAKAMURA": {
+    "id": "58zz0VTpGNHn7MGTlW2cxQ",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SHIP WREK": {
+    "id": "1ic0FHNGIjXZAWH6O6Reif",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SIDNEY CHARLES B2B BUSHBABY": {
+    "id": "0J6ZEXmLQfZMeHBoa4JZTH",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SIHK": {
+    "id": "0GRYh4b8TJ9LQelJhQuKh6",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SILVA BUMPA": {
+    "id": "2dPLkqesvPXpIlP65JoLrf",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SILVIE LOTO": {
+    "id": "79pt77aQRjnLUoKOGUi7Um",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SIPPY": {
+    "id": "4LLYqe8ogaK9wC1xHlvR5S",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SKREAM": {
+    "id": "2jbP92oFLWqPqogflK1wlW",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SLAMM": {
+    "id": "1MXqVY3BMc0RaQYu05MVpn",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SLUGG": {
+    "id": "5Q2x75NUXnoDOXCKItVxZ0",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SNOW STRIPPERS": {
+    "id": "6TsAG8Ve1icEC8ydeHm3C8",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SOFI TUKKER": {
+    "id": "586uxXMyD5ObPuzjtrzO1Q",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SOLOMUN": {
+    "id": "5wJK4kQAkVGjqM9x46KQOC",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SPRAY": {
+    "id": "7AyNPhiTjEsBF4HBBW4gDf",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "STACY CHRISTINE": {
+    "id": "7AyNPhiTjEsBF4HBBW4gDf",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "STAN CHRIST": {
+    "id": "0aby7MYHsm3JS0eSifxu3I",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "STEVE AOKI": {
+    "id": "77AiFEVeAVj2ORpC85QVJs",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SUB FOCUS": {
+    "id": "0QaSiI5TLA4N7mcsdxShDO",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SUB ZERO PROJECT": {
+    "id": "4f0OXMMSxr0r8Ztx6CdpAl",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "SUBTRONICS": {
+    "id": "3NJ94iuAmmMjbszODYT6pO",
+    "genres": [],
+    "stage": "Basspod",
+    "day": null
+  },
+  "SUPERSTRINGS": {
+    "id": "0WDwBVGmUjf7eJUKDpecYz",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "T78": {
+    "id": "5FgLkieOqGXPn01dnbJp9Z",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "THOMAS SCHUMACHER": {
+    "id": "7KkV7dFoGEXr4M3fpb1FgD",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "TI?STO": {
+    "id": "2o5jDhtHVPhrJdv3cEQ99Z",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "TIGA": {
+    "id": "5l9wiTZVfqQTfMDOt0HtwC",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "TINLICKER": {
+    "id": "5EmEZjq8eHEC6qFnT63Lza",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "TOMAN": {
+    "id": "7A0eeETj5gjPjvXLnskbfG",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "TRACE": {
+    "id": "79FMDwzZQxHgSkIYBl3ODU",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "UNDERWORLD": {
+    "id": "1PXHzxRDiLnjqNrRn2Xbsa",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "VIEZE ASBAK": {
+    "id": "66FZq0wsY6770bc4O9Dlig",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "VINTAGE CULTURE": {
+    "id": "28uJnu5EsrGml2tBd7y8ts",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "VIPERACTIVE": {
+    "id": "7HeSEuZA4D7EtdygBjCbi9",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "VIRTUAL RIOT": {
+    "id": "4FXGRMSHh2JjHxVwS8dhH1",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "VTSS (IN THE ROUND)": {
+    "id": "0zo109NM3S7CqHpvlXwqEN",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WALKER & ROYCE B2B VNSSA": {
+    "id": "1lAwVq9MxNJkB0dEY6xNoV",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WARFACE": {
+    "id": "1wuQQfTDZhgNb4GJyhThUs",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WARUNG": {
+    "id": "2V1Ub5tTf23y9LkBjLT5hz",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WAX MOTIF": {
+    "id": "7zm3aSdmGiOkTt0aZFSO8R",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WESTEND": {
+    "id": "4epc3Bd0DOBA0kDywkRAsu",
+    "genres": [],
+    "stage": "Cosmic Meadow",
+    "day": null
+  },
+  "WHETHAN": {
+    "id": "0vqJkZ0RpLZixt3lTmD8vP",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WILLIAM BLACK": {
+    "id": "7d5SfGXKpgS3JK8BFIq59h",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "WOOLI": {
+    "id": "1Uyqa2sdHm1bL5JK4IC4zc",
+    "genres": [],
+    "stage": "Circuit Grounds",
+    "day": null
+  },
+  "YDG": {
+    "id": "286Ranmy5NZOVyIwNwAUE4",
+    "genres": [],
+    "stage": null,
+    "day": null
+  },
+  "YOSUF": {
+    "id": "0pceb68in41LfgvQbkvCzg",
+    "genres": [],
+    "stage": "Wasteland",
+    "day": null
+  },
+  "ZEDD": {
+    "id": "2qxJFvFYMEDqd7ui6kSAcq",
+    "genres": [],
+    "stage": "Kinetic Field",
+    "day": null
   }
 }
