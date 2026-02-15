@@ -3,13 +3,13 @@
     "id": "2IP71LH7CbwddhsEXBI0fy",
     "genres": ["drum and bass", "liquid funk"],
     "stage": null,
-    "day": "Friday"
+    "day": null
   },
   "999999999": {
     "id": "6uD2LjPHUjxrpax0se17Nc",
     "genres": ["acid techno", "hard techno", "techno", "tekno"],
     "stage": "Neon Garden",
-    "day": "Sunday, Friday"
+    "day": null
   },
   "A.M.C": {
     "id": "5DygptUY6coQHpmgFfISzQ",
