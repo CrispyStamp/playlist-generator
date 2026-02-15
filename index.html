@@ -59,6 +59,9 @@
       border-color: #444;
       cursor: pointer;
       transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .list-group-item:hover {
       background-color: #444;
@@ -66,6 +69,24 @@
     .list-group-item.active {
       background-color: #1DB954;
       border-color: #1DB954;
+    }
+    .list-group-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #1DB954;
+      flex-shrink: 0;
+    }
+    .list-group-item-text {
+      flex: 1;
+    }
+    .alert-info {
+      background-color: #1a3a4a;
+      border-color: #1DB954;
+      color: #fff;
+    }
+    .alert-info h6 {
+      color: #1DB954;
     }
     .selected-count {
       background-color: #1DB954;
@@ -146,8 +167,38 @@
     
     <!-- Main App -->
     <div id="mainApp" style="display: none;">
+      <!-- Step 0: Day Selection -->
+      <div class="card mb-4" id="daySelection">
+        <div class="card-header">Select Festival Day(s)</div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Choose which day(s) of EDC you want to create a playlist for:</p>
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="d-grid">
+                <button onclick="selectDay('all')" class="btn btn-outline-primary btn-lg">All Days</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="d-grid">
+                <button onclick="selectDay('Friday')" class="btn btn-outline-primary btn-lg">Friday</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="d-grid">
+                <button onclick="selectDay('Saturday')" class="btn btn-outline-primary btn-lg">Saturday</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="d-grid">
+                <button onclick="selectDay('Sunday')" class="btn btn-outline-primary btn-lg">Sunday</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <!-- Step 1: Choose creation method -->
-      <div class="card mb-4" id="step1">
+      <div class="card mb-4" id="step1" style="display: none;">
         <div class="card-header">Step 1: Choose How to Create Your Playlist</div>
         <div class="card-body">
           <div class="row">
@@ -226,50 +277,51 @@
       
       <!-- Step 3: Playlist Options -->
       <div class="card mb-4" id="playlistOptions" style="display: none;">
-        <div class="card-header">Step 3: Playlist Options</div>
+        <div class="card-header">Step 3: Customize Your Playlist</div>
         <div class="card-body">
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="playlistName" class="form-label">Playlist Name</label>
-              <input type="text" id="playlistName" class="form-control" placeholder="My EDC 2025 Playlist">
-            </div>
-            <div class="col-md-6">
-              <label for="tracksPerArtist" class="form-label">Tracks Per Artist</label>
-              <select id="tracksPerArtist" class="form-select">
-                <option value="3">3 tracks</option>
-                <option value="5" selected>5 tracks</option>
-                <option value="10">10 tracks</option>
-              </select>
-            </div>
+          <!-- Preview Section -->
+          <div class="alert alert-info mb-4" id="selectionPreview">
+            <h6 class="mb-2">📋 Selection Preview:</h6>
+            <div id="previewContent"></div>
           </div>
-          <div class="row mb-3">
-            <div class="col">
-              <label for="playlistDesc" class="form-label">Playlist Description (Optional)</label>
-              <textarea id="playlistDesc" class="form-control" rows="2" placeholder="Created with EDC Playlist Generator"></textarea>
-            </div>
+          
+          <div class="mb-3">
+            <label for="playlistName" class="form-label">Playlist Name</label>
+            <input type="text" class="form-control" id="playlistName" placeholder="My EDC 2025 Playlist">
+          </div>
+          <div class="mb-3">
+            <label for="playlistDesc" class="form-label">Description (Optional)</label>
+            <textarea class="form-control" id="playlistDesc" rows="2" placeholder="Created with EDC Playlist Generator"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="tracksPerArtist" class="form-label">Tracks per Artist</label>
+            <select class="form-select" id="tracksPerArtist" onchange="updatePreview()">
+              <option value="3">3 tracks</option>
+              <option value="5" selected>5 tracks</option>
+              <option value="10">10 tracks</option>
+            </select>
           </div>
         </div>
       </div>
       
-      <!-- Create Button -->
-      <div class="d-grid gap-2">
-        <button onclick="createPlaylist()" id="createPlaylistBtn" class="btn btn-primary btn-lg" style="display: none;">Create Playlist</button>
+      <div class="text-center" id="createPlaylistBtn" style="display: none;">
+        <button onclick="createPlaylist()" class="btn btn-primary btn-lg">Create Playlist</button>
       </div>
       
       <!-- Progress Section -->
-      <div class="card mt-4" id="progressSection" style="display: none;">
-        <div class="card-header">Creating Your Playlist</div>
+      <div class="card mb-4" id="progressSection" style="display: none;">
+        <div class="card-header">Creating Playlist...</div>
         <div class="card-body">
           <div class="progress mb-3" style="height: 30px;">
-            <div id="progressBar" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" role="progressbar" style="width: 0%; background-color: #1DB954;">0%</div>
           </div>
-          <div id="statusMessage" class="text-center fs-5">Initializing...</div>
+          <p id="statusMessage" class="text-center">Preparing...</p>
         </div>
       </div>
       
       <!-- Results Section -->
-      <div class="card mt-4" id="resultsSection" style="display: none;">
-        <div class="card-header">✅ Playlist Created Successfully!</div>
+      <div class="card mb-4" id="resultsSection" style="display: none;">
+        <div class="card-header">Success!</div>
         <div class="card-body text-center">
           <p id="resultsMessage" class="fs-5 mb-4"></p>
           <div class="d-grid gap-2 d-md-block">
@@ -288,19 +340,30 @@
   </div>
 
   <script>
-    // Data storage
+    // ===================================================================
+    // OPTIMIZED DATA STORAGE - Single Source of Truth
+    // ===================================================================
     let artists = {};
-    let selectedStage = '';
-    let selectedGenres = [];
-    let selectedArtists = [];
-    let filteredArtists = [];
+    let cachedLists = null; // Cache for sorted lists
+    let genreIndex = null;  // Index for fast genre filtering
+    
+    // Single selection state object
+    let selectionState = {
+      day: 'all',           // 'all', 'Friday', 'Saturday', 'Sunday'
+      mode: null,           // 'stage', 'genre', or 'artist'
+      stage: null,          // Only populated if mode='stage'
+      genres: [],           // Only populated if mode='genre'
+      artistNames: []       // Only populated if mode='artist'
+    };
 
-    // Load artist data on page load
+    // ===================================================================
+    // INITIALIZATION
+    // ===================================================================
     document.addEventListener('DOMContentLoaded', function() {
       loadArtistData();
     });
 
-    // Load the JSON data
+    // Load the JSON data with caching
     async function loadArtistData() {
       try {
         const response = await fetch('edc_artists.json');
@@ -309,6 +372,9 @@
         }
         artists = await response.json();
         console.log('Loaded', Object.keys(artists).length, 'artists');
+        
+        // Build genre index (this is global, not day-specific)
+        buildGenreIndex();
         
         // Show main app
         document.getElementById('loadingSection').style.display = 'none';
@@ -322,37 +388,85 @@
       }
     }
 
-    // Selection methods
-    function selectByStage() {
-      hideAllSelections();
-      document.getElementById('stageSelection').style.display = 'block';
-      populateStagesList();
+    // ===================================================================
+    // OPTIMIZATION: Build caches once instead of repeatedly
+    // ===================================================================
+    function buildCaches() {
+      // Don't build caches until a day is selected
+      // This will be called after day selection
     }
     
-    function selectByGenre() {
-      hideAllSelections();
-      document.getElementById('genreSelection').style.display = 'block';
-      populateGenresList();
+    function buildCachesForDay() {
+      // Filter all artists by selected day first
+      const dayFilteredArtists = getAllArtists().filter(artist => 
+        matchesDay(artist, selectionState.day)
+      );
+      
+      cachedLists = {
+        stages: getUniqueStagesFromArtists(dayFilteredArtists),
+        genres: getUniqueGenresFromArtists(dayFilteredArtists),
+        allArtists: dayFilteredArtists
+      };
+    }
+
+    // ===================================================================
+    // OPTIMIZATION: Build genre index for fast lookups
+    // ===================================================================
+    function buildGenreIndex() {
+      genreIndex = new Map();
+      
+      // Use Object.keys to preserve exact artist name formatting
+      Object.keys(artists).forEach(artistName => {
+        const data = artists[artistName];
+        if (!data.genres || !Array.isArray(data.genres)) return;
+        
+        data.genres.forEach(genre => {
+          const genreLower = genre.toLowerCase();
+          if (!genreIndex.has(genreLower)) {
+            genreIndex.set(genreLower, []);
+          }
+          genreIndex.get(genreLower).push(artistName);
+        });
+      });
+      
+      console.log('Genre index built:', genreIndex.size, 'genres');
+    }
+
+    // ===================================================================
+    // DAY FILTERING
+    // ===================================================================
+    function matchesDay(artist, selectedDay) {
+      if (selectedDay === 'all') {
+        return true; // Include all artists when "All Days" is selected
+      }
+      
+      if (!artist.day) {
+        return false; // Exclude artists with null day when specific day is selected
+      }
+      
+      // Handle comma-separated days like "Sunday, Friday"
+      const artistDays = artist.day.split(',').map(d => d.trim());
+      return artistDays.includes(selectedDay);
     }
     
-    function selectByArtist() {
-      hideAllSelections();
-      document.getElementById('artistSelection').style.display = 'block';
-      populateArtistsList();
+    function filterArtistsByDay(artistList) {
+      return artistList.filter(artist => matchesDay(artist, selectionState.day));
     }
 
-    function hideAllSelections() {
-      document.getElementById('stageSelection').style.display = 'none';
-      document.getElementById('genreSelection').style.display = 'none';
-      document.getElementById('artistSelection').style.display = 'none';
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-    }
-
-    // Helper functions
+    // ===================================================================
+    // HELPER FUNCTIONS - Using cached data
+    // ===================================================================
     function getUniqueStages() {
       const stages = new Set();
       Object.values(artists).forEach(artist => {
+        if (artist.stage) stages.add(artist.stage);
+      });
+      return Array.from(stages).sort();
+    }
+    
+    function getUniqueStagesFromArtists(artistList) {
+      const stages = new Set();
+      artistList.forEach(artist => {
         if (artist.stage) stages.add(artist.stage);
       });
       return Array.from(stages).sort();
@@ -368,58 +482,278 @@
       return Array.from(genres).sort();
     }
     
-    function filterArtistsByStage(stage) {
-      return Object.entries(artists)
-        .filter(([_, data]) => data.stage === stage)
-        .map(([name, data]) => ({ name, ...data }));
-    }
-    
-    function filterArtistsByGenres(genres) {
-      return Object.entries(artists)
-        .filter(([_, data]) => {
-          if (!data.genres || !Array.isArray(data.genres)) return false;
-          const artistGenres = data.genres.map(g => g.toLowerCase());
-          return genres.some(genre => artistGenres.includes(genre.toLowerCase()));
-        })
-        .map(([name, data]) => ({ name, ...data }));
+    function getUniqueGenresFromArtists(artistList) {
+      const genres = new Set();
+      artistList.forEach(artist => {
+        if (artist.genres && Array.isArray(artist.genres)) {
+          artist.genres.forEach(genre => genres.add(genre.toLowerCase()));
+        }
+      });
+      return Array.from(genres).sort();
     }
     
     function getAllArtists() {
-      return Object.entries(artists).map(([name, data]) => ({ name, ...data }));
+      return Object.keys(artists)
+        .sort((a, b) => a.localeCompare(b))
+        .map(name => ({ name, ...artists[name] }));
     }
 
-    // Populate lists
+    // ===================================================================
+    // OPTIMIZED: Derive filtered artists instead of storing
+    // ===================================================================
+    function getFilteredArtists() {
+      // Day filtering is already applied in the cached lists
+      switch (selectionState.mode) {
+        case 'stage':
+          return selectionState.stage === 'all' 
+            ? cachedLists.allArtists
+            : filterArtistsByStage(selectionState.stage);
+        
+        case 'genre':
+          return filterArtistsByGenres(selectionState.genres);
+        
+        case 'artist':
+          return selectionState.artistNames.map(name => ({
+            name,
+            ...artists[name]
+          }));
+        
+        default:
+          return [];
+      }
+    }
+
+    // ===================================================================
+    // OPTIMIZED: Fast genre filtering using index
+    // ===================================================================
+    function filterArtistsByGenres(genres) {
+      if (!genres || genres.length === 0) return [];
+      
+      const artistNamesSet = new Set();
+      
+      genres.forEach(genre => {
+        const genreLower = genre.toLowerCase();
+        const artistsForGenre = genreIndex.get(genreLower) || [];
+        artistsForGenre.forEach(name => artistNamesSet.add(name));
+      });
+      
+      // Filter to only include day-filtered artists
+      const dayFilteredNames = new Set(cachedLists.allArtists.map(a => a.name));
+      
+      return Array.from(artistNamesSet)
+        .filter(name => dayFilteredNames.has(name))
+        .sort((a, b) => a.localeCompare(b))
+        .map(name => ({ name, ...artists[name] }));
+    }
+
+    function filterArtistsByStage(stage) {
+      // Filter from already day-filtered cached list
+      return cachedLists.allArtists
+        .filter(artist => artist.stage === stage)
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // ===================================================================
+    // DAY SELECTION
+    // ===================================================================
+    function selectDay(day) {
+      selectionState.day = day;
+      
+      // Build caches filtered by selected day
+      buildCachesForDay();
+      
+      // Collapse day selection and show step 1
+      const dayCard = document.getElementById('daySelection');
+      dayCard.querySelector('.card-body').style.display = 'none';
+      
+      // Update header to show selection
+      const dayLabel = day === 'all' ? 'All Days' : day;
+      dayCard.querySelector('.card-header').innerHTML = `
+        Select Festival Day(s): <span class="text-success">${dayLabel}</span>
+        <button onclick="editDaySelection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+      `;
+      
+      document.getElementById('step1').style.display = 'block';
+    }
+    
+    function editDaySelection() {
+      const dayCard = document.getElementById('daySelection');
+      dayCard.querySelector('.card-body').style.display = 'block';
+      dayCard.querySelector('.card-header').textContent = 'Select Festival Day(s)';
+      
+      // Reset all downstream selections
+      resetDownstreamFromDay();
+      
+      // Hide everything else
+      document.getElementById('step1').style.display = 'none';
+      hideAllSelections();
+    }
+    
+    function goBackToDaySelection() {
+      document.getElementById('step1').style.display = 'none';
+      hideAllSelections();
+      
+      // Expand day selection
+      editDaySelection();
+      
+      // Reset selection state except day
+      selectionState.mode = null;
+      selectionState.stage = null;
+      selectionState.genres = [];
+      selectionState.artistNames = [];
+    }
+
+    // ===================================================================
+    // SELECTION METHODS
+    // ===================================================================
+    function selectByStage() {
+      selectionState.mode = 'stage';
+      
+      // Collapse step 1 and update header
+      const step1Card = document.getElementById('step1');
+      step1Card.querySelector('.card-body').style.display = 'none';
+      step1Card.querySelector('.card-header').innerHTML = `
+        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Stage</span>
+        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+      `;
+      
+      hideAllSelections();
+      document.getElementById('stageSelection').style.display = 'block';
+      if (!document.getElementById('stagesList').hasChildNodes()) {
+        populateStagesList();
+      }
+    }
+    
+    function selectByGenre() {
+      selectionState.mode = 'genre';
+      
+      // Collapse step 1 and update header
+      const step1Card = document.getElementById('step1');
+      step1Card.querySelector('.card-body').style.display = 'none';
+      step1Card.querySelector('.card-header').innerHTML = `
+        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Genre</span>
+        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+      `;
+      
+      hideAllSelections();
+      document.getElementById('genreSelection').style.display = 'block';
+      if (!document.getElementById('genresList').hasChildNodes()) {
+        populateGenresList();
+      }
+    }
+    
+    function selectByArtist() {
+      selectionState.mode = 'artist';
+      
+      // Collapse step 1 and update header
+      const step1Card = document.getElementById('step1');
+      step1Card.querySelector('.card-body').style.display = 'none';
+      step1Card.querySelector('.card-header').innerHTML = `
+        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Artist</span>
+        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+      `;
+      
+      hideAllSelections();
+      document.getElementById('artistSelection').style.display = 'block';
+      if (!document.getElementById('artistsList').hasChildNodes()) {
+        populateArtistsList();
+      }
+    }
+    
+    function editStep1Selection() {
+      const step1Card = document.getElementById('step1');
+      step1Card.querySelector('.card-body').style.display = 'block';
+      step1Card.querySelector('.card-header').textContent = 'Step 1: Choose How to Create Your Playlist';
+      
+      // Reset all downstream selections
+      resetDownstreamFromStep1();
+      
+      hideAllSelections();
+    }
+
+    function hideAllSelections() {
+      document.getElementById('stageSelection').style.display = 'none';
+      document.getElementById('genreSelection').style.display = 'none';
+      document.getElementById('artistSelection').style.display = 'none';
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
+
+    // ===================================================================
+    // POPULATE LISTS - Build once, reuse
+    // ===================================================================
     function populateStagesList() {
       const list = document.getElementById('stagesList');
       list.innerHTML = '';
-      const stages = getUniqueStages();
       
       // Add "All Stages" option
       const allItem = document.createElement('button');
       allItem.className = 'list-group-item list-group-item-action';
-      allItem.textContent = 'All Stages';
-      allItem.onclick = function() {
+      allItem.innerHTML = `
+        <input type="checkbox" onclick="event.stopPropagation()">
+        <span class="list-group-item-text">All Stages</span>
+      `;
+      allItem.onclick = function(e) {
+        if (e.target.type === 'checkbox') return;
+        const checkbox = allItem.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
         document.querySelectorAll('#stagesList .list-group-item').forEach(i => i.classList.remove('active'));
         allItem.classList.add('active');
-        selectedStage = 'all';
-        filteredArtists = getAllArtists();
+        selectionState.stage = 'all';
         document.getElementById('stageSelectedCount').textContent = '1 selected';
         document.getElementById('stageContinueBtn').style.display = 'block';
+      };
+      const allCheckbox = allItem.querySelector('input[type="checkbox"]');
+      allCheckbox.onchange = function(e) {
+        e.stopPropagation();
+        if (this.checked) {
+          document.querySelectorAll('#stagesList .list-group-item').forEach(i => i.classList.remove('active'));
+          allItem.classList.add('active');
+          selectionState.stage = 'all';
+          document.getElementById('stageSelectedCount').textContent = '1 selected';
+          document.getElementById('stageContinueBtn').style.display = 'block';
+        } else {
+          allItem.classList.remove('active');
+          selectionState.stage = null;
+          document.getElementById('stageSelectedCount').textContent = '0 selected';
+          document.getElementById('stageContinueBtn').style.display = 'none';
+        }
       };
       list.appendChild(allItem);
       
       // Add individual stages
-      stages.forEach(stage => {
+      cachedLists.stages.forEach(stage => {
         const item = document.createElement('button');
         item.className = 'list-group-item list-group-item-action';
-        item.textContent = stage;
-        item.onclick = function() {
+        item.innerHTML = `
+          <input type="checkbox" onclick="event.stopPropagation()">
+          <span class="list-group-item-text">${stage}</span>
+        `;
+        item.onclick = function(e) {
+          if (e.target.type === 'checkbox') return;
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
           document.querySelectorAll('#stagesList .list-group-item').forEach(i => i.classList.remove('active'));
           item.classList.add('active');
-          selectedStage = stage;
-          filteredArtists = filterArtistsByStage(stage);
+          selectionState.stage = stage;
           document.getElementById('stageSelectedCount').textContent = '1 selected';
           document.getElementById('stageContinueBtn').style.display = 'block';
+        };
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.onchange = function(e) {
+          e.stopPropagation();
+          if (this.checked) {
+            document.querySelectorAll('#stagesList .list-group-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            selectionState.stage = stage;
+            document.getElementById('stageSelectedCount').textContent = '1 selected';
+            document.getElementById('stageContinueBtn').style.display = 'block';
+          } else {
+            item.classList.remove('active');
+            selectionState.stage = null;
+            document.getElementById('stageSelectedCount').textContent = '0 selected';
+            document.getElementById('stageContinueBtn').style.display = 'none';
+          }
         };
         list.appendChild(item);
       });
@@ -428,27 +762,31 @@
     function populateGenresList() {
       const list = document.getElementById('genresList');
       list.innerHTML = '';
-      const genres = getUniqueGenres();
-      selectedGenres = [];
       
-      genres.forEach(genre => {
+      cachedLists.genres.forEach(genre => {
         const item = document.createElement('button');
         item.className = 'list-group-item list-group-item-action';
-        item.textContent = genre;
-        item.onclick = function() {
+        item.innerHTML = `
+          <input type="checkbox" onclick="event.stopPropagation()">
+          <span class="list-group-item-text">${genre}</span>
+        `;
+        item.onclick = function(e) {
+          if (e.target.type === 'checkbox') return;
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
+          checkbox.dispatchEvent(new Event('change'));
+        };
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.onchange = function(e) {
+          e.stopPropagation();
           item.classList.toggle('active');
           if (item.classList.contains('active')) {
-            selectedGenres.push(genre);
+            selectionState.genres.push(genre);
           } else {
-            selectedGenres = selectedGenres.filter(g => g !== genre);
+            selectionState.genres = selectionState.genres.filter(g => g !== genre);
           }
-          document.getElementById('genreSelectedCount').textContent = `${selectedGenres.length} selected`;
-          if (selectedGenres.length > 0) {
-            filteredArtists = filterArtistsByGenres(selectedGenres);
-            document.getElementById('genreContinueBtn').style.display = 'block';
-          } else {
-            document.getElementById('genreContinueBtn').style.display = 'none';
-          }
+          document.getElementById('genreSelectedCount').textContent = `${selectionState.genres.length} selected`;
+          document.getElementById('genreContinueBtn').style.display = selectionState.genres.length > 0 ? 'block' : 'none';
         };
         list.appendChild(item);
       });
@@ -457,57 +795,76 @@
     function populateArtistsList() {
       const list = document.getElementById('artistsList');
       list.innerHTML = '';
-      const allArtists = getAllArtists();
-      selectedArtists = [];
       
-      allArtists.sort((a, b) => a.name.localeCompare(b.name)).forEach(artist => {
+      cachedLists.allArtists.forEach(artist => {
         const item = document.createElement('button');
         item.className = 'list-group-item list-group-item-action';
-        item.textContent = artist.stage ? `${artist.name} (${artist.stage})` : artist.name;
-        item.onclick = function() {
+        const displayText = artist.stage ? `${artist.name} (${artist.stage})` : artist.name;
+        item.innerHTML = `
+          <input type="checkbox" onclick="event.stopPropagation()">
+          <span class="list-group-item-text">${displayText}</span>
+        `;
+        item.onclick = function(e) {
+          if (e.target.type === 'checkbox') return;
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
+          checkbox.dispatchEvent(new Event('change'));
+        };
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.onchange = function(e) {
+          e.stopPropagation();
           item.classList.toggle('active');
           if (item.classList.contains('active')) {
-            selectedArtists.push(artist);
+            selectionState.artistNames.push(artist.name);
           } else {
-            selectedArtists = selectedArtists.filter(a => a.name !== artist.name);
+            selectionState.artistNames = selectionState.artistNames.filter(n => n !== artist.name);
           }
-          document.getElementById('artistSelectedCount').textContent = `${selectedArtists.length} selected`;
-          if (selectedArtists.length > 0) {
-            filteredArtists = selectedArtists;
-            document.getElementById('artistContinueBtn').style.display = 'block';
-          } else {
-            document.getElementById('artistContinueBtn').style.display = 'none';
-          }
+          document.getElementById('artistSelectedCount').textContent = `${selectionState.artistNames.length} selected`;
+          document.getElementById('artistContinueBtn').style.display = selectionState.artistNames.length > 0 ? 'block' : 'none';
         };
         list.appendChild(item);
       });
     }
 
-    // Selection helpers
+    // ===================================================================
+    // SELECTION HELPERS
+    // ===================================================================
     function clearGenreSelection() {
-      document.querySelectorAll('#genresList .list-group-item').forEach(i => i.classList.remove('active'));
-      selectedGenres = [];
+      document.querySelectorAll('#genresList .list-group-item').forEach(i => {
+        i.classList.remove('active');
+        const checkbox = i.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = false;
+      });
+      selectionState.genres = [];
       document.getElementById('genreSelectedCount').textContent = '0 selected';
       document.getElementById('genreContinueBtn').style.display = 'none';
     }
     
     function selectAllGenres() {
-      const genres = getUniqueGenres();
-      document.querySelectorAll('#genresList .list-group-item').forEach(i => i.classList.add('active'));
-      selectedGenres = genres;
-      filteredArtists = filterArtistsByGenres(selectedGenres);
-      document.getElementById('genreSelectedCount').textContent = `${genres.length} selected`;
+      document.querySelectorAll('#genresList .list-group-item').forEach(i => {
+        i.classList.add('active');
+        const checkbox = i.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = true;
+      });
+      selectionState.genres = [...cachedLists.genres];
+      document.getElementById('genreSelectedCount').textContent = `${selectionState.genres.length} selected`;
       document.getElementById('genreContinueBtn').style.display = 'block';
     }
     
     function clearArtistSelection() {
-      document.querySelectorAll('#artistsList .list-group-item').forEach(i => i.classList.remove('active'));
-      selectedArtists = [];
+      document.querySelectorAll('#artistsList .list-group-item').forEach(i => {
+        i.classList.remove('active');
+        const checkbox = i.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = false;
+      });
+      selectionState.artistNames = [];
       document.getElementById('artistSelectedCount').textContent = '0 selected';
       document.getElementById('artistContinueBtn').style.display = 'none';
     }
 
-    // Filter functions
+    // ===================================================================
+    // FILTER FUNCTIONS
+    // ===================================================================
     function filterStages() {
       const search = document.getElementById('stageSearch').value.toLowerCase();
       document.querySelectorAll('#stagesList .list-group-item').forEach(item => {
@@ -530,28 +887,191 @@
       });
     }
 
+    // ===================================================================
+    // RESET DOWNSTREAM SELECTIONS
+    // ===================================================================
+    function resetDownstreamFromDay() {
+      // Reset everything from Step 1 onwards
+      selectionState.mode = null;
+      selectionState.stage = null;
+      selectionState.genres = [];
+      selectionState.artistNames = [];
+      
+      // Reset Step 1 header
+      const step1Card = document.getElementById('step1');
+      if (step1Card) {
+        step1Card.querySelector('.card-body').style.display = 'block';
+        step1Card.querySelector('.card-header').textContent = 'Step 1: Choose How to Create Your Playlist';
+      }
+      
+      // Clear and hide Step 2 sections
+      resetStep2Cards();
+      
+      // Hide Step 3
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
+    
+    function resetDownstreamFromStep1() {
+      // Reset Step 2 selections
+      selectionState.stage = null;
+      selectionState.genres = [];
+      selectionState.artistNames = [];
+      
+      // Clear and hide Step 2 sections
+      resetStep2Cards();
+      
+      // Hide Step 3
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
+    
+    function resetDownstreamFromStep2() {
+      // Reset Step 2 selections
+      selectionState.stage = null;
+      selectionState.genres = [];
+      selectionState.artistNames = [];
+      
+      // Hide Step 3
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
+    
+    function resetStep2Cards() {
+      // Reset stage card
+      const stageCard = document.getElementById('stageSelection');
+      stageCard.style.display = 'none';
+      stageCard.querySelector('.card-body').style.display = 'block';
+      stageCard.querySelector('.card-header').textContent = 'Step 2: Select Stage';
+      
+      // Reset genre card
+      const genreCard = document.getElementById('genreSelection');
+      genreCard.style.display = 'none';
+      genreCard.querySelector('.card-body').style.display = 'block';
+      genreCard.querySelector('.card-header').textContent = 'Step 2: Select Genres';
+      
+      // Reset artist card
+      const artistCard = document.getElementById('artistSelection');
+      artistCard.style.display = 'none';
+      artistCard.querySelector('.card-body').style.display = 'block';
+      artistCard.querySelector('.card-header').textContent = 'Step 2: Select Artists';
+      
+      // Clear list contents to force repopulation with new day filter
+      document.getElementById('stagesList').innerHTML = '';
+      document.getElementById('genresList').innerHTML = '';
+      document.getElementById('artistsList').innerHTML = '';
+    }
+
+    // ===================================================================
+    // FILTER FUNCTIONS
+    // ===================================================================
+    function updatePreview() {
+      const filteredArtists = getFilteredArtists();
+      const artistsWithSpotifyId = filteredArtists.filter(a => a.id);
+      const artistsWithoutSpotifyId = filteredArtists.filter(a => !a.id);
+      const tracksPerArtist = parseInt(document.getElementById('tracksPerArtist').value);
+      const estimatedTracks = artistsWithSpotifyId.length * tracksPerArtist;
+      
+      const dayLabel = selectionState.day === 'all' ? 'All Days' : selectionState.day;
+      
+      let previewHTML = `
+        <strong>Day:</strong> ${dayLabel}<br>
+        <strong>${filteredArtists.length}</strong> artist${filteredArtists.length !== 1 ? 's' : ''} selected<br>
+        <strong>~${estimatedTracks}</strong> total tracks estimated
+      `;
+      
+      if (artistsWithoutSpotifyId.length > 0) {
+        previewHTML += `<br><small class="text-warning">⚠️ ${artistsWithoutSpotifyId.length} artist${artistsWithoutSpotifyId.length !== 1 ? 's' : ''} missing Spotify ID${artistsWithoutSpotifyId.length !== 1 ? 's' : ''} (will be skipped)</small>`;
+      }
+      
+      document.getElementById('previewContent').innerHTML = previewHTML;
+    }
+
+    // ===================================================================
+    // STEP 3: SHOW PLAYLIST OPTIONS
+    // ===================================================================
     function showStep3() {
+      // Collapse the appropriate step 2 card and update its header
+      if (selectionState.mode === 'stage') {
+        const stageCard = document.getElementById('stageSelection');
+        stageCard.querySelector('.card-body').style.display = 'none';
+        const stageLabel = selectionState.stage === 'all' ? 'All Stages' : selectionState.stage;
+        stageCard.querySelector('.card-header').innerHTML = `
+          Step 2: Select Stage: <span class="text-success">${stageLabel}</span>
+          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+        `;
+      } else if (selectionState.mode === 'genre') {
+        const genreCard = document.getElementById('genreSelection');
+        genreCard.querySelector('.card-body').style.display = 'none';
+        const genreLabel = selectionState.genres.length === 1 
+          ? selectionState.genres[0]
+          : `${selectionState.genres.length} genres`;
+        genreCard.querySelector('.card-header').innerHTML = `
+          Step 2: Select Genres: <span class="text-success">${genreLabel}</span>
+          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+        `;
+      } else if (selectionState.mode === 'artist') {
+        const artistCard = document.getElementById('artistSelection');
+        artistCard.querySelector('.card-body').style.display = 'none';
+        const artistLabel = selectionState.artistNames.length === 1 
+          ? selectionState.artistNames[0]
+          : `${selectionState.artistNames.length} artists`;
+        artistCard.querySelector('.card-header').innerHTML = `
+          Step 2: Select Artists: <span class="text-success">${artistLabel}</span>
+          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
+        `;
+      }
+      
       document.getElementById('playlistOptions').style.display = 'block';
       document.getElementById('createPlaylistBtn').style.display = 'block';
       
+      // Update preview
+      updatePreview();
+      
       // Set default playlist name
       const nameInput = document.getElementById('playlistName');
-      if (selectedStage && selectedStage !== 'all') {
-        nameInput.value = `EDC ${selectedStage} Playlist`;
-      } else if (selectedGenres.length > 0) {
-        nameInput.value = selectedGenres.length === 1 
-          ? `EDC ${selectedGenres[0]} Playlist`
-          : `EDC ${selectedGenres.length} Genres Playlist`;
-      } else if (selectedArtists.length > 0) {
-        nameInput.value = selectedArtists.length === 1 
-          ? `EDC ${selectedArtists[0].name} Playlist`
-          : `EDC ${selectedArtists.length} Artists Playlist`;
+      if (selectionState.mode === 'stage' && selectionState.stage && selectionState.stage !== 'all') {
+        nameInput.value = `EDC ${selectionState.stage} Playlist`;
+      } else if (selectionState.mode === 'genre' && selectionState.genres.length > 0) {
+        nameInput.value = selectionState.genres.length === 1 
+          ? `EDC ${selectionState.genres[0]} Playlist`
+          : `EDC ${selectionState.genres.length} Genres Playlist`;
+      } else if (selectionState.mode === 'artist' && selectionState.artistNames.length > 0) {
+        nameInput.value = selectionState.artistNames.length === 1 
+          ? `EDC ${selectionState.artistNames[0]} Playlist`
+          : `EDC ${selectionState.artistNames.length} Artists Playlist`;
       } else {
         nameInput.value = "My EDC 2025 Playlist";
       }
     }
+    
+    function editStep2Selection() {
+      // Reset all downstream selections
+      resetDownstreamFromStep2();
+      
+      // Expand the appropriate step 2 card
+      if (selectionState.mode === 'stage') {
+        const stageCard = document.getElementById('stageSelection');
+        stageCard.querySelector('.card-body').style.display = 'block';
+        stageCard.querySelector('.card-header').textContent = 'Step 2: Select Stage';
+      } else if (selectionState.mode === 'genre') {
+        const genreCard = document.getElementById('genreSelection');
+        genreCard.querySelector('.card-body').style.display = 'block';
+        genreCard.querySelector('.card-header').textContent = 'Step 2: Select Genres';
+      } else if (selectionState.mode === 'artist') {
+        const artistCard = document.getElementById('artistSelection');
+        artistCard.querySelector('.card-body').style.display = 'block';
+        artistCard.querySelector('.card-header').textContent = 'Step 2: Select Artists';
+      }
+      
+      // Hide step 3
+      document.getElementById('playlistOptions').style.display = 'none';
+      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
 
-    // *** UPDATED: Create playlist using Netlify function ***
+    // ===================================================================
+    // CREATE PLAYLIST - Using derived filtered artists
+    // ===================================================================
     async function createPlaylist() {
       const playlistName = document.getElementById('playlistName').value.trim();
       const playlistDesc = document.getElementById('playlistDesc').value.trim() || 'Created with EDC Playlist Generator';
@@ -561,6 +1081,9 @@
         alert('Please enter a playlist name');
         return;
       }
+      
+      // Get filtered artists dynamically
+      const filteredArtists = getFilteredArtists();
       
       if (filteredArtists.length === 0) {
         alert('Please select at least one artist');
@@ -579,16 +1102,17 @@
         const artistsData = filteredArtists.map(artist => ({
           name: artist.name,
           spotifyId: artist.id
-        })).filter(a => a.spotifyId); // Only include artists with Spotify IDs
+        })).filter(a => a.spotifyId);
         
         if (artistsData.length === 0) {
-          throw new Error('No valid artists found with Spotify IDs');
+          throw new Error('No valid artists found with Spotify IDs. Please select artists that have Spotify IDs.');
         }
         
-        document.getElementById('progressBar').style.width = '30%';
-        document.getElementById('statusMessage').textContent = `Sending ${artistsData.length} artists to create playlist...`;
+        const skippedCount = filteredArtists.length - artistsData.length;
         
-        // *** KEY CHANGE: Call Netlify function instead of Spotify API directly ***
+        document.getElementById('progressBar').style.width = '30%';
+        document.getElementById('statusMessage').textContent = `Sending ${artistsData.length} artist${artistsData.length !== 1 ? 's' : ''} to create playlist...${skippedCount > 0 ? ` (${skippedCount} skipped)` : ''}`;
+        
         const response = await fetch('/.netlify/functions/create-playlist', {
           method: 'POST',
           headers: {
@@ -622,8 +1146,13 @@
         setTimeout(() => {
           document.getElementById('progressSection').style.display = 'none';
           document.getElementById('resultsSection').style.display = 'block';
-          document.getElementById('resultsMessage').textContent = 
-            `Successfully created "${data.playlist.name}" with ${data.playlist.trackCount} tracks!`;
+          
+          let successMessage = `Successfully created "${data.playlist.name}" with ${data.playlist.trackCount} tracks!`;
+          if (skippedCount > 0) {
+            successMessage += ` (${skippedCount} artist${skippedCount !== 1 ? 's' : ''} without Spotify IDs were skipped)`;
+          }
+          
+          document.getElementById('resultsMessage').textContent = successMessage;
           
           const link = document.getElementById('playlistLink');
           link.href = data.playlist.url;
@@ -639,14 +1168,29 @@
       } catch (error) {
         console.error('Error creating playlist:', error);
         document.getElementById('progressSection').style.display = 'none';
-        alert(`Error creating playlist: ${error.message}\n\nPlease try again.`);
+        
+        // Better error messages
+        let errorMessage = error.message || 'Unknown error occurred';
+        if (error.message.includes('Server error')) {
+          errorMessage += '\n\nThis might be a temporary issue. Please try again in a moment.';
+        } else if (error.message.includes('No valid artists')) {
+          errorMessage += '\n\nTip: Try selecting different artists or check if they have Spotify profiles.';
+        }
+        
+        alert(`Error creating playlist: ${errorMessage}`);
+        
+        // Return to playlist options so user can retry
         document.getElementById('playlistOptions').style.display = 'block';
         document.getElementById('createPlaylistBtn').style.display = 'block';
       }
     }
     
+    // ===================================================================
+    // RESET APP
+    // ===================================================================
     function resetApp() {
-      // Reset UI
+      // Reset all UI elements
+      document.getElementById('step1').style.display = 'none';
       document.getElementById('stageSelection').style.display = 'none';
       document.getElementById('genreSelection').style.display = 'none';
       document.getElementById('artistSelection').style.display = 'none';
@@ -655,14 +1199,13 @@
       document.getElementById('progressSection').style.display = 'none';
       document.getElementById('resultsSection').style.display = 'none';
       
-      // Clear selections
-      selectedStage = '';
-      selectedGenres = [];
-      selectedArtists = [];
-      filteredArtists = [];
+      // Reset selection state
+      selectionState = { day: 'all', mode: null, stage: null, genres: [], artistNames: [] };
       
-      // Show step 1
-      document.getElementById('step1').style.display = 'block';
+      // Reset day selection card
+      const dayCard = document.getElementById('daySelection');
+      dayCard.querySelector('.card-body').style.display = 'block';
+      dayCard.querySelector('.card-header').textContent = 'Select Festival Day(s)';
     }
   </script>
 </body>
