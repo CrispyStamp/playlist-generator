@@ -56,7 +56,7 @@
   "AEON:MODE": {
     "id": "41ouHqoKXNijIMFsQTmFQV",
     "genres": ["drum and bass"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "AHEE": {
@@ -110,7 +110,7 @@
   "AR/CO": {
     "id": "7mGI9Sd66FqHjIkwzkgbG7",
     "genres": [],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "ARGY": {
@@ -272,7 +272,7 @@
   "CHRIS LORENZO": {
     "id": "7tm9Tuc70geXOOyKhtZHIj",
     "genres": ["bass house", "bassline", "house", "tech house", "g-house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "CHRIS STUSSY": {
@@ -284,7 +284,7 @@
   "CHUCKIE": {
     "id": "4x7gxsrTH3gThvSKZPPwaQ",
     "genres": ["electro house", "melbourne bounce"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "CID": {
@@ -302,7 +302,7 @@
   "CLOONEE": {
     "id": "7MdlXmq2HViAJWo9cf30sR",
     "genres": ["tech house", "house", "latin house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "CLOUDY": {
@@ -506,7 +506,7 @@
   "FISHER": {
     "id": "1VJ0briNOlXRtJUAzoUJdt",
     "genres": ["tech house", "house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "FLUX PAVILION": {
@@ -530,7 +530,7 @@
   "FUNK TRIBU": {
     "id": "1vK8NnrPlBlF34LaiFX1SK",
     "genres": ["hard house", "techno", "phonk", "hard techno", "trance"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "FUNTCASE": {
@@ -578,7 +578,7 @@
   "GRIZ": {
     "id": "25oLRSUjJk4YHNUsQXk7Ut",
     "genres": ["dubstep", "edm"],
-    "stage": "Circuit Grounds",
+    "stage": "Kinetic Field",
     "day": null
   },
   "HAAI": {
@@ -602,13 +602,13 @@
   "HARDWELL": {
     "id": "6BrvowZBreEkXzJQMpL174",
     "genres": ["big room", "edm", "progressive house", "electronica"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "HAYLA": {
     "id": "4yX6mpMyBGf9UfvBB8JJrc",
     "genres": [],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "HEIDI LAWDEN": {
@@ -800,13 +800,13 @@
   "LAIDBACK LUKE": {
     "id": "53cQZtWDwDJwVCNZlfJ6Qk",
     "genres": ["big room", "electro house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "LAYTON GIORDANI": {
     "id": "7mC3RkNNTV6p2j9w4F8Ip4",
     "genres": ["techno", "melodic techno", "tech house", "acid techno"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "LENNY DEE": {
@@ -1280,7 +1280,7 @@
   "SHIP WREK": {
     "id": "1ic0FHNGIjXZAWH6O6Reif",
     "genres": ["stutter house", "bass house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "SIDNEY CHARLES": {
@@ -1346,7 +1346,7 @@
   "SOFI TUKKER": {
     "id": "586uxXMyD5ObPuzjtrzO1Q",
     "genres": [],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "SOLOMUN": {
@@ -1376,13 +1376,13 @@
   "STEVE AOKI": {
     "id": "77AiFEVeAVj2ORpC85QVJs",
     "genres": ["electro house", "edm"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "SUB FOCUS": {
     "id": "0QaSiI5TLA4N7mcsdxShDO",
     "genres": ["drum and bass", "liquid funk"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "SUB ZERO PROJECT": {
@@ -1394,7 +1394,7 @@
   "SUBTRONICS": {
     "id": "3NJ94iuAmmMjbszODYT6pO",
     "genres": ["riddim", "dubstep", "edm", "deathstep", "bass music", "dub"],
-    "stage": "Basspod",
+    "stage": "Kinetic Field",
     "day": null
   },
   "SUPERSTRINGS": {
@@ -1448,7 +1448,7 @@
   "TRACE": {
     "id": "4T0QPJFV83O1j9w8y5apQX",
     "genres": ["tech house", "latin house", "tribal house"],
-    "stage": null,
+    "stage": "Kinetic Field",
     "day": null
   },
   "UNDERWORLD": {
@@ -1538,7 +1538,7 @@
   "WOOLI": {
     "id": "1Uyqa2sdHm1bL5JK4IC4zc",
     "genres": ["dubstep", "melodic bass", "riddim", "edm", "deathstep", "future bass", "bass music"],
-    "stage": "Circuit Grounds",
+    "stage": "Kinetic Field",
     "day": null
   },
   "YDG": {
