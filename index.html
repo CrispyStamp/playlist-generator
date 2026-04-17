@@ -176,9 +176,6 @@
         <div class="card-header">Select Festival Day(s)</div>
         <div class="card-body">
           <p class="text-muted mb-3">Choose which day(s) of EDC you want to create a playlist for:</p>
-          <div class="alert alert-info mb-3">
-            <strong>* EDC has not released the daily schedule yet. Please select All Days for now.</strong>
-          </div>
           <div class="row">
             <div class="col-md-6 col-lg-3 mb-3">
               <div class="d-grid">
@@ -187,17 +184,17 @@
             </div>
             <div class="col-md-6 col-lg-3 mb-3">
               <div class="d-grid">
-                <button class="btn btn-outline-secondary btn-lg" disabled>Friday</button>
+                <button onclick="selectDay('Friday')" class="btn btn-outline-primary btn-lg">Friday</button>
               </div>
             </div>
             <div class="col-md-6 col-lg-3 mb-3">
               <div class="d-grid">
-                <button class="btn btn-outline-secondary btn-lg" disabled>Saturday</button>
+                <button onclick="selectDay('Saturday')" class="btn btn-outline-primary btn-lg">Saturday</button>
               </div>
             </div>
             <div class="col-md-6 col-lg-3 mb-3">
               <div class="d-grid">
-                <button class="btn btn-outline-secondary btn-lg" disabled>Sunday</button>
+                <button onclick="selectDay('Sunday')" class="btn btn-outline-primary btn-lg">Sunday</button>
               </div>
             </div>
           </div>
