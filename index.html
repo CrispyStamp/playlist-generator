@@ -3,305 +3,508 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EDC Playlist Creator</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>EDC Las Vegas 2025 — Playlist Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #04001a;
+      --cyan:      #00d4ff;
+      --magenta:   #ff00aa;
+      --gold:      #ffd700;
+      --purple:    #7b00ff;
+      --green:     #00ff88;
+      --card-bg:   rgba(255,255,255,0.04);
+      --card-border: rgba(0,212,255,0.18);
+      --text:      #e8e8ff;
+      --muted:     rgba(232,232,255,0.45);
+      --font-h:    'Orbitron', monospace;
+      --font-b:    'Inter', sans-serif;
+    }
+
+    /* ── BASE ── */
+    html { scroll-behavior: smooth; }
     body {
-      background-color: #121212;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding-bottom: 50px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+
+    /* ── AURORA BACKGROUND ── */
+    .aurora {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
     }
+    .aurora-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); opacity: 0.13;
+    }
+    .a1 { width:700px;height:700px; background:radial-gradient(circle,#00d4ff,transparent); top:-200px;left:-150px; animation:drift 22s ease-in-out infinite; }
+    .a2 { width:550px;height:550px; background:radial-gradient(circle,#ff00aa,transparent); top:40%;right:-120px; animation:drift 18s ease-in-out infinite reverse; animation-delay:-9s; }
+    .a3 { width:450px;height:450px; background:radial-gradient(circle,#7b00ff,transparent); bottom:-100px;left:30%; animation:drift 26s ease-in-out infinite; animation-delay:-14s; }
+    .a4 { width:300px;height:300px; background:radial-gradient(circle,#ffd700,transparent); top:20%;left:50%; animation:drift 20s ease-in-out infinite; animation-delay:-5s; opacity:0.07; }
+    @keyframes drift {
+      0%,100%{ transform:translate(0,0) scale(1); }
+      33%    { transform:translate(40px,-40px) scale(1.06); }
+      66%    { transform:translate(-25px,25px) scale(0.94); }
+    }
+
+    /* ── FX CANVAS ── */
+    #fxCanvas { position:fixed; inset:0; z-index:9999; pointer-events:none; }
+
+    /* ── LAYOUT ── */
+    .page { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:0 18px 60px; }
+
+    /* ── HERO ── */
+    .hero { text-align:center; padding:64px 20px 48px; }
+    .hero-edc {
+      font-family:var(--font-h); font-weight:900;
+      font-size: clamp(5.5rem,14vw,10rem);
+      letter-spacing:0.22em; line-height:1;
+      color:var(--cyan);
+      text-shadow:0 0 20px var(--cyan),0 0 60px rgba(0,212,255,.45),0 0 120px rgba(0,212,255,.2);
+      cursor:default; user-select:none;
+    }
+    .hero-sub {
+      font-family:var(--font-h); font-weight:400;
+      font-size: clamp(0.9rem,2.5vw,1.25rem);
+      letter-spacing:0.55em; color:var(--magenta);
+      text-shadow:0 0 18px var(--magenta);
+      margin-top:6px;
+    }
+    .hero-sub span { color:var(--gold); text-shadow:0 0 18px rgba(255,215,0,.55); }
+    .hero-tag {
+      font-size:0.72rem; font-weight:300; letter-spacing:0.45em;
+      color:var(--muted); text-transform:uppercase; margin-top:14px;
+    }
+    .hero-rule {
+      width:220px; height:1px; margin:28px auto 0;
+      background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+    }
+    .hero-desc { color:var(--muted); font-size:0.9rem; margin-top:14px; max-width:480px; margin-left:auto; margin-right:auto; }
+
+    /* ── CARD ── */
     .card {
-      background-color: #212121;
-      border: none;
-      margin-bottom: 20px;
-      border-radius: 10px;
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:14px; margin-bottom:14px;
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      overflow:hidden; transition:border-color .3s;
     }
-    .card-header {
-      background-color: #1DB954;
-      color: white;
-      font-weight: bold;
-      border-radius: 10px 10px 0 0 !important;
+    .card:hover { border-color:rgba(0,212,255,.3); }
+
+    .card-head {
+      padding:14px 20px;
+      background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,0,255,.08));
+      border-bottom:1px solid var(--card-border);
+      display:flex; align-items:center; gap:10px;
+      font-family:var(--font-h); font-size:0.72rem;
+      font-weight:700; letter-spacing:0.12em; color:var(--cyan);
     }
-    .btn-primary {
-      background-color: #1DB954;
-      border-color: #1DB954;
+    .step-dot {
+      width:22px; height:22px; border-radius:50%;
+      background:var(--cyan); color:#000;
+      font-size:0.65rem; font-weight:900;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
     }
-    .btn-primary:hover {
-      background-color: #1ed760;
-      border-color: #1ed760;
+    .card-head .head-label { flex:1; }
+    .edit-btn {
+      padding:3px 10px; border:1px solid rgba(255,255,255,.18);
+      border-radius:4px; background:transparent;
+      color:rgba(255,255,255,.55); font-size:0.65rem;
+      font-family:var(--font-b); cursor:pointer; transition:all .15s;
+      letter-spacing:0.05em; flex-shrink:0;
     }
-    .btn-outline-secondary:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-    .header-logo {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .header-logo h1 {
-      color: #1DB954;
-      font-weight: bold;
-      font-size: 2.5rem;
-    }
-    .header-logo p {
-      color: #b3b3b3;
-    }
-    #stagesList, #genresList, #artistsList {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    .list-group-item {
-      background-color: #333;
-      color: #fff;
-      border-color: #444;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .list-group-item:hover {
-      background-color: #444;
-    }
-    .list-group-item.active {
-      background-color: #1DB954;
-      border-color: #1DB954;
-    }
-    .list-group-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: #1DB954;
-      flex-shrink: 0;
-    }
-    .list-group-item-text {
-      flex: 1;
-    }
-    .alert-info {
-      background-color: #1a3a4a;
-      border-color: #1DB954;
-      color: #fff;
-    }
-    .alert-info h6 {
-      color: #1DB954;
-    }
-    .selected-count {
-      background-color: #1DB954;
-      color: white;
-      border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-    .selection-actions {
-      margin: 15px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .sticky-bottom {
-      position: sticky;
-      bottom: 0;
-      padding: 15px;
-      background-color: #121212;
-      border-top: 1px solid #333;
-      z-index: 100;
-    }
+    .edit-btn:hover { border-color:rgba(255,255,255,.45); color:#fff; }
+    .success-text { color:#00ff88; }
+    .card-body { padding:20px; }
+
+    /* ── LOADING ── */
     .loader {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top: 4px solid #1DB954;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
+      width:44px; height:44px; margin:28px auto;
+      border:3px solid rgba(0,212,255,.12);
+      border-top:3px solid var(--cyan);
+      border-radius:50%; animation:spin .85s linear infinite;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ── DAY / METHOD BUTTONS ── */
+    .btn-grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .btn-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    @media(max-width:580px){ .btn-grid-4{grid-template-columns:repeat(2,1fr);} .btn-grid-3{grid-template-columns:1fr;} }
+
+    .day-btn, .method-btn {
+      padding:18px 10px; border-radius:10px;
+      background:transparent; cursor:pointer;
+      font-family:var(--font-h); font-size:0.72rem; font-weight:700;
+      letter-spacing:0.12em; transition:all .2s; text-align:center;
     }
-    .form-control, .form-select {
-      background-color: #333;
-      border-color: #444;
-      color: #fff;
+    .day-btn {
+      border:1px solid rgba(0,212,255,.25); color:var(--text);
     }
-    .form-control:focus, .form-select:focus {
-      background-color: #444;
-      border-color: #1DB954;
-      color: #fff;
+    .day-btn:hover {
+      border-color:var(--cyan); color:var(--cyan);
+      background:rgba(0,212,255,.08);
+      box-shadow:0 0 18px rgba(0,212,255,.18);
     }
-    @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-      .header-logo h1 {
-        font-size: 1.8rem;
-      }
-      #stagesList, #genresList, #artistsList {
-        max-height: 300px;
-      }
+    .method-btn {
+      border:1px solid rgba(255,0,170,.25); color:var(--text);
     }
+    .method-btn:hover {
+      border-color:var(--magenta); color:var(--magenta);
+      background:rgba(255,0,170,.07);
+      box-shadow:0 0 18px rgba(255,0,170,.18);
+    }
+
+    /* ── SEARCH INPUT ── */
+    .search-input {
+      width:100%; padding:10px 14px; margin-bottom:12px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(0,212,255,.2); border-radius:8px;
+      color:var(--text); font-family:var(--font-b); font-size:0.88rem;
+      outline:none; transition:border-color .2s;
+    }
+    .search-input::placeholder { color:var(--muted); }
+    .search-input:focus { border-color:var(--cyan); box-shadow:0 0 10px rgba(0,212,255,.12); }
+
+    /* ── SELECTION BAR ── */
+    .sel-bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+    .count-pill {
+      background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(123,0,255,.18));
+      border:1px solid rgba(0,212,255,.3); color:var(--cyan);
+      border-radius:20px; padding:4px 12px;
+      font-size:0.78rem; font-weight:600;
+    }
+    .ghost-btn {
+      padding:4px 12px; border:1px solid rgba(255,255,255,.14);
+      border-radius:20px; background:transparent;
+      color:var(--muted); font-size:0.78rem; cursor:pointer; transition:all .15s;
+    }
+    .ghost-btn:hover { border-color:rgba(255,255,255,.4); color:var(--text); }
+
+    /* ── LIST ── */
+    .neon-list {
+      max-height:370px; overflow-y:auto;
+      display:flex; flex-direction:column; gap:4px; padding-right:4px;
+    }
+    .neon-list::-webkit-scrollbar { width:4px; }
+    .neon-list::-webkit-scrollbar-track { background:transparent; }
+    .neon-list::-webkit-scrollbar-thumb { background:rgba(0,212,255,.25); border-radius:2px; }
+
+    .list-item {
+      display:flex; align-items:center; gap:12px;
+      padding:11px 14px; border-radius:8px;
+      border:1px solid rgba(255,255,255,.05);
+      background:rgba(255,255,255,.02);
+      cursor:pointer; transition:all .15s;
+      font-size:0.88rem; color:var(--text);
+      width:100%; text-align:left;
+    }
+    .list-item:hover { background:rgba(0,212,255,.06); border-color:rgba(0,212,255,.2); }
+    .list-item.active {
+      background:rgba(0,212,255,.1); border-color:rgba(0,212,255,.5);
+      color:var(--cyan); box-shadow:inset 3px 0 0 var(--cyan);
+    }
+    .list-item input[type="checkbox"] {
+      width:15px; height:15px; accent-color:var(--cyan);
+      flex-shrink:0; cursor:pointer;
+    }
+
+    /* ── STICKY CONTINUE ── */
+    .continue-bar {
+      position:sticky; bottom:0; padding:18px 0 4px; text-align:center;
+      background:linear-gradient(to top,rgba(4,0,26,.97) 65%,transparent);
+    }
+    .neon-btn {
+      padding:13px 34px;
+      background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(123,0,255,.12));
+      border:1px solid var(--cyan); border-radius:8px; color:var(--cyan);
+      font-family:var(--font-h); font-size:0.72rem; font-weight:700;
+      letter-spacing:0.14em; cursor:pointer; transition:all .2s;
+      box-shadow:0 0 14px rgba(0,212,255,.1);
+    }
+    .neon-btn:hover {
+      background:linear-gradient(135deg,rgba(0,212,255,.22),rgba(123,0,255,.22));
+      box-shadow:0 0 28px rgba(0,212,255,.28),0 0 55px rgba(0,212,255,.1);
+      transform:translateY(-1px);
+    }
+
+    /* ── STEP 3 FORM ── */
+    .preview-box {
+      background:rgba(0,212,255,.04); border:1px solid rgba(0,212,255,.14);
+      border-radius:10px; padding:16px; margin-bottom:20px;
+    }
+    .preview-label {
+      font-size:0.68rem; font-weight:700; letter-spacing:0.18em;
+      color:var(--cyan); text-transform:uppercase; margin-bottom:8px;
+    }
+    .preview-box p { font-size:0.88rem; line-height:1.9; }
+    .warn-text { color:var(--gold); font-size:0.8rem; }
+
+    .form-group { margin-bottom:16px; }
+    .form-label {
+      display:block; font-size:0.7rem; font-weight:500;
+      letter-spacing:0.12em; color:var(--muted);
+      text-transform:uppercase; margin-bottom:6px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width:100%; padding:10px 14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(0,212,255,.18); border-radius:8px;
+      color:var(--text); font-family:var(--font-b); font-size:0.88rem;
+      outline:none; transition:border-color .2s;
+    }
+    .form-select {
+      cursor:pointer; appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 12px center;
+      background-size:12px;
+    }
+    .form-textarea { resize:vertical; }
+    .form-input:focus,.form-select:focus,.form-textarea:focus {
+      border-color:var(--cyan); box-shadow:0 0 10px rgba(0,212,255,.1);
+    }
+    .form-input::placeholder,.form-textarea::placeholder { color:var(--muted); }
+
+    /* ── BIG CREATE BUTTON ── */
+    .create-wrap { text-align:center; margin:8px 0 24px; }
+    .create-btn {
+      padding:17px 56px;
+      background:linear-gradient(135deg,#00d4ff,#7b00ff);
+      border:none; border-radius:10px; color:#fff;
+      font-family:var(--font-h); font-size:0.82rem; font-weight:700;
+      letter-spacing:0.2em; cursor:pointer; transition:all .25s;
+      box-shadow:0 0 28px rgba(0,212,255,.3),0 0 60px rgba(0,212,255,.1);
+    }
+    .create-btn:hover {
+      transform:translateY(-2px);
+      box-shadow:0 0 40px rgba(0,212,255,.5),0 0 80px rgba(0,212,255,.2);
+    }
+
+    /* ── PROGRESS ── */
+    .prog-track {
+      height:5px; background:rgba(255,255,255,.06);
+      border-radius:3px; overflow:hidden; margin:16px 0;
+    }
+    .prog-bar {
+      height:100%;
+      background:linear-gradient(90deg,var(--cyan),var(--magenta));
+      border-radius:3px; transition:width .5s ease;
+      box-shadow:0 0 10px var(--cyan);
+    }
+    .prog-status { text-align:center; color:var(--muted); font-size:0.85rem; }
+
+    /* ── RESULTS ── */
+    .results-inner { text-align:center; padding:24px 0; }
+    .results-msg { font-size:1.05rem; line-height:1.7; margin-bottom:26px; }
+    .spotify-btn {
+      display:inline-block; padding:14px 32px;
+      background:#1db954; border:none; border-radius:50px;
+      color:#fff; font-family:var(--font-h); font-size:0.72rem; font-weight:700;
+      letter-spacing:0.1em; cursor:pointer; text-decoration:none;
+      transition:all .2s; margin:6px;
+      box-shadow:0 0 22px rgba(29,185,84,.3);
+    }
+    .spotify-btn:hover { transform:translateY(-2px); box-shadow:0 0 34px rgba(29,185,84,.5); color:#fff; }
+    .reset-btn {
+      display:inline-block; padding:14px 32px;
+      background:transparent; border:1px solid rgba(255,255,255,.18);
+      border-radius:50px; color:var(--muted);
+      font-family:var(--font-h); font-size:0.72rem; font-weight:700;
+      letter-spacing:0.1em; cursor:pointer; transition:all .2s; margin:6px;
+    }
+    .reset-btn:hover { border-color:rgba(255,255,255,.4); color:var(--text); }
+    .spotify-code { margin-top:28px; }
+    .spotify-code p { color:var(--muted); font-size:0.8rem; margin-bottom:10px; }
+    .spotify-code img { max-width:280px; border-radius:8px; }
+
+    /* ── FOOTER / SECRET BTN ── */
+    footer {
+      position:relative; z-index:1;
+      text-align:center; padding:32px 20px 24px;
+      color:var(--muted); font-size:0.72rem; letter-spacing:0.1em;
+    }
+    #secretBtn {
+      position:fixed; bottom:18px; right:22px;
+      background:transparent; border:none;
+      font-size:1.1rem; cursor:pointer; z-index:100;
+      color:rgba(0,212,255,.1); padding:6px;
+      transition:color .4s,text-shadow .4s;
+      animation:secret-pulse 5s ease-in-out infinite;
+    }
+    #secretBtn:hover {
+      color:rgba(0,212,255,.65);
+      text-shadow:0 0 12px var(--cyan);
+    }
+    @keyframes secret-pulse {
+      0%,100%{opacity:.35;} 50%{opacity:.7;}
+    }
+
+    /* ── SUBTEXT HELPERS ── */
+    .text-muted-sm { color:var(--muted); font-size:0.82rem; margin-top:4px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <div class="header-logo">
-      <h1>🎵 EDC Playlist Creator</h1>
-      <p class="lead">Create custom playlists with your favorite EDC Las Vegas 2025 artists - no login required!</p>
-    </div>
-    
-    <!-- Initial Loading Section -->
-    <div id="loadingSection" class="text-center">
+
+  <!-- Aurora BG -->
+  <div class="aurora">
+    <div class="aurora-blob a1"></div>
+    <div class="aurora-blob a2"></div>
+    <div class="aurora-blob a3"></div>
+    <div class="aurora-blob a4"></div>
+  </div>
+
+  <!-- FX Canvas -->
+  <canvas id="fxCanvas"></canvas>
+
+  <div class="page">
+
+    <!-- ── HERO ── -->
+    <header class="hero">
+      <div class="hero-edc">EDC</div>
+      <div class="hero-sub">LAS VEGAS &nbsp;<span>2025</span></div>
+      <div class="hero-tag">Playlist Creator</div>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">Build a custom Spotify playlist from the full EDC lineup — no login required.</p>
+    </header>
+
+    <!-- ── LOADING ── -->
+    <div id="loadingSection">
       <div class="card">
-        <div class="card-header">Loading Artist Data</div>
-        <div class="card-body">
+        <div class="card-head"><div class="head-label">Loading Lineup</div></div>
+        <div class="card-body" style="text-align:center;">
           <div class="loader"></div>
-          <p id="loadingMessage">Loading EDC 2025 artist data...</p>
+          <p id="loadingMessage" class="text-muted-sm">Loading EDC 2025 artist data…</p>
         </div>
       </div>
     </div>
-    
-    <!-- Main App -->
-    <div id="mainApp" style="display: none;">
-      <!-- Step 0: Day Selection -->
-      <div class="card mb-4" id="daySelection">
-        <div class="card-header">Select Festival Day(s)</div>
-        <div class="card-body">
-          <p class="text-muted mb-3">Choose which day(s) of EDC you want to create a playlist for:</p>
-          <div class="row">
-            <div class="col-md-6 col-lg-3 mb-3">
-              <div class="d-grid">
-                <button onclick="selectDay('all')" class="btn btn-outline-primary btn-lg">All Days</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-3">
-              <div class="d-grid">
-                <button onclick="selectDay('Friday')" class="btn btn-outline-primary btn-lg">Friday</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-3">
-              <div class="d-grid">
-                <button onclick="selectDay('Saturday')" class="btn btn-outline-primary btn-lg">Saturday</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-3">
-              <div class="d-grid">
-                <button onclick="selectDay('Sunday')" class="btn btn-outline-primary btn-lg">Sunday</button>
-              </div>
-            </div>
+
+    <!-- ── MAIN APP ── -->
+    <div id="mainApp" style="display:none;">
+
+      <!-- Step 0: Day -->
+      <div class="card" id="daySelection">
+        <div class="card-head">
+          <div class="step-dot">0</div>
+          <div class="head-label">SELECT FESTIVAL DAY</div>
+        </div>
+        <div class="card-body" id="daySelectionBody">
+          <p class="text-muted-sm" style="margin-bottom:16px;">Which night are you going?</p>
+          <div class="btn-grid-4">
+            <button onclick="selectDay('all')"      class="day-btn">All Days</button>
+            <button onclick="selectDay('Friday')"   class="day-btn">Friday</button>
+            <button onclick="selectDay('Saturday')" class="day-btn">Saturday</button>
+            <button onclick="selectDay('Sunday')"   class="day-btn">Sunday</button>
           </div>
         </div>
       </div>
-      
-      <!-- Step 1: Choose creation method -->
-      <div class="card mb-4" id="step1" style="display: none;">
-        <div class="card-header">Step 1: Choose How to Create Your Playlist</div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4 mb-3">
-              <div class="d-grid">
-                <button onclick="selectByStage()" class="btn btn-outline-primary btn-lg">By Stage</button>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="d-grid">
-                <button onclick="selectByGenre()" class="btn btn-outline-primary btn-lg">By Genre</button>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="d-grid">
-                <button onclick="selectByArtist()" class="btn btn-outline-primary btn-lg">By Artist</button>
-              </div>
-            </div>
+
+      <!-- Step 1: Method -->
+      <div class="card" id="step1" style="display:none;">
+        <div class="card-head">
+          <div class="step-dot">1</div>
+          <div class="head-label" id="step1Label">CHOOSE YOUR FILTER</div>
+        </div>
+        <div class="card-body" id="step1Body">
+          <p class="text-muted-sm" style="margin-bottom:16px;">How do you want to build your playlist?</p>
+          <div class="btn-grid-3">
+            <button onclick="selectByStage()"  class="method-btn">By Stage</button>
+            <button onclick="selectByGenre()"  class="method-btn">By Genre</button>
+            <button onclick="selectByArtist()" class="method-btn">By Artist</button>
           </div>
         </div>
       </div>
-      
-      <!-- Step 2: Stage Selection -->
-      <div class="card mb-4" id="stageSelection" style="display: none;">
-        <div class="card-header">Step 2: Select Stage(s)</div>
-        <div class="card-body">
-          <div class="mb-3">
-            <input type="text" id="stageSearch" class="form-control" placeholder="Search stages..." onkeyup="filterStages()">
+
+      <!-- Step 2a: Stage -->
+      <div class="card" id="stageSelection" style="display:none;">
+        <div class="card-head">
+          <div class="step-dot">2</div>
+          <div class="head-label" id="stageSelLabel">SELECT STAGE(S)</div>
+        </div>
+        <div class="card-body" id="stageSelBody">
+          <input type="text" id="stageSearch" class="search-input" placeholder="Search stages…" oninput="filterStages()">
+          <div class="sel-bar">
+            <span id="stageSelectedCount" class="count-pill">0 selected</span>
+            <button onclick="clearStageSelection()" class="ghost-btn">Clear</button>
+            <button onclick="selectAllStages()"     class="ghost-btn">Select All</button>
           </div>
-          <div class="selection-actions">
-            <span id="stageSelectedCount" class="selected-count">0 selected</span>
-            <button onclick="clearStageSelection()" class="btn btn-sm btn-outline-secondary">Clear</button>
-            <button onclick="selectAllStages()" class="btn btn-sm btn-outline-secondary">Select All</button>
-          </div>
-          <div class="list-group" id="stagesList"></div>
-          <div class="sticky-bottom text-center" id="stageContinueBtn" style="display: none;">
-            <button onclick="showStep3()" class="btn btn-primary btn-lg">Continue with Selected Stage(s)</button>
+          <div class="neon-list" id="stagesList"></div>
+          <div class="continue-bar" id="stageContinueBtn" style="display:none;">
+            <button onclick="showStep3()" class="neon-btn">Continue →</button>
           </div>
         </div>
       </div>
-      
-      <!-- Step 2: Genre Selection -->
-      <div class="card mb-4" id="genreSelection" style="display: none;">
-        <div class="card-header">Step 2: Select Genres</div>
-        <div class="card-body">
-          <div class="mb-3">
-            <input type="text" id="genreSearch" class="form-control" placeholder="Search genres..." onkeyup="filterGenres()">
+
+      <!-- Step 2b: Genre -->
+      <div class="card" id="genreSelection" style="display:none;">
+        <div class="card-head">
+          <div class="step-dot">2</div>
+          <div class="head-label" id="genreSelLabel">SELECT GENRE(S)</div>
+        </div>
+        <div class="card-body" id="genreSelBody">
+          <input type="text" id="genreSearch" class="search-input" placeholder="Search genres…" oninput="filterGenres()">
+          <div class="sel-bar">
+            <span id="genreSelectedCount" class="count-pill">0 selected</span>
+            <button onclick="clearGenreSelection()" class="ghost-btn">Clear</button>
+            <button onclick="selectAllGenres()"     class="ghost-btn">Select All</button>
           </div>
-          <div class="selection-actions">
-            <span id="genreSelectedCount" class="selected-count">0 selected</span>
-            <button onclick="clearGenreSelection()" class="btn btn-sm btn-outline-secondary">Clear</button>
-            <button onclick="selectAllGenres()" class="btn btn-sm btn-outline-secondary">Select All</button>
-          </div>
-          <div class="list-group" id="genresList"></div>
-          <div class="sticky-bottom text-center" id="genreContinueBtn" style="display: none;">
-            <button onclick="showStep3()" class="btn btn-primary btn-lg">Continue with Selected Genres</button>
+          <div class="neon-list" id="genresList"></div>
+          <div class="continue-bar" id="genreContinueBtn" style="display:none;">
+            <button onclick="showStep3()" class="neon-btn">Continue →</button>
           </div>
         </div>
       </div>
-      
-      <!-- Step 2: Artist Selection -->
-      <div class="card mb-4" id="artistSelection" style="display: none;">
-        <div class="card-header">Step 2: Select Artists</div>
-        <div class="card-body">
-          <div class="mb-3">
-            <input type="text" id="artistSearch" class="form-control" placeholder="Search artists..." onkeyup="filterArtists()">
+
+      <!-- Step 2c: Artist -->
+      <div class="card" id="artistSelection" style="display:none;">
+        <div class="card-head">
+          <div class="step-dot">2</div>
+          <div class="head-label" id="artistSelLabel">SELECT ARTISTS</div>
+        </div>
+        <div class="card-body" id="artistSelBody">
+          <input type="text" id="artistSearch" class="search-input" placeholder="Search artists…" oninput="filterArtists()">
+          <div class="sel-bar">
+            <span id="artistSelectedCount" class="count-pill">0 selected</span>
+            <button onclick="clearArtistSelection()" class="ghost-btn">Clear</button>
           </div>
-          <div class="selection-actions">
-            <span id="artistSelectedCount" class="selected-count">0 selected</span>
-            <button onclick="clearArtistSelection()" class="btn btn-sm btn-outline-secondary">Clear</button>
-          </div>
-          <div class="list-group" id="artistsList"></div>
-          <div class="sticky-bottom text-center" id="artistContinueBtn" style="display: none;">
-            <button onclick="showStep3()" class="btn btn-primary btn-lg">Continue with Selected Artists</button>
+          <div class="neon-list" id="artistsList"></div>
+          <div class="continue-bar" id="artistContinueBtn" style="display:none;">
+            <button onclick="showStep3()" class="neon-btn">Continue →</button>
           </div>
         </div>
       </div>
-      
+
       <!-- Step 3: Playlist Options -->
-      <div class="card mb-4" id="playlistOptions" style="display: none;">
-        <div class="card-header">Step 3: Customize Your Playlist</div>
+      <div class="card" id="playlistOptions" style="display:none;">
+        <div class="card-head">
+          <div class="step-dot">3</div>
+          <div class="head-label">CUSTOMIZE YOUR PLAYLIST</div>
+        </div>
         <div class="card-body">
-          <!-- Preview Section -->
-          <div class="alert alert-info mb-4" id="selectionPreview">
-            <h6 class="mb-2">📋 Selection Preview:</h6>
+          <div class="preview-box" id="selectionPreview">
+            <div class="preview-label">📋 Selection Preview</div>
             <div id="previewContent"></div>
           </div>
-          
-          <div class="mb-3">
-            <label for="playlistName" class="form-label">Playlist Name</label>
-            <input type="text" class="form-control" id="playlistName" placeholder="My EDC 2025 Playlist">
+          <div class="form-group">
+            <label class="form-label" for="playlistName">Playlist Name</label>
+            <input type="text" class="form-input" id="playlistName" placeholder="My EDC 2025 Playlist">
           </div>
-          <div class="mb-3">
-            <label for="playlistDesc" class="form-label">Description (Optional)</label>
-            <textarea class="form-control" id="playlistDesc" rows="2" placeholder="Created with EDC Playlist Generator"></textarea>
+          <div class="form-group">
+            <label class="form-label" for="playlistDesc">Description (Optional)</label>
+            <textarea class="form-input form-textarea" id="playlistDesc" rows="2" placeholder="Created with EDC Playlist Generator"></textarea>
           </div>
-          <div class="mb-3">
-            <label for="tracksPerArtist" class="form-label">Tracks per Artist</label>
-            <select class="form-select" id="tracksPerArtist" onchange="updatePreview()">
+          <div class="form-group">
+            <label class="form-label" for="tracksPerArtist">Tracks per Artist</label>
+            <select class="form-input form-select" id="tracksPerArtist" onchange="updatePreview()">
               <option value="3">3 tracks</option>
               <option value="5" selected>5 tracks</option>
               <option value="10">10 tracks</option>
@@ -309,742 +512,664 @@
           </div>
         </div>
       </div>
-      
-      <div class="text-center" id="createPlaylistBtn" style="display: none;">
-        <button onclick="createPlaylist()" class="btn btn-primary btn-lg">Create Playlist</button>
+
+      <!-- Create Button -->
+      <div class="create-wrap" id="createPlaylistBtn" style="display:none;">
+        <button onclick="createPlaylist()" class="create-btn">CREATE PLAYLIST</button>
       </div>
-      
-      <!-- Progress Section -->
-      <div class="card mb-4" id="progressSection" style="display: none;">
-        <div class="card-header">Creating Playlist...</div>
+
+      <!-- Progress -->
+      <div class="card" id="progressSection" style="display:none;">
+        <div class="card-head"><div class="head-label">CREATING YOUR PLAYLIST…</div></div>
         <div class="card-body">
-          <div class="progress mb-3" style="height: 30px;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" role="progressbar" style="width: 0%; background-color: #1DB954;">0%</div>
+          <div class="prog-track">
+            <div class="prog-bar" id="progressBar" style="width:0%"></div>
           </div>
-          <p id="statusMessage" class="text-center">Preparing...</p>
+          <p id="statusMessage" class="prog-status">Preparing…</p>
         </div>
       </div>
-      
-      <!-- Results Section -->
-      <div class="card mb-4" id="resultsSection" style="display: none;">
-        <div class="card-header">Success!</div>
-        <div class="card-body text-center">
-          <p id="resultsMessage" class="fs-5 mb-4"></p>
-          <div class="d-grid gap-2 d-md-block">
-            <a id="playlistLink" href="#" target="_blank" class="btn btn-primary btn-lg me-md-2">
-              Open in Spotify
-            </a>
-            <button onclick="resetApp()" class="btn btn-outline-primary btn-lg">Create Another Playlist</button>
-          </div>
-          <div id="spotifyCodeSection" class="mt-4" style="display: none;">
-            <p class="text-muted">Share this Spotify Code:</p>
-            <img id="spotifyCodeImg" src="" alt="Spotify Code" style="max-width: 100%; height: auto;">
+
+      <!-- Results -->
+      <div class="card" id="resultsSection" style="display:none;">
+        <div class="card-head"><div class="head-label">🎉 PLAYLIST CREATED</div></div>
+        <div class="card-body">
+          <div class="results-inner">
+            <p id="resultsMessage" class="results-msg"></p>
+            <a id="playlistLink" href="#" target="_blank" class="spotify-btn">Open in Spotify</a>
+            <button onclick="resetApp()" class="reset-btn">Create Another</button>
+            <div id="spotifyCodeSection" class="spotify-code" style="display:none;">
+              <p>Scan this Spotify Code:</p>
+              <img id="spotifyCodeImg" src="" alt="Spotify Code">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+
+    </div><!-- /mainApp -->
+  </div><!-- /page -->
+
+  <footer>Made with ♥ for EDC Las Vegas attendees</footer>
+
+  <!-- Secret button — find me if you can ✦ -->
+  <button id="secretBtn" title="✨">✦</button>
 
   <script>
-    // ===================================================================
-    // OPTIMIZED DATA STORAGE - Single Source of Truth
-    // ===================================================================
-    let artists = {};
-    let cachedLists = null;
-    let genreIndex = null;
-    
-    let selectionState = {
-      day: 'all',
-      mode: null,
-      stages: [],
-      genres: [],
-      artistNames: []
-    };
+  // =====================================================================
+  // FX — LASERS & FIREWORKS
+  // =====================================================================
+  const canvas = document.getElementById('fxCanvas');
+  const ctx    = canvas.getContext('2d');
+  let fxRunning = false, fxAnimId = null;
 
-    // ===================================================================
-    // INITIALIZATION
-    // ===================================================================
-    document.addEventListener('DOMContentLoaded', function() {
-      loadArtistData();
-    });
+  const FX_COLORS = ['#00d4ff','#ff00aa','#ffd700','#7b00ff','#00ff88','#ff6600','#ffffff'];
 
-    async function loadArtistData() {
-      try {
-        const response = await fetch('edc_artists.json');
-        if (!response.ok) {
-          throw new Error(`Failed to load: ${response.status}`);
-        }
-        artists = await response.json();
-        console.log('Loaded', Object.keys(artists).length, 'artists');
-        buildGenreIndex();
-        document.getElementById('loadingSection').style.display = 'none';
-        document.getElementById('mainApp').style.display = 'block';
-      } catch (error) {
-        console.error('Error loading artists:', error);
-        document.getElementById('loadingMessage').innerHTML = `
-          <span class="text-danger">Error loading artist data: ${error.message}</span><br>
-          <button onclick="loadArtistData()" class="btn btn-primary mt-3">Retry</button>
-        `;
-      }
+  function resizeCanvas() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  /* Particle */
+  class Particle {
+    constructor(x, y, color) {
+      const angle = Math.random() * Math.PI * 2;
+      const spd   = 1.2 + Math.random() * 5.5;
+      this.x = x; this.y = y;
+      this.vx = Math.cos(angle) * spd;
+      this.vy = Math.sin(angle) * spd - 1.5;
+      this.color = color;
+      this.size  = 1.5 + Math.random() * 2.2;
+      this.life  = 1;
+      this.decay = 0.011 + Math.random() * 0.017;
+      this.trail = [];
     }
-
-    function buildCachesForDay() {
-      const dayFilteredArtists = getAllArtists().filter(artist => 
-        matchesDay(artist, selectionState.day)
-      );
-      cachedLists = {
-        stages: getUniqueStagesFromArtists(dayFilteredArtists),
-        genres: getUniqueGenresFromArtists(dayFilteredArtists),
-        allArtists: dayFilteredArtists
-      };
+    update() {
+      this.trail.push({x:this.x, y:this.y, life:this.life});
+      if (this.trail.length > 6) this.trail.shift();
+      this.x  += this.vx; this.y += this.vy;
+      this.vy += 0.07; this.vx *= 0.992;
+      this.life -= this.decay;
     }
-
-    function buildGenreIndex() {
-      genreIndex = new Map();
-      Object.keys(artists).forEach(artistName => {
-        const data = artists[artistName];
-        if (!data.genres || !Array.isArray(data.genres)) return;
-        data.genres.forEach(genre => {
-          const genreLower = genre.toLowerCase();
-          if (!genreIndex.has(genreLower)) {
-            genreIndex.set(genreLower, []);
-          }
-          genreIndex.get(genreLower).push(artistName);
-        });
+    draw() {
+      this.trail.forEach((t,i) => {
+        ctx.save();
+        ctx.globalAlpha = t.life * 0.25 * (i / this.trail.length);
+        ctx.fillStyle = this.color;
+        ctx.beginPath(); ctx.arc(t.x, t.y, this.size * 0.5, 0, Math.PI*2); ctx.fill();
+        ctx.restore();
       });
-      console.log('Genre index built:', genreIndex.size, 'genres');
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.life);
+      ctx.fillStyle   = this.color;
+      ctx.shadowColor = this.color; ctx.shadowBlur = 10;
+      ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
     }
+    get dead() { return this.life <= 0; }
+  }
 
-    // ===================================================================
-    // DAY FILTERING
-    // ===================================================================
-    function matchesDay(artist, selectedDay) {
-      if (selectedDay === 'all') return true;
-      if (!artist.day) return false;
-      const artistDays = artist.day.split(',').map(d => d.trim());
-      return artistDays.includes(selectedDay);
+  /* Firework shell */
+  class Shell {
+    constructor() {
+      const w = canvas.width, h = canvas.height;
+      this.x = w * 0.12 + Math.random() * w * 0.76;
+      this.y = h;
+      this.vy = -(9 + Math.random() * 7);
+      this.targetY = h * (0.08 + Math.random() * 0.44);
+      this.color   = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.exploded = false;
+      this.particles = [];
+      this.trail = [];
+      this.gone  = false;
     }
-
-    // ===================================================================
-    // HELPER FUNCTIONS
-    // ===================================================================
-    function getUniqueStagesFromArtists(artistList) {
-      const stages = new Set();
-      artistList.forEach(artist => {
-        if (artist.stage) stages.add(artist.stage);
-      });
-      return Array.from(stages).sort();
-    }
-
-    function getUniqueGenresFromArtists(artistList) {
-      const genres = new Set();
-      artistList.forEach(artist => {
-        if (artist.genres && Array.isArray(artist.genres)) {
-          artist.genres.forEach(genre => genres.add(genre.toLowerCase()));
-        }
-      });
-      return Array.from(genres).sort();
-    }
-    
-    function getAllArtists() {
-      return Object.keys(artists)
-        .sort((a, b) => a.localeCompare(b))
-        .map(name => ({ name, ...artists[name] }));
-    }
-
-    // ===================================================================
-    // FILTERED ARTISTS
-    // ===================================================================
-    function getFilteredArtists() {
-      switch (selectionState.mode) {
-        case 'stage':
-          return selectionState.stages.length === 0
-            ? []
-            : filterArtistsByStages(selectionState.stages);
-        case 'genre':
-          return filterArtistsByGenres(selectionState.genres);
-        case 'artist':
-          return selectionState.artistNames.map(name => ({ name, ...artists[name] }));
-        default:
-          return [];
-      }
-    }
-
-    function filterArtistsByStages(stages) {
-      const stageSet = new Set(stages);
-      return cachedLists.allArtists
-        .filter(artist => stageSet.has(artist.stage))
-        .sort((a, b) => a.name.localeCompare(b.name));
-    }
-
-    function filterArtistsByGenres(genres) {
-      if (!genres || genres.length === 0) return [];
-      const artistNamesSet = new Set();
-      genres.forEach(genre => {
-        const genreLower = genre.toLowerCase();
-        const artistsForGenre = genreIndex.get(genreLower) || [];
-        artistsForGenre.forEach(name => artistNamesSet.add(name));
-      });
-      const dayFilteredNames = new Set(cachedLists.allArtists.map(a => a.name));
-      return Array.from(artistNamesSet)
-        .filter(name => dayFilteredNames.has(name))
-        .sort((a, b) => a.localeCompare(b))
-        .map(name => ({ name, ...artists[name] }));
-    }
-
-    // ===================================================================
-    // DAY SELECTION
-    // ===================================================================
-    function selectDay(day) {
-      selectionState.day = day;
-      buildCachesForDay();
-      const dayCard = document.getElementById('daySelection');
-      dayCard.querySelector('.card-body').style.display = 'none';
-      const dayLabel = day === 'all' ? 'All Days' : day;
-      dayCard.querySelector('.card-header').innerHTML = `
-        Select Festival Day(s): <span class="text-success">${dayLabel}</span>
-        <button onclick="editDaySelection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-      `;
-      document.getElementById('step1').style.display = 'block';
-    }
-    
-    function editDaySelection() {
-      const dayCard = document.getElementById('daySelection');
-      dayCard.querySelector('.card-body').style.display = 'block';
-      dayCard.querySelector('.card-header').textContent = 'Select Festival Day(s)';
-      resetDownstreamFromDay();
-      document.getElementById('step1').style.display = 'none';
-      hideAllSelections();
-    }
-    
-    function goBackToDaySelection() {
-      document.getElementById('step1').style.display = 'none';
-      hideAllSelections();
-      editDaySelection();
-      selectionState.mode = null;
-      selectionState.stages = [];
-      selectionState.genres = [];
-      selectionState.artistNames = [];
-    }
-
-    // ===================================================================
-    // SELECTION METHODS
-    // ===================================================================
-    function selectByStage() {
-      selectionState.mode = 'stage';
-      const step1Card = document.getElementById('step1');
-      step1Card.querySelector('.card-body').style.display = 'none';
-      step1Card.querySelector('.card-header').innerHTML = `
-        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Stage</span>
-        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-      `;
-      hideAllSelections();
-      document.getElementById('stageSelection').style.display = 'block';
-      if (!document.getElementById('stagesList').hasChildNodes()) {
-        populateStagesList();
-      }
-    }
-    
-    function selectByGenre() {
-      selectionState.mode = 'genre';
-      const step1Card = document.getElementById('step1');
-      step1Card.querySelector('.card-body').style.display = 'none';
-      step1Card.querySelector('.card-header').innerHTML = `
-        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Genre</span>
-        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-      `;
-      hideAllSelections();
-      document.getElementById('genreSelection').style.display = 'block';
-      if (!document.getElementById('genresList').hasChildNodes()) {
-        populateGenresList();
-      }
-    }
-    
-    function selectByArtist() {
-      selectionState.mode = 'artist';
-      const step1Card = document.getElementById('step1');
-      step1Card.querySelector('.card-body').style.display = 'none';
-      step1Card.querySelector('.card-header').innerHTML = `
-        Step 1: Choose How to Create Your Playlist: <span class="text-success">By Artist</span>
-        <button onclick="editStep1Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-      `;
-      hideAllSelections();
-      document.getElementById('artistSelection').style.display = 'block';
-      if (!document.getElementById('artistsList').hasChildNodes()) {
-        populateArtistsList();
-      }
-    }
-    
-    function editStep1Selection() {
-      const step1Card = document.getElementById('step1');
-      step1Card.querySelector('.card-body').style.display = 'block';
-      step1Card.querySelector('.card-header').textContent = 'Step 1: Choose How to Create Your Playlist';
-      resetDownstreamFromStep1();
-      hideAllSelections();
-    }
-
-    function hideAllSelections() {
-      document.getElementById('stageSelection').style.display = 'none';
-      document.getElementById('genreSelection').style.display = 'none';
-      document.getElementById('artistSelection').style.display = 'none';
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-    }
-
-    // ===================================================================
-    // POPULATE LISTS
-    // ===================================================================
-    function populateStagesList() {
-      const list = document.getElementById('stagesList');
-      list.innerHTML = '';
-      cachedLists.stages.forEach(stage => {
-        const item = document.createElement('button');
-        item.className = 'list-group-item list-group-item-action';
-        item.innerHTML = `
-          <input type="checkbox" onclick="event.stopPropagation()">
-          <span class="list-group-item-text">${stage}</span>
-        `;
-        item.onclick = function(e) {
-          if (e.target.type === 'checkbox') return;
-          const checkbox = item.querySelector('input[type="checkbox"]');
-          checkbox.checked = !checkbox.checked;
-          checkbox.dispatchEvent(new Event('change'));
-        };
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        checkbox.onchange = function(e) {
-          e.stopPropagation();
-          item.classList.toggle('active');
-          if (item.classList.contains('active')) {
-            selectionState.stages.push(stage);
-          } else {
-            selectionState.stages = selectionState.stages.filter(s => s !== stage);
-          }
-          document.getElementById('stageSelectedCount').textContent = `${selectionState.stages.length} selected`;
-          document.getElementById('stageContinueBtn').style.display = selectionState.stages.length > 0 ? 'block' : 'none';
-        };
-        list.appendChild(item);
-      });
-    }
-    
-    function populateGenresList() {
-      const list = document.getElementById('genresList');
-      list.innerHTML = '';
-      cachedLists.genres.forEach(genre => {
-        const item = document.createElement('button');
-        item.className = 'list-group-item list-group-item-action';
-        item.innerHTML = `
-          <input type="checkbox" onclick="event.stopPropagation()">
-          <span class="list-group-item-text">${genre}</span>
-        `;
-        item.onclick = function(e) {
-          if (e.target.type === 'checkbox') return;
-          const checkbox = item.querySelector('input[type="checkbox"]');
-          checkbox.checked = !checkbox.checked;
-          checkbox.dispatchEvent(new Event('change'));
-        };
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        checkbox.onchange = function(e) {
-          e.stopPropagation();
-          item.classList.toggle('active');
-          if (item.classList.contains('active')) {
-            selectionState.genres.push(genre);
-          } else {
-            selectionState.genres = selectionState.genres.filter(g => g !== genre);
-          }
-          document.getElementById('genreSelectedCount').textContent = `${selectionState.genres.length} selected`;
-          document.getElementById('genreContinueBtn').style.display = selectionState.genres.length > 0 ? 'block' : 'none';
-        };
-        list.appendChild(item);
-      });
-    }
-    
-    function populateArtistsList() {
-      const list = document.getElementById('artistsList');
-      list.innerHTML = '';
-      cachedLists.allArtists.forEach(artist => {
-        const item = document.createElement('button');
-        item.className = 'list-group-item list-group-item-action';
-        const displayText = artist.stage ? `${artist.name} (${artist.stage})` : artist.name;
-        item.innerHTML = `
-          <input type="checkbox" onclick="event.stopPropagation()">
-          <span class="list-group-item-text">${displayText}</span>
-        `;
-        item.onclick = function(e) {
-          if (e.target.type === 'checkbox') return;
-          const checkbox = item.querySelector('input[type="checkbox"]');
-          checkbox.checked = !checkbox.checked;
-          checkbox.dispatchEvent(new Event('change'));
-        };
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        checkbox.onchange = function(e) {
-          e.stopPropagation();
-          item.classList.toggle('active');
-          if (item.classList.contains('active')) {
-            selectionState.artistNames.push(artist.name);
-          } else {
-            selectionState.artistNames = selectionState.artistNames.filter(n => n !== artist.name);
-          }
-          document.getElementById('artistSelectedCount').textContent = `${selectionState.artistNames.length} selected`;
-          document.getElementById('artistContinueBtn').style.display = selectionState.artistNames.length > 0 ? 'block' : 'none';
-        };
-        list.appendChild(item);
-      });
-    }
-
-    // ===================================================================
-    // SELECTION HELPERS
-    // ===================================================================
-    function clearStageSelection() {
-      document.querySelectorAll('#stagesList .list-group-item').forEach(i => {
-        i.classList.remove('active');
-        const checkbox = i.querySelector('input[type="checkbox"]');
-        if (checkbox) checkbox.checked = false;
-      });
-      selectionState.stages = [];
-      document.getElementById('stageSelectedCount').textContent = '0 selected';
-      document.getElementById('stageContinueBtn').style.display = 'none';
-    }
-
-    function selectAllStages() {
-      document.querySelectorAll('#stagesList .list-group-item').forEach(i => {
-        i.classList.add('active');
-        const checkbox = i.querySelector('input[type="checkbox"]');
-        if (checkbox) checkbox.checked = true;
-      });
-      selectionState.stages = [...cachedLists.stages];
-      document.getElementById('stageSelectedCount').textContent = `${selectionState.stages.length} selected`;
-      document.getElementById('stageContinueBtn').style.display = 'block';
-    }
-
-    function clearGenreSelection() {
-      document.querySelectorAll('#genresList .list-group-item').forEach(i => {
-        i.classList.remove('active');
-        const checkbox = i.querySelector('input[type="checkbox"]');
-        if (checkbox) checkbox.checked = false;
-      });
-      selectionState.genres = [];
-      document.getElementById('genreSelectedCount').textContent = '0 selected';
-      document.getElementById('genreContinueBtn').style.display = 'none';
-    }
-    
-    function selectAllGenres() {
-      document.querySelectorAll('#genresList .list-group-item').forEach(i => {
-        i.classList.add('active');
-        const checkbox = i.querySelector('input[type="checkbox"]');
-        if (checkbox) checkbox.checked = true;
-      });
-      selectionState.genres = [...cachedLists.genres];
-      document.getElementById('genreSelectedCount').textContent = `${selectionState.genres.length} selected`;
-      document.getElementById('genreContinueBtn').style.display = 'block';
-    }
-    
-    function clearArtistSelection() {
-      document.querySelectorAll('#artistsList .list-group-item').forEach(i => {
-        i.classList.remove('active');
-        const checkbox = i.querySelector('input[type="checkbox"]');
-        if (checkbox) checkbox.checked = false;
-      });
-      selectionState.artistNames = [];
-      document.getElementById('artistSelectedCount').textContent = '0 selected';
-      document.getElementById('artistContinueBtn').style.display = 'none';
-    }
-
-    // ===================================================================
-    // FILTER FUNCTIONS
-    // ===================================================================
-    function filterStages() {
-      const search = document.getElementById('stageSearch').value.toLowerCase();
-      document.querySelectorAll('#stagesList .list-group-item').forEach(item => {
-        item.style.display = item.textContent.toLowerCase().includes(search) ? '' : 'none';
-      });
-    }
-    
-    function filterGenres() {
-      const search = document.getElementById('genreSearch').value.toLowerCase();
-      document.querySelectorAll('#genresList .list-group-item').forEach(item => {
-        item.style.display = item.textContent.toLowerCase().includes(search) ? '' : 'none';
-      });
-    }
-    
-    function filterArtists() {
-      const search = document.getElementById('artistSearch').value.toLowerCase();
-      document.querySelectorAll('#artistsList .list-group-item').forEach(item => {
-        item.style.display = item.textContent.toLowerCase().includes(search) ? '' : 'none';
-      });
-    }
-
-    // ===================================================================
-    // RESET FUNCTIONS
-    // ===================================================================
-    function resetDownstreamFromDay() {
-      selectionState.mode = null;
-      selectionState.stages = [];
-      selectionState.genres = [];
-      selectionState.artistNames = [];
-      const step1Card = document.getElementById('step1');
-      if (step1Card) {
-        step1Card.querySelector('.card-body').style.display = 'block';
-        step1Card.querySelector('.card-header').textContent = 'Step 1: Choose How to Create Your Playlist';
-      }
-      resetStep2Cards();
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-    }
-    
-    function resetDownstreamFromStep1() {
-      selectionState.stages = [];
-      selectionState.genres = [];
-      selectionState.artistNames = [];
-      resetStep2Cards();
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-    }
-    
-    function resetDownstreamFromStep2() {
-      selectionState.stages = [];
-      selectionState.genres = [];
-      selectionState.artistNames = [];
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-    }
-    
-    function resetStep2Cards() {
-      const stageCard = document.getElementById('stageSelection');
-      stageCard.style.display = 'none';
-      stageCard.querySelector('.card-body').style.display = 'block';
-      stageCard.querySelector('.card-header').textContent = 'Step 2: Select Stage(s)';
-      const genreCard = document.getElementById('genreSelection');
-      genreCard.style.display = 'none';
-      genreCard.querySelector('.card-body').style.display = 'block';
-      genreCard.querySelector('.card-header').textContent = 'Step 2: Select Genres';
-      const artistCard = document.getElementById('artistSelection');
-      artistCard.style.display = 'none';
-      artistCard.querySelector('.card-body').style.display = 'block';
-      artistCard.querySelector('.card-header').textContent = 'Step 2: Select Artists';
-      document.getElementById('stagesList').innerHTML = '';
-      document.getElementById('genresList').innerHTML = '';
-      document.getElementById('artistsList').innerHTML = '';
-    }
-
-    // ===================================================================
-    // PREVIEW
-    // ===================================================================
-    function updatePreview() {
-      const filteredArtists = getFilteredArtists();
-      const artistsWithSpotifyId = filteredArtists.filter(a => a.id);
-      const artistsWithoutSpotifyId = filteredArtists.filter(a => !a.id);
-      const tracksPerArtist = parseInt(document.getElementById('tracksPerArtist').value);
-      const estimatedTracks = artistsWithSpotifyId.length * tracksPerArtist;
-      const dayLabel = selectionState.day === 'all' ? 'All Days' : selectionState.day;
-      let previewHTML = `
-        <strong>Day:</strong> ${dayLabel}<br>
-        <strong>${filteredArtists.length}</strong> artist${filteredArtists.length !== 1 ? 's' : ''} selected<br>
-        <strong>~${estimatedTracks}</strong> total tracks estimated
-      `;
-      if (artistsWithoutSpotifyId.length > 0) {
-        previewHTML += `<br><small class="text-warning">⚠️ ${artistsWithoutSpotifyId.length} artist${artistsWithoutSpotifyId.length !== 1 ? 's' : ''} missing Spotify ID${artistsWithoutSpotifyId.length !== 1 ? 's' : ''} (will be skipped)</small>`;
-      }
-      document.getElementById('previewContent').innerHTML = previewHTML;
-    }
-
-    // ===================================================================
-    // STEP 3
-    // ===================================================================
-    function showStep3() {
-      if (selectionState.mode === 'stage') {
-        const stageCard = document.getElementById('stageSelection');
-        stageCard.querySelector('.card-body').style.display = 'none';
-        const stageLabel = selectionState.stages.length === cachedLists.stages.length
-          ? 'All Stages'
-          : selectionState.stages.length === 1
-            ? selectionState.stages[0]
-            : `${selectionState.stages.length} stages`;
-        stageCard.querySelector('.card-header').innerHTML = `
-          Step 2: Select Stage(s): <span class="text-success">${stageLabel}</span>
-          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-        `;
-      } else if (selectionState.mode === 'genre') {
-        const genreCard = document.getElementById('genreSelection');
-        genreCard.querySelector('.card-body').style.display = 'none';
-        const genreLabel = selectionState.genres.length === 1 
-          ? selectionState.genres[0]
-          : `${selectionState.genres.length} genres`;
-        genreCard.querySelector('.card-header').innerHTML = `
-          Step 2: Select Genres: <span class="text-success">${genreLabel}</span>
-          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-        `;
-      } else if (selectionState.mode === 'artist') {
-        const artistCard = document.getElementById('artistSelection');
-        artistCard.querySelector('.card-body').style.display = 'none';
-        const artistLabel = selectionState.artistNames.length === 1 
-          ? selectionState.artistNames[0]
-          : `${selectionState.artistNames.length} artists`;
-        artistCard.querySelector('.card-header').innerHTML = `
-          Step 2: Select Artists: <span class="text-success">${artistLabel}</span>
-          <button onclick="editStep2Selection()" class="btn btn-sm btn-outline-light float-end">Edit</button>
-        `;
-      }
-      
-      document.getElementById('playlistOptions').style.display = 'block';
-      document.getElementById('createPlaylistBtn').style.display = 'block';
-      updatePreview();
-      
-      const nameInput = document.getElementById('playlistName');
-      if (selectionState.mode === 'stage' && selectionState.stages.length > 0) {
-        nameInput.value = selectionState.stages.length === 1
-          ? `EDC ${selectionState.stages[0]} Playlist`
-          : `EDC ${selectionState.stages.length} Stages Playlist`;
-      } else if (selectionState.mode === 'genre' && selectionState.genres.length > 0) {
-        nameInput.value = selectionState.genres.length === 1 
-          ? `EDC ${selectionState.genres[0]} Playlist`
-          : `EDC ${selectionState.genres.length} Genres Playlist`;
-      } else if (selectionState.mode === 'artist' && selectionState.artistNames.length > 0) {
-        nameInput.value = selectionState.artistNames.length === 1 
-          ? `EDC ${selectionState.artistNames[0]} Playlist`
-          : `EDC ${selectionState.artistNames.length} Artists Playlist`;
+    update() {
+      if (!this.exploded) {
+        this.trail.push({x:this.x, y:this.y, life:1});
+        this.trail.forEach(t => t.life -= 0.14);
+        this.trail = this.trail.filter(t => t.life > 0);
+        this.y  += this.vy; this.vy += 0.18;
+        if (this.y <= this.targetY) this.explode();
       } else {
-        nameInput.value = "My EDC 2025 Playlist";
+        this.particles.forEach(p => p.update());
+        this.particles = this.particles.filter(p => !p.dead);
+        if (this.particles.length === 0) this.gone = true;
       }
     }
-    
-    function editStep2Selection() {
-      resetDownstreamFromStep2();
-      if (selectionState.mode === 'stage') {
-        const stageCard = document.getElementById('stageSelection');
-        stageCard.querySelector('.card-body').style.display = 'block';
-        stageCard.querySelector('.card-header').textContent = 'Step 2: Select Stage(s)';
-      } else if (selectionState.mode === 'genre') {
-        const genreCard = document.getElementById('genreSelection');
-        genreCard.querySelector('.card-body').style.display = 'block';
-        genreCard.querySelector('.card-header').textContent = 'Step 2: Select Genres';
-      } else if (selectionState.mode === 'artist') {
-        const artistCard = document.getElementById('artistSelection');
-        artistCard.querySelector('.card-body').style.display = 'block';
-        artistCard.querySelector('.card-header').textContent = 'Step 2: Select Artists';
+    explode() {
+      this.exploded = true;
+      const n = 90 + Math.floor(Math.random() * 50);
+      for (let i = 0; i < n; i++) this.particles.push(new Particle(this.x, this.y, this.color));
+      // multi-color burst 30% of the time
+      if (Math.random() < 0.3) {
+        const c2 = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+        for (let i = 0; i < 40; i++) this.particles.push(new Particle(this.x, this.y, c2));
       }
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
+    }
+    draw() {
+      if (!this.exploded) {
+        this.trail.forEach(t => {
+          ctx.save(); ctx.globalAlpha = t.life * 0.6;
+          ctx.fillStyle = this.color; ctx.shadowColor = this.color; ctx.shadowBlur = 8;
+          ctx.beginPath(); ctx.arc(t.x, t.y, 2, 0, Math.PI*2); ctx.fill(); ctx.restore();
+        });
+        ctx.save(); ctx.globalAlpha = 1;
+        ctx.fillStyle = '#fff'; ctx.shadowColor = this.color; ctx.shadowBlur = 18;
+        ctx.beginPath(); ctx.arc(this.x, this.y, 3, 0, Math.PI*2); ctx.fill(); ctx.restore();
+      } else {
+        this.particles.forEach(p => p.draw());
+      }
+    }
+  }
+
+  /* Laser beam */
+  class Laser {
+    constructor() {
+      const w = canvas.width, h = canvas.height;
+      const pts = [
+        [0,0],[w*0.25,0],[w*0.5,0],[w*0.75,0],[w,0],
+        [0,h*0.5],[w,h*0.5],
+        [0,h],[w*0.25,h],[w*0.5,h],[w*0.75,h],[w,h]
+      ];
+      const i1 = Math.floor(Math.random() * pts.length);
+      let i2; do { i2 = Math.floor(Math.random() * pts.length); } while (i2 === i1);
+      const jitter = (v, s) => v + (Math.random()-.5)*s;
+      this.x1 = jitter(pts[i1][0], w*.25); this.y1 = jitter(pts[i1][1], h*.25);
+      this.x2 = jitter(pts[i2][0], w*.25); this.y2 = jitter(pts[i2][1], h*.25);
+      this.color  = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.life   = 1;
+      this.phase  = 'in';
+      this.tick   = 0;
+    }
+    update() {
+      this.tick++;
+      if      (this.phase === 'in'   && this.tick > 10) { this.phase = 'hold'; this.tick = 0; }
+      else if (this.phase === 'hold' && this.tick > 22) { this.phase = 'out';  this.tick = 0; }
+      else if (this.phase === 'out') this.life -= 0.055;
+    }
+    draw() {
+      const alpha = this.phase === 'in' ? this.tick/10 : this.life;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, alpha * 0.35);
+      ctx.strokeStyle = this.color; ctx.shadowColor = this.color; ctx.shadowBlur = 40;
+      ctx.lineWidth = 7;
+      ctx.beginPath(); ctx.moveTo(this.x1,this.y1); ctx.lineTo(this.x2,this.y2); ctx.stroke();
+      ctx.globalAlpha = Math.max(0, alpha * 0.75);
+      ctx.lineWidth = 2; ctx.shadowBlur = 18; ctx.stroke();
+      ctx.globalAlpha = Math.max(0, alpha * 0.9);
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke();
+      ctx.restore();
+    }
+    get dead() { return this.life <= 0; }
+  }
+
+  /* Show orchestration */
+  const shells = [], lasers = [];
+
+  function startShow() {
+    if (fxRunning) return;
+    fxRunning = true;
+    resizeCanvas();
+
+    const addShell  = () => shells.push(new Shell());
+    const addLaser  = () => lasers.push(new Laser());
+
+    // Immediate opening salvo
+    addShell(); addShell();
+    for (let i = 0; i < 10; i++) setTimeout(addLaser, i * 120);
+
+    const shellTimes = [200,500,850,1200,1700,2200,2800,3300,3900,4400,5000,5500,6100,6600,7100];
+    const laserTimes = [600,1100,1600,2100,2600,3100,3600,4100,4600,5100,5600,6100];
+    shellTimes.forEach(t => setTimeout(addShell, t));
+    laserTimes.forEach(t => setTimeout(() => { if(fxRunning) addLaser(); }, t));
+
+    requestAnimationFrame(fxLoop);
+  }
+
+  let showStart = 0;
+  function fxLoop(ts) {
+    if (!showStart) showStart = ts;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = lasers.length-1; i >= 0; i--) {
+      lasers[i].update(); lasers[i].draw();
+      if (lasers[i].dead) lasers.splice(i,1);
+    }
+    for (let i = shells.length-1; i >= 0; i--) {
+      shells[i].update(); shells[i].draw();
+      if (shells[i].gone) shells.splice(i,1);
     }
 
-    // ===================================================================
-    // CREATE PLAYLIST
-    // ===================================================================
-    async function createPlaylist() {
-      const playlistName = document.getElementById('playlistName').value.trim();
-      const playlistDesc = document.getElementById('playlistDesc').value.trim() || 'Created with EDC Playlist Generator';
-      const tracksPerArtist = parseInt(document.getElementById('tracksPerArtist').value);
-      
-      if (!playlistName) {
-        alert('Please enter a playlist name');
-        return;
-      }
-      
-      const filteredArtists = getFilteredArtists();
-      
-      if (filteredArtists.length === 0) {
-        alert('Please select at least one artist');
-        return;
-      }
-      
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-      document.getElementById('progressSection').style.display = 'block';
-      document.getElementById('progressBar').style.width = '10%';
-      document.getElementById('statusMessage').textContent = 'Creating your playlist...';
-      
-      try {
-        const artistsData = filteredArtists.map(artist => ({
-          name: artist.name,
-          spotifyId: artist.id
-        })).filter(a => a.spotifyId);
-        
-        if (artistsData.length === 0) {
-          throw new Error('No valid artists found with Spotify IDs. Please select artists that have Spotify IDs.');
-        }
-        
-        const skippedCount = filteredArtists.length - artistsData.length;
-        
-        document.getElementById('progressBar').style.width = '30%';
-        document.getElementById('statusMessage').textContent = `Sending ${artistsData.length} artist${artistsData.length !== 1 ? 's' : ''} to create playlist...${skippedCount > 0 ? ` (${skippedCount} skipped)` : ''}`;
-        
-        const response = await fetch('/.netlify/functions/create-playlist', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            artists: artistsData,
-            playlistName: playlistName,
-            playlistDescription: playlistDesc,
-            tracksPerArtist: tracksPerArtist
-          })
-        });
-        
-        document.getElementById('progressBar').style.width = '70%';
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `Server error: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (!data.success || !data.playlist) {
-          throw new Error('Failed to create playlist');
-        }
-        
-        document.getElementById('progressBar').style.width = '100%';
-        document.getElementById('statusMessage').textContent = 'Complete!';
-        
-        setTimeout(() => {
-          document.getElementById('progressSection').style.display = 'none';
-          document.getElementById('resultsSection').style.display = 'block';
-          
-          let successMessage = `Successfully created "${data.playlist.name}" with ${data.playlist.trackCount} tracks!`;
-          if (skippedCount > 0) {
-            successMessage += ` (${skippedCount} artist${skippedCount !== 1 ? 's' : ''} without Spotify IDs were skipped)`;
-          }
-          
-          document.getElementById('resultsMessage').textContent = successMessage;
-          document.getElementById('playlistLink').href = data.playlist.url;
-          
-          if (data.playlist.uri) {
-            const codeImg = document.getElementById('spotifyCodeImg');
-            codeImg.src = `https://scannables.scdn.co/uri/plain/png/000000/white/640/${data.playlist.uri}`;
-            document.getElementById('spotifyCodeSection').style.display = 'block';
-          }
-        }, 500);
-        
-      } catch (error) {
-        console.error('Error creating playlist:', error);
-        document.getElementById('progressSection').style.display = 'none';
-        let errorMessage = error.message || 'Unknown error occurred';
-        if (error.message.includes('Server error')) {
-          errorMessage += '\n\nThis might be a temporary issue. Please try again in a moment.';
-        } else if (error.message.includes('No valid artists')) {
-          errorMessage += '\n\nTip: Try selecting different artists or check if they have Spotify profiles.';
-        }
-        alert(`Error creating playlist: ${errorMessage}`);
-        document.getElementById('playlistOptions').style.display = 'block';
-        document.getElementById('createPlaylistBtn').style.display = 'block';
-      }
+    const elapsed = ts - showStart;
+    if (elapsed < 8000 || shells.length > 0 || lasers.length > 0) {
+      fxAnimId = requestAnimationFrame(fxLoop);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fxRunning = false; showStart = 0;
     }
-    
-    // ===================================================================
-    // RESET APP
-    // ===================================================================
-    function resetApp() {
-      document.getElementById('step1').style.display = 'none';
-      document.getElementById('stageSelection').style.display = 'none';
-      document.getElementById('genreSelection').style.display = 'none';
-      document.getElementById('artistSelection').style.display = 'none';
-      document.getElementById('playlistOptions').style.display = 'none';
-      document.getElementById('createPlaylistBtn').style.display = 'none';
-      document.getElementById('progressSection').style.display = 'none';
-      document.getElementById('resultsSection').style.display = 'none';
-      selectionState = { day: 'all', mode: null, stages: [], genres: [], artistNames: [] };
-      const dayCard = document.getElementById('daySelection');
-      dayCard.querySelector('.card-body').style.display = 'block';
-      dayCard.querySelector('.card-header').textContent = 'Select Festival Day(s)';
+  }
+
+  document.getElementById('secretBtn').addEventListener('click', startShow);
+
+  // =====================================================================
+  // APP STATE
+  // =====================================================================
+  let artists = {};
+  let cachedLists = null;
+  let genreIndex  = null;
+
+  let sel = { day:'all', mode:null, stages:[], genres:[], artistNames:[] };
+
+  // =====================================================================
+  // INIT
+  // =====================================================================
+  document.addEventListener('DOMContentLoaded', loadArtistData);
+
+  async function loadArtistData() {
+    try {
+      const res = await fetch('edc_artists.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      artists = await res.json();
+      buildGenreIndex();
+      document.getElementById('loadingSection').style.display = 'none';
+      document.getElementById('mainApp').style.display = 'block';
+    } catch(e) {
+      document.getElementById('loadingMessage').innerHTML =
+        `<span style="color:#ff6060">Error: ${e.message}</span><br>
+         <button onclick="loadArtistData()" class="neon-btn" style="margin-top:14px">Retry</button>`;
     }
+  }
+
+  function buildGenreIndex() {
+    genreIndex = new Map();
+    Object.keys(artists).forEach(name => {
+      const d = artists[name];
+      if (!d.genres || !Array.isArray(d.genres)) return;
+      d.genres.forEach(g => {
+        const k = g.toLowerCase();
+        if (!genreIndex.has(k)) genreIndex.set(k, []);
+        genreIndex.get(k).push(name);
+      });
+    });
+  }
+
+  function buildCachesForDay() {
+    const all = getAllArtists().filter(a => matchesDay(a, sel.day));
+    cachedLists = {
+      stages:     getUniqueStagesFrom(all),
+      genres:     getUniqueGenresFrom(all),
+      allArtists: all
+    };
+  }
+
+  // =====================================================================
+  // HELPERS
+  // =====================================================================
+  function matchesDay(artist, day) {
+    if (day === 'all') return true;
+    if (!artist.day) return false;
+    return artist.day.split(',').map(d => d.trim()).includes(day);
+  }
+  function getAllArtists() {
+    return Object.keys(artists).sort((a,b)=>a.localeCompare(b)).map(n=>({name:n,...artists[n]}));
+  }
+  function getUniqueStagesFrom(list) {
+    return [...new Set(list.filter(a=>a.stage).map(a=>a.stage))].sort();
+  }
+  function getUniqueGenresFrom(list) {
+    const s = new Set();
+    list.forEach(a => { if(a.genres) a.genres.forEach(g=>s.add(g.toLowerCase())); });
+    return [...s].sort();
+  }
+  function getFilteredArtists() {
+    switch(sel.mode) {
+      case 'stage':  return sel.stages.length ? filterByStages(sel.stages) : [];
+      case 'genre':  return filterByGenres(sel.genres);
+      case 'artist': return sel.artistNames.map(n=>({name:n,...artists[n]}));
+      default: return [];
+    }
+  }
+  function filterByStages(stages) {
+    const s = new Set(stages);
+    return cachedLists.allArtists.filter(a=>s.has(a.stage)).sort((a,b)=>a.name.localeCompare(b.name));
+  }
+  function filterByGenres(genres) {
+    if (!genres.length) return [];
+    const names = new Set();
+    genres.forEach(g => (genreIndex.get(g.toLowerCase())||[]).forEach(n=>names.add(n)));
+    const dayNames = new Set(cachedLists.allArtists.map(a=>a.name));
+    return [...names].filter(n=>dayNames.has(n)).sort((a,b)=>a.localeCompare(b)).map(n=>({name:n,...artists[n]}));
+  }
+
+  // =====================================================================
+  // DAY SELECTION
+  // =====================================================================
+  function selectDay(day) {
+    sel.day = day;
+    buildCachesForDay();
+    document.getElementById('daySelectionBody').style.display = 'none';
+    const label = day==='all'?'All Days':day;
+    document.querySelector('#daySelection .head-label').innerHTML =
+      `SELECT FESTIVAL DAY &nbsp;— <span class="success-text">${label}</span>
+       <button onclick="editDaySelection()" class="edit-btn">Edit</button>`;
+    document.getElementById('step1').style.display = 'block';
+  }
+
+  function editDaySelection() {
+    document.getElementById('daySelectionBody').style.display = 'block';
+    document.querySelector('#daySelection .head-label').textContent = 'SELECT FESTIVAL DAY';
+    resetFromDay();
+    document.getElementById('step1').style.display = 'none';
+    hideAllStep2();
+  }
+
+  // =====================================================================
+  // STEP 1 — METHOD
+  // =====================================================================
+  function selectByStage() {
+    sel.mode = 'stage';
+    collapseStep1('By Stage');
+    showSection('stageSelection');
+    if (!document.getElementById('stagesList').hasChildNodes()) populateStagesList();
+  }
+  function selectByGenre() {
+    sel.mode = 'genre';
+    collapseStep1('By Genre');
+    showSection('genreSelection');
+    if (!document.getElementById('genresList').hasChildNodes()) populateGenresList();
+  }
+  function selectByArtist() {
+    sel.mode = 'artist';
+    collapseStep1('By Artist');
+    showSection('artistSelection');
+    if (!document.getElementById('artistsList').hasChildNodes()) populateArtistsList();
+  }
+  function collapseStep1(label) {
+    document.getElementById('step1Body').style.display = 'none';
+    document.getElementById('step1Label').innerHTML =
+      `CHOOSE YOUR FILTER &nbsp;— <span class="success-text">${label}</span>
+       <button onclick="editStep1Selection()" class="edit-btn">Edit</button>`;
+  }
+  function editStep1Selection() {
+    document.getElementById('step1Body').style.display = 'block';
+    document.getElementById('step1Label').textContent = 'CHOOSE YOUR FILTER';
+    resetFromStep1();
+    hideAllStep2();
+  }
+  function showSection(id) {
+    hideAllStep2();
+    document.getElementById(id).style.display = 'block';
+  }
+  function hideAllStep2() {
+    ['stageSelection','genreSelection','artistSelection','playlistOptions','createPlaylistBtn']
+      .forEach(id => document.getElementById(id).style.display='none');
+  }
+
+  // =====================================================================
+  // POPULATE LISTS
+  // =====================================================================
+  function makeListItem(label, onToggle) {
+    const item = document.createElement('button');
+    item.className = 'list-item';
+    item.innerHTML = `<input type="checkbox" onclick="event.stopPropagation()"><span>${label}</span>`;
+    const cb = item.querySelector('input');
+    item.onclick = e => { if(e.target.type==='checkbox') return; cb.checked=!cb.checked; cb.dispatchEvent(new Event('change')); };
+    cb.onchange = e => { e.stopPropagation(); item.classList.toggle('active', cb.checked); onToggle(cb.checked); };
+    return item;
+  }
+
+  function populateStagesList() {
+    const list = document.getElementById('stagesList'); list.innerHTML='';
+    cachedLists.stages.forEach(stage => {
+      list.appendChild(makeListItem(stage, checked => {
+        sel.stages = checked ? [...sel.stages, stage] : sel.stages.filter(s=>s!==stage);
+        document.getElementById('stageSelectedCount').textContent = `${sel.stages.length} selected`;
+        document.getElementById('stageContinueBtn').style.display = sel.stages.length ? 'block':'none';
+      }));
+    });
+  }
+  function populateGenresList() {
+    const list = document.getElementById('genresList'); list.innerHTML='';
+    cachedLists.genres.forEach(genre => {
+      list.appendChild(makeListItem(genre, checked => {
+        sel.genres = checked ? [...sel.genres, genre] : sel.genres.filter(g=>g!==genre);
+        document.getElementById('genreSelectedCount').textContent = `${sel.genres.length} selected`;
+        document.getElementById('genreContinueBtn').style.display = sel.genres.length ? 'block':'none';
+      }));
+    });
+  }
+  function populateArtistsList() {
+    const list = document.getElementById('artistsList'); list.innerHTML='';
+    cachedLists.allArtists.forEach(artist => {
+      const label = artist.stage ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${artist.stage}</span>` : artist.name;
+      list.appendChild(makeListItem(label, checked => {
+        sel.artistNames = checked ? [...sel.artistNames, artist.name] : sel.artistNames.filter(n=>n!==artist.name);
+        document.getElementById('artistSelectedCount').textContent = `${sel.artistNames.length} selected`;
+        document.getElementById('artistContinueBtn').style.display = sel.artistNames.length ? 'block':'none';
+      }));
+    });
+  }
+
+  // =====================================================================
+  // CLEAR / SELECT ALL
+  // =====================================================================
+  function clearStageSelection() {
+    document.querySelectorAll('#stagesList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
+    sel.stages=[];
+    document.getElementById('stageSelectedCount').textContent='0 selected';
+    document.getElementById('stageContinueBtn').style.display='none';
+  }
+  function selectAllStages() {
+    document.querySelectorAll('#stagesList .list-item').forEach(i=>{ i.classList.add('active'); const c=i.querySelector('input'); if(c) c.checked=true; });
+    sel.stages=[...cachedLists.stages];
+    document.getElementById('stageSelectedCount').textContent=`${sel.stages.length} selected`;
+    document.getElementById('stageContinueBtn').style.display='block';
+  }
+  function clearGenreSelection() {
+    document.querySelectorAll('#genresList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
+    sel.genres=[];
+    document.getElementById('genreSelectedCount').textContent='0 selected';
+    document.getElementById('genreContinueBtn').style.display='none';
+  }
+  function selectAllGenres() {
+    document.querySelectorAll('#genresList .list-item').forEach(i=>{ i.classList.add('active'); const c=i.querySelector('input'); if(c) c.checked=true; });
+    sel.genres=[...cachedLists.genres];
+    document.getElementById('genreSelectedCount').textContent=`${sel.genres.length} selected`;
+    document.getElementById('genreContinueBtn').style.display='block';
+  }
+  function clearArtistSelection() {
+    document.querySelectorAll('#artistsList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
+    sel.artistNames=[];
+    document.getElementById('artistSelectedCount').textContent='0 selected';
+    document.getElementById('artistContinueBtn').style.display='none';
+  }
+
+  // =====================================================================
+  // SEARCH FILTERS
+  // =====================================================================
+  function filterStages()  { filterList('stagesList',  document.getElementById('stageSearch').value); }
+  function filterGenres()  { filterList('genresList',   document.getElementById('genreSearch').value); }
+  function filterArtists() { filterList('artistsList',  document.getElementById('artistSearch').value); }
+  function filterList(listId, query) {
+    const q = query.toLowerCase();
+    document.querySelectorAll(`#${listId} .list-item`).forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+
+  // =====================================================================
+  // STEP 3
+  // =====================================================================
+  function updatePreview() {
+    const filtered = getFilteredArtists();
+    const withId   = filtered.filter(a=>a.id);
+    const noId     = filtered.filter(a=>!a.id);
+    const tpa      = parseInt(document.getElementById('tracksPerArtist').value);
+    const est      = withId.length * tpa;
+    const dayLabel = sel.day==='all' ? 'All Days' : sel.day;
+    let html = `<strong>Day:</strong> ${dayLabel}<br>
+                <strong>${filtered.length}</strong> artist${filtered.length!==1?'s':''} selected<br>
+                <strong>~${est}</strong> total tracks estimated`;
+    if (noId.length > 0) html += `<br><span class="warn-text">⚠ ${noId.length} artist${noId.length!==1?'s':''} missing Spotify ID (will be skipped)</span>`;
+    document.getElementById('previewContent').innerHTML = html;
+  }
+
+  function showStep3() {
+    // Collapse step 2 header
+    if (sel.mode==='stage') {
+      const label = sel.stages.length===cachedLists.stages.length ? 'All Stages'
+                  : sel.stages.length===1 ? sel.stages[0] : `${sel.stages.length} stages`;
+      document.getElementById('stageSelBody').style.display='none';
+      document.getElementById('stageSelLabel').innerHTML=
+        `SELECT STAGE(S) &nbsp;— <span class="success-text">${label}</span>
+         <button onclick="editStep2()" class="edit-btn">Edit</button>`;
+    } else if (sel.mode==='genre') {
+      const label = sel.genres.length===1 ? sel.genres[0] : `${sel.genres.length} genres`;
+      document.getElementById('genreSelBody').style.display='none';
+      document.getElementById('genreSelLabel').innerHTML=
+        `SELECT GENRE(S) &nbsp;— <span class="success-text">${label}</span>
+         <button onclick="editStep2()" class="edit-btn">Edit</button>`;
+    } else if (sel.mode==='artist') {
+      const label = sel.artistNames.length===1 ? sel.artistNames[0] : `${sel.artistNames.length} artists`;
+      document.getElementById('artistSelBody').style.display='none';
+      document.getElementById('artistSelLabel').innerHTML=
+        `SELECT ARTISTS &nbsp;— <span class="success-text">${label}</span>
+         <button onclick="editStep2()" class="edit-btn">Edit</button>`;
+    }
+    document.getElementById('playlistOptions').style.display='block';
+    document.getElementById('createPlaylistBtn').style.display='block';
+    updatePreview();
+    // Default name
+    const ni = document.getElementById('playlistName');
+    if (sel.mode==='stage' && sel.stages.length)
+      ni.value = sel.stages.length===1 ? `EDC ${sel.stages[0]} Playlist` : `EDC ${sel.stages.length} Stages Playlist`;
+    else if (sel.mode==='genre' && sel.genres.length)
+      ni.value = sel.genres.length===1 ? `EDC ${sel.genres[0]} Playlist` : `EDC ${sel.genres.length} Genres Playlist`;
+    else if (sel.mode==='artist' && sel.artistNames.length)
+      ni.value = sel.artistNames.length===1 ? `EDC ${sel.artistNames[0]} Playlist` : `EDC ${sel.artistNames.length} Artists Playlist`;
+    else ni.value = 'My EDC 2025 Playlist';
+  }
+
+  function editStep2() {
+    resetFromStep2();
+    if (sel.mode==='stage') {
+      document.getElementById('stageSelBody').style.display='block';
+      document.getElementById('stageSelLabel').textContent='SELECT STAGE(S)';
+    } else if (sel.mode==='genre') {
+      document.getElementById('genreSelBody').style.display='block';
+      document.getElementById('genreSelLabel').textContent='SELECT GENRE(S)';
+    } else if (sel.mode==='artist') {
+      document.getElementById('artistSelBody').style.display='block';
+      document.getElementById('artistSelLabel').textContent='SELECT ARTISTS';
+    }
+    document.getElementById('playlistOptions').style.display='none';
+    document.getElementById('createPlaylistBtn').style.display='none';
+  }
+
+  // =====================================================================
+  // CREATE PLAYLIST
+  // =====================================================================
+  async function createPlaylist() {
+    const name = document.getElementById('playlistName').value.trim();
+    const desc = document.getElementById('playlistDesc').value.trim() || 'Created with EDC Playlist Generator';
+    const tpa  = parseInt(document.getElementById('tracksPerArtist').value);
+    if (!name) { alert('Please enter a playlist name'); return; }
+
+    const filtered = getFilteredArtists();
+    if (!filtered.length) { alert('Please select at least one artist'); return; }
+
+    document.getElementById('playlistOptions').style.display='none';
+    document.getElementById('createPlaylistBtn').style.display='none';
+    document.getElementById('progressSection').style.display='block';
+    setProgress(10, 'Creating your playlist…');
+
+    try {
+      const artistsData = filtered.map(a=>({name:a.name,spotifyId:a.id})).filter(a=>a.spotifyId);
+      if (!artistsData.length) throw new Error('No artists found with Spotify IDs.');
+      const skipped = filtered.length - artistsData.length;
+
+      setProgress(30, `Sending ${artistsData.length} artist${artistsData.length!==1?'s':''} to Spotify…${skipped>0?` (${skipped} skipped)`:''}`);
+
+      const res = await fetch('/.netlify/functions/create-playlist', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({artists:artistsData, playlistName:name, playlistDescription:desc, tracksPerArtist:tpa})
+      });
+
+      setProgress(75, 'Adding tracks…');
+
+      if (!res.ok) { const e=await res.json(); throw new Error(e.error||`Server error ${res.status}`); }
+      const data = await res.json();
+      if (!data.success||!data.playlist) throw new Error('Failed to create playlist');
+
+      setProgress(100, 'Done!');
+      setTimeout(() => {
+        document.getElementById('progressSection').style.display='none';
+        document.getElementById('resultsSection').style.display='block';
+        let msg = `"${data.playlist.name}" created with ${data.playlist.trackCount} tracks!`;
+        if (skipped>0) msg += ` (${skipped} artist${skipped!==1?'s':''} without Spotify IDs skipped)`;
+        document.getElementById('resultsMessage').textContent = msg;
+        document.getElementById('playlistLink').href = data.playlist.url;
+        if (data.playlist.uri) {
+          document.getElementById('spotifyCodeImg').src = `https://scannables.scdn.co/uri/plain/png/000000/white/640/${data.playlist.uri}`;
+          document.getElementById('spotifyCodeSection').style.display='block';
+        }
+      }, 600);
+    } catch(e) {
+      document.getElementById('progressSection').style.display='none';
+      alert(`Error: ${e.message}`);
+      document.getElementById('playlistOptions').style.display='block';
+      document.getElementById('createPlaylistBtn').style.display='block';
+    }
+  }
+
+  function setProgress(pct, msg) {
+    document.getElementById('progressBar').style.width = pct+'%';
+    document.getElementById('statusMessage').textContent = msg;
+  }
+
+  // =====================================================================
+  // RESET HELPERS
+  // =====================================================================
+  function resetFromDay() {
+    sel.mode=null; sel.stages=[]; sel.genres=[]; sel.artistNames=[];
+    document.getElementById('step1Body').style.display='block';
+    document.getElementById('step1Label').textContent='CHOOSE YOUR FILTER';
+    resetStep2Cards();
+    document.getElementById('playlistOptions').style.display='none';
+    document.getElementById('createPlaylistBtn').style.display='none';
+  }
+  function resetFromStep1() {
+    sel.stages=[]; sel.genres=[]; sel.artistNames=[];
+    resetStep2Cards();
+    document.getElementById('playlistOptions').style.display='none';
+    document.getElementById('createPlaylistBtn').style.display='none';
+  }
+  function resetFromStep2() {
+    sel.stages=[]; sel.genres=[]; sel.artistNames=[];
+    document.getElementById('playlistOptions').style.display='none';
+    document.getElementById('createPlaylistBtn').style.display='none';
+  }
+  function resetStep2Cards() {
+    [['stageSelection','stageSelBody','stageSelLabel','SELECT STAGE(S)','stagesList'],
+     ['genreSelection','genreSelBody','genreSelLabel','SELECT GENRE(S)','genresList'],
+     ['artistSelection','artistSelBody','artistSelLabel','SELECT ARTISTS','artistsList']]
+    .forEach(([cardId,bodyId,labelId,labelText,listId])=>{
+      document.getElementById(cardId).style.display='none';
+      document.getElementById(bodyId).style.display='block';
+      document.getElementById(labelId).textContent=labelText;
+      document.getElementById(listId).innerHTML='';
+    });
+  }
+
+  function resetApp() {
+    ['step1','stageSelection','genreSelection','artistSelection',
+     'playlistOptions','createPlaylistBtn','progressSection','resultsSection']
+    .forEach(id=>document.getElementById(id).style.display='none');
+    sel = {day:'all',mode:null,stages:[],genres:[],artistNames:[]};
+    document.getElementById('daySelectionBody').style.display='block';
+    document.querySelector('#daySelection .head-label').textContent='SELECT FESTIVAL DAY';
+  }
   </script>
 </body>
 </html>
