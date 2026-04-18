@@ -2,23 +2,32 @@
 /**
  * build-track-cache.js
  *
- * Run once locally to pre-fetch the top 10 Spotify track URIs for every
- * artist in edc_artists.json and save them to netlify/functions/track_cache.json
+ * Pre-fetches the top 10 Spotify track URIs for every artist in
+ * edc_artists.json and saves them to netlify/functions/track_cache.json.
  *
- * Usage:  node build-track-cache.js
+ * Local usage:  node build-track-cache.js
+ *   Reads credentials from .env file in the project root.
  *
- * Requires your .env file to be present in the same folder.
+ * CI usage (GitHub Actions):
+ *   Set SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN
+ *   as environment variables / secrets — .env file not needed.
  */
 
 const fs    = require('fs');
 const path  = require('path');
 const fetch = require('node-fetch');
 
-// ── Load .env ──────────────────────────────────────────────────────────────
+// ── Load credentials ───────────────────────────────────────────────────────
+// If env vars are already set (GitHub Actions injects them), skip .env loading.
 function loadEnv() {
+  const already = process.env.SPOTIFY_CLIENT_ID &&
+                  process.env.SPOTIFY_CLIENT_SECRET &&
+                  process.env.SPOTIFY_REFRESH_TOKEN;
+  if (already) return;
+
   const envPath = path.join(__dirname, '.env');
   if (!fs.existsSync(envPath)) {
-    throw new Error('.env file not found — make sure it exists in the project root.');
+    throw new Error('.env file not found. Create one with SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REFRESH_TOKEN.');
   }
   fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
     const eqIdx = line.indexOf('=');
@@ -32,7 +41,7 @@ function loadEnv() {
 // ── Spotify helpers ────────────────────────────────────────────────────────
 async function getAccessToken() {
   const { SPOTIFY_CLIENT_ID: id, SPOTIFY_CLIENT_SECRET: secret, SPOTIFY_REFRESH_TOKEN: rt } = process.env;
-  if (!id || !secret || !rt) throw new Error('Missing SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET / SPOTIFY_REFRESH_TOKEN in .env');
+  if (!id || !secret || !rt) throw new Error('Missing SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET / SPOTIFY_REFRESH_TOKEN');
 
   const res  = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
@@ -48,12 +57,11 @@ async function getAccessToken() {
 }
 
 async function fetchTopTracks(token, artistId, retries = 3) {
-  const res  = await fetch(
+  const res = await fetch(
     `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
 
-  // Rate limited — wait and retry
   if (res.status === 429 && retries > 0) {
     const wait = parseInt(res.headers.get('Retry-After') || '2', 10) * 1000;
     await sleep(wait);
@@ -83,11 +91,9 @@ async function main() {
   console.log('✓ Spotify token obtained\n');
 
   const cache     = {};
-  const BATCH     = 25;   // parallel requests per batch
-  const DELAY_MS  = 150;  // pause between batches to stay under rate limits
-  let   succeeded = 0;
-  let   skipped   = 0;
-  let   failed    = 0;
+  const BATCH     = 25;
+  const DELAY_MS  = 150;
+  let succeeded = 0, skipped = 0, failed = 0;
 
   for (let i = 0; i < names.length; i += BATCH) {
     const batch = names.slice(i, i + BATCH);
@@ -95,11 +101,7 @@ async function main() {
     await Promise.allSettled(
       batch.map(async name => {
         const artist = artists[name];
-        if (!artist.id) {
-          cache[name] = [];
-          skipped++;
-          return;
-        }
+        if (!artist.id) { cache[name] = []; skipped++; return; }
         try {
           cache[name] = await fetchTopTracks(token, artist.id);
           succeeded++;
@@ -111,13 +113,10 @@ async function main() {
       })
     );
 
-    const done = Math.min(i + BATCH, names.length);
-    process.stdout.write(`  Progress: ${done}/${names.length}\r`);
-
+    process.stdout.write(`  Progress: ${Math.min(i + BATCH, names.length)}/${names.length}\r`);
     if (i + BATCH < names.length) await sleep(DELAY_MS);
   }
 
-  // ── Write output ──────────────────────────────────────────────────────
   const outDir  = path.join(__dirname, 'netlify', 'functions');
   const outPath = path.join(outDir, 'track_cache.json');
   fs.mkdirSync(outDir, { recursive: true });
