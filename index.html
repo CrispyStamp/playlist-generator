@@ -261,6 +261,39 @@
     }
     .form-input::placeholder,.form-textarea::placeholder { color:var(--muted); }
 
+    /* ── PREVIEW ARTIST DROPDOWN ── */
+    .preview-artists-toggle {
+      display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; margin-top:10px; padding:7px 10px;
+      background:rgba(0,212,255,.06); border:1px solid rgba(0,212,255,.14);
+      border-radius:7px; font-size:0.82rem; color:var(--cyan);
+      transition:background .15s; user-select:none;
+    }
+    .preview-artists-toggle:hover { background:rgba(0,212,255,.11); }
+    .preview-caret { transition:transform .2s; font-size:0.7rem; }
+    .preview-caret.open { transform:rotate(180deg); }
+    .preview-artists-list {
+      display:none; flex-direction:column; gap:3px;
+      max-height:220px; overflow-y:auto;
+      margin-top:6px; padding-right:4px;
+    }
+    .preview-artists-list::-webkit-scrollbar { width:4px; }
+    .preview-artists-list::-webkit-scrollbar-track { background:transparent; }
+    .preview-artists-list::-webkit-scrollbar-thumb { background:rgba(0,212,255,.25); border-radius:2px; }
+    .preview-artists-list.open { display:flex; }
+    .preview-artist-item {
+      display:flex; align-items:center; gap:10px;
+      padding:7px 10px; border-radius:6px; cursor:pointer;
+      border:1px solid rgba(255,255,255,.04);
+      background:rgba(255,255,255,.02); font-size:0.84rem;
+      transition:background .12s, opacity .15s;
+    }
+    .preview-artist-item:hover { background:rgba(0,212,255,.06); }
+    .preview-artist-item.excluded { opacity:0.38; text-decoration:line-through; color:var(--muted); }
+    .preview-artist-item input[type="checkbox"] {
+      width:14px; height:14px; accent-color:var(--cyan); flex-shrink:0; cursor:pointer;
+    }
+
     /* ── CREATE ── */
     .create-wrap { text-align:center; margin:8px 0 24px; }
     .create-btn {
@@ -457,6 +490,13 @@
           <div class="preview-box" id="selectionPreview">
             <div class="preview-label">📋 Selection Preview</div>
             <div id="previewContent"></div>
+            <div id="previewArtistsContainer" style="display:none;">
+              <div class="preview-artists-toggle" onclick="togglePreviewArtists()">
+                <span id="previewArtistsCount"></span>
+                <span class="preview-caret" id="previewCaret">▾</span>
+              </div>
+              <div class="preview-artists-list" id="previewArtistsList"></div>
+            </div>
           </div>
           <div class="form-group">
             <label class="form-label" for="playlistName">Playlist Name</label>
@@ -717,7 +757,7 @@
   let artists = {};
   let cachedLists = null;
   let genreIndex  = null;
-  let sel = { day:'all', mode:null, stages:[], genres:[], artistNames:[] };
+  let sel = { day:'all', mode:null, stages:[], genres:[], artistNames:[], excludedArtists: new Set() };
 
   // =====================================================================
   // INIT
@@ -800,13 +840,19 @@
     return [...s].sort();
   }
 
-  function getFilteredArtists() {
+  // All artists matching the current mode/selection, before manual exclusions.
+  function getAllFilteredArtists() {
     switch(sel.mode) {
       case 'stage':  return sel.stages.length ? filterByStages(sel.stages) : [];
       case 'genre':  return filterByGenres(sel.genres);
       case 'artist': return sel.artistNames.map(n=>({name:n,...artists[n]}));
       default: return [];
     }
+  }
+
+  // Artists that will actually go into the playlist (respects manual exclusions).
+  function getFilteredArtists() {
+    return getAllFilteredArtists().filter(a => !sel.excludedArtists.has(a.name));
   }
 
   // An artist matches only if they have a performance on the selected day at one of the selected stages.
@@ -993,7 +1039,8 @@
   // STEP 3
   // =====================================================================
   function updatePreview() {
-    const filtered = getFilteredArtists();
+    const all      = getAllFilteredArtists();   // full list before exclusions
+    const filtered = getFilteredArtists();      // after exclusions
     const withId   = filtered.filter(a=>a.id);
     const noId     = filtered.filter(a=>!a.id);
     const tpa      = parseInt(document.getElementById('tracksPerArtist').value);
@@ -1004,6 +1051,72 @@
     if (noId.length > 0)
       html += `<br><span class="warn-text">⚠ ${noId.length} artist${noId.length!==1?'s':''} missing Spotify ID (will be skipped)</span>`;
     document.getElementById('previewContent').innerHTML = html;
+
+    // Show/rebuild the collapsible artist list
+    if (all.length) {
+      document.getElementById('previewArtistsContainer').style.display = 'block';
+      buildPreviewArtistList(all);
+    } else {
+      document.getElementById('previewArtistsContainer').style.display = 'none';
+    }
+  }
+
+  function togglePreviewArtists() {
+    const list  = document.getElementById('previewArtistsList');
+    const caret = document.getElementById('previewCaret');
+    const open  = list.classList.toggle('open');
+    caret.classList.toggle('open', open);
+  }
+
+  function buildPreviewArtistList(allArtists) {
+    const includedCount = allArtists.filter(a => !sel.excludedArtists.has(a.name)).length;
+    document.getElementById('previewArtistsCount').textContent =
+      `${includedCount} of ${allArtists.length} artist${allArtists.length!==1?'s':''} included `;
+
+    const list = document.getElementById('previewArtistsList');
+    // Preserve open/closed state across rebuilds
+    const wasOpen = list.classList.contains('open');
+    list.innerHTML = '';
+    if (wasOpen) list.classList.add('open');
+
+    allArtists.forEach(artist => {
+      const excluded = sel.excludedArtists.has(artist.name);
+      const item = document.createElement('div');
+      item.className = 'preview-artist-item' + (excluded ? ' excluded' : '');
+
+      // Stage label relevant to the selected day
+      const stageLabel = getPerformances(artist)
+        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .map(p => p.stage).filter(Boolean).join(', ');
+
+      item.innerHTML = `<input type="checkbox" ${excluded ? '' : 'checked'} onclick="event.stopPropagation()">
+        <span>${artist.name}${stageLabel ? ` <span style="color:var(--muted);font-size:.78em">${stageLabel}</span>` : ''}</span>`;
+
+      const cb = item.querySelector('input');
+      item.onclick = e => { if (e.target.type==='checkbox') return; cb.checked=!cb.checked; cb.dispatchEvent(new Event('change')); };
+      cb.onchange = () => {
+        if (cb.checked) { sel.excludedArtists.delete(artist.name); item.classList.remove('excluded'); }
+        else            { sel.excludedArtists.add(artist.name);    item.classList.add('excluded'); }
+        // Update header count + stats without rebuilding the full list
+        const all2 = getAllFilteredArtists();
+        const inc  = all2.filter(a => !sel.excludedArtists.has(a.name)).length;
+        document.getElementById('previewArtistsCount').textContent =
+          `${inc} of ${all2.length} artist${all2.length!==1?'s':''} included `;
+        // Recompute stats row only
+        const filtered2 = getFilteredArtists();
+        const withId2   = filtered2.filter(a=>a.id);
+        const noId2     = filtered2.filter(a=>!a.id);
+        const tpa2      = parseInt(document.getElementById('tracksPerArtist').value);
+        const dayLabel2 = sel.day==='all' ? 'All Days' : sel.day;
+        let html2 = `<strong>Day:</strong> ${dayLabel2}<br>
+                     <strong>${filtered2.length}</strong> artist${filtered2.length!==1?'s':''} selected<br>
+                     <strong>~${withId2.length * tpa2}</strong> total tracks estimated`;
+        if (noId2.length > 0)
+          html2 += `<br><span class="warn-text">⚠ ${noId2.length} artist${noId2.length!==1?'s':''} missing Spotify ID (will be skipped)</span>`;
+        document.getElementById('previewContent').innerHTML = html2;
+      };
+      list.appendChild(item);
+    });
   }
 
   function showStep3() {
@@ -1043,6 +1156,10 @@
   }
 
   function editStep2() {
+    sel.excludedArtists = new Set();
+    document.getElementById('previewArtistsContainer').style.display = 'none';
+    document.getElementById('previewArtistsList').classList.remove('open');
+    document.getElementById('previewCaret').classList.remove('open');
     document.getElementById('playlistOptions').style.display = 'none';
     document.getElementById('createPlaylistBtn').style.display = 'none';
     if (sel.mode==='stage') {
@@ -1128,7 +1245,7 @@
   // RESET HELPERS
   // =====================================================================
   function resetFromDay() {
-    sel.mode=null; sel.stages=[]; sel.genres=[]; sel.artistNames=[];
+    sel.mode=null; sel.stages=[]; sel.genres=[]; sel.artistNames=[]; sel.excludedArtists=new Set();
     document.getElementById('step1Body').style.display = 'block';
     document.getElementById('step1Label').textContent = 'CHOOSE YOUR FILTER';
     resetStep2Cards();
@@ -1136,7 +1253,7 @@
     document.getElementById('createPlaylistBtn').style.display = 'none';
   }
   function resetFromStep1() {
-    sel.stages=[]; sel.genres=[]; sel.artistNames=[];
+    sel.stages=[]; sel.genres=[]; sel.artistNames=[]; sel.excludedArtists=new Set();
     resetStep2Cards();
     document.getElementById('playlistOptions').style.display = 'none';
     document.getElementById('createPlaylistBtn').style.display = 'none';
@@ -1157,10 +1274,11 @@
     ['step1','stageSelection','genreSelection','artistSelection',
      'playlistOptions','createPlaylistBtn','progressSection','resultsSection']
     .forEach(id => document.getElementById(id).style.display = 'none');
-    sel = {day:'all', mode:null, stages:[], genres:[], artistNames:[]};
+    sel = {day:'all', mode:null, stages:[], genres:[], artistNames:[], excludedArtists:new Set()};
     document.getElementById('daySelectionBody').style.display = 'block';
     document.querySelector('#daySelection .head-label').textContent = 'SELECT FESTIVAL DAY';
   }
   </script>
 </body>
 </html>
+
