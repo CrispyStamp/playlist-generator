@@ -174,11 +174,11 @@
       border-radius:20px; padding:4px 12px; font-size:0.78rem; font-weight:600;
     }
     .ghost-btn {
-      padding:4px 12px; border:1px solid rgba(255,255,255,.14);
+      padding:4px 12px; border:1px solid rgba(255,255,255,.32);
       border-radius:20px; background:transparent;
-      color:var(--muted); font-size:0.78rem; cursor:pointer; transition:all .15s;
+      color:rgba(232,232,255,.72); font-size:0.78rem; cursor:pointer; transition:all .15s;
     }
-    .ghost-btn:hover { border-color:rgba(255,255,255,.4); color:var(--text); }
+    .ghost-btn:hover { border-color:rgba(255,255,255,.65); color:var(--text); background:rgba(255,255,255,.05); }
 
     /* ── LIST ── */
     .neon-list {
@@ -471,7 +471,8 @@
           <input type="text" id="artistSearch" class="search-input" placeholder="Search artists…" oninput="filterArtists()">
           <div class="sel-bar">
             <span id="artistSelectedCount" class="count-pill">0 selected</span>
-            <button onclick="clearArtistSelection()" class="ghost-btn">Clear</button>
+            <button onclick="clearArtistSelection()"  class="ghost-btn">Clear</button>
+            <button onclick="selectAllArtists()"      class="ghost-btn">Select All</button>
           </div>
           <div class="neon-list" id="artistsList"></div>
           <div class="continue-bar" id="artistContinueBtn" style="display:none;">
@@ -1020,6 +1021,12 @@
     sel.artistNames = [];
     document.getElementById('artistSelectedCount').textContent = '0 selected';
     document.getElementById('artistContinueBtn').style.display = 'none';
+  }
+  function selectAllArtists() {
+    document.querySelectorAll('#artistsList .list-item').forEach(i=>{ i.classList.add('active'); const c=i.querySelector('input'); if(c) c.checked=true; });
+    sel.artistNames = [...cachedLists.allArtists.map(a=>a.name)];
+    document.getElementById('artistSelectedCount').textContent = `${sel.artistNames.length} selected`;
+    document.getElementById('artistContinueBtn').style.display = 'block';
   }
 
   // =====================================================================
