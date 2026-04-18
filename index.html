@@ -764,24 +764,42 @@
   // =====================================================================
   // HELPERS
   // =====================================================================
+
+  // Returns a normalized performances array for an artist.
+  // Supports new format: { performances: [{day, stage}, ...] }
+  // Falls back to legacy format: { day: "Friday", stage: "Neon Garden" }
+  function getPerformances(artist) {
+    if (Array.isArray(artist.performances)) return artist.performances;
+    if (artist.stage || artist.day) return [{ day: artist.day || null, stage: artist.stage || null }];
+    return [];
+  }
+
   function matchesDay(artist, day) {
     if (day === 'all') return true;
-    if (!artist.day) return false;
-    return artist.day.split(',').map(d => d.trim()).includes(day);
+    return getPerformances(artist).some(p => p.day === day);
   }
+
   function getAllArtists() {
     return Object.keys(artists).sort((a,b)=>a.localeCompare(b)).map(n=>({name:n,...artists[n]}));
   }
+
+  // Returns only stages that have artists performing on the selected day.
   function getUniqueStagesFrom(list) {
     const s = new Set();
-    list.forEach(a => { if (!a.stage) return; a.stage.split(',').map(t=>t.trim()).forEach(t=>s.add(t)); });
+    list.forEach(a => {
+      getPerformances(a)
+        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .forEach(p => { if (p.stage) s.add(p.stage); });
+    });
     return [...s].sort();
   }
+
   function getUniqueGenresFrom(list) {
     const s = new Set();
     list.forEach(a => { if(a.genres) a.genres.forEach(g=>s.add(g.toLowerCase())); });
     return [...s].sort();
   }
+
   function getFilteredArtists() {
     switch(sel.mode) {
       case 'stage':  return sel.stages.length ? filterByStages(sel.stages) : [];
@@ -790,13 +808,17 @@
       default: return [];
     }
   }
+
+  // An artist matches only if they have a performance on the selected day at one of the selected stages.
   function filterByStages(stages) {
     const s = new Set(stages);
-    return cachedLists.allArtists.filter(a => {
-      if (!a.stage) return false;
-      return a.stage.split(',').map(t=>t.trim()).some(t=>s.has(t));
-    }).sort((a,b)=>a.name.localeCompare(b.name));
+    return cachedLists.allArtists.filter(a =>
+      getPerformances(a).some(p =>
+        (sel.day === 'all' || p.day === sel.day) && s.has(p.stage)
+      )
+    ).sort((a,b) => a.name.localeCompare(b.name));
   }
+
   function filterByGenres(genres) {
     if (!genres.length) return [];
     const names = new Set();
@@ -905,8 +927,12 @@
   function populateArtistsList() {
     const list = document.getElementById('artistsList'); list.innerHTML = '';
     cachedLists.allArtists.forEach(artist => {
-      const label = artist.stage
-        ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${artist.stage}</span>`
+      // Show only the stage(s) relevant to the selected day
+      const stageLabel = getPerformances(artist)
+        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .map(p => p.stage).filter(Boolean).join(', ');
+      const label = stageLabel
+        ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${stageLabel}</span>`
         : artist.name;
       list.appendChild(makeListItem(label, checked => {
         sel.artistNames = checked ? [...sel.artistNames, artist.name] : sel.artistNames.filter(n=>n!==artist.name);
@@ -1016,8 +1042,6 @@
     else ni.value = 'My EDC 2026 Playlist';
   }
 
-  // FIX: editStep2 no longer clears sel — preserves all selections so
-  // the state array stays in sync with the checked checkboxes.
   function editStep2() {
     document.getElementById('playlistOptions').style.display = 'none';
     document.getElementById('createPlaylistBtn').style.display = 'none';
