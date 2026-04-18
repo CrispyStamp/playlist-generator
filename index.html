@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EDC Las Vegas 2025 — Playlist Creator</title>
+  <title>EDC Las Vegas 2026 — Playlist Creator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,21 +11,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #04001a;
-      --cyan:      #00d4ff;
-      --magenta:   #ff00aa;
-      --gold:      #ffd700;
-      --purple:    #7b00ff;
-      --green:     #00ff88;
-      --card-bg:   rgba(255,255,255,0.04);
+      --bg:          #04001a;
+      --cyan:        #00d4ff;
+      --magenta:     #ff00aa;
+      --gold:        #ffd700;
+      --purple:      #7b00ff;
+      --green:       #00ff88;
+      --card-bg:     rgba(255,255,255,0.04);
       --card-border: rgba(0,212,255,0.18);
-      --text:      #e8e8ff;
-      --muted:     rgba(232,232,255,0.45);
-      --font-h:    'Orbitron', monospace;
-      --font-b:    'Inter', sans-serif;
+      --text:        #e8e8ff;
+      --muted:       rgba(232,232,255,0.45);
+      --font-h:      'Orbitron', monospace;
+      --font-b:      'Inter', sans-serif;
     }
 
-    /* ── BASE ── */
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
@@ -35,17 +34,12 @@
       line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* ── AURORA BACKGROUND ── */
-    .aurora {
-      position: fixed; inset: 0; z-index: 0;
-      pointer-events: none; overflow: hidden;
-    }
-    .aurora-blob {
-      position: absolute; border-radius: 50%;
-      filter: blur(90px); opacity: 0.13;
-    }
+    /* ── AURORA ── */
+    .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .aurora-blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.13; }
     .a1 { width:700px;height:700px; background:radial-gradient(circle,#00d4ff,transparent); top:-200px;left:-150px; animation:drift 22s ease-in-out infinite; }
     .a2 { width:550px;height:550px; background:radial-gradient(circle,#ff00aa,transparent); top:40%;right:-120px; animation:drift 18s ease-in-out infinite reverse; animation-delay:-9s; }
     .a3 { width:450px;height:450px; background:radial-gradient(circle,#7b00ff,transparent); bottom:-100px;left:30%; animation:drift 26s ease-in-out infinite; animation-delay:-14s; }
@@ -56,8 +50,13 @@
       66%    { transform:translate(-25px,25px) scale(0.94); }
     }
 
-    /* ── FX CANVAS ── */
-    #fxCanvas { position:fixed; inset:0; z-index:9999; pointer-events:none; }
+    /* ── FX CANVAS — absolute so it spans the full page ── */
+    #fxCanvas {
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 9999;
+      pointer-events: none;
+    }
 
     /* ── LAYOUT ── */
     .page { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:0 18px 60px; }
@@ -95,12 +94,10 @@
       background:var(--card-bg);
       border:1px solid var(--card-border);
       border-radius:14px; margin-bottom:14px;
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
       overflow:hidden; transition:border-color .3s;
     }
     .card:hover { border-color:rgba(0,212,255,.3); }
-
     .card-head {
       padding:14px 20px;
       background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,0,255,.08));
@@ -113,8 +110,7 @@
       width:22px; height:22px; border-radius:50%;
       background:var(--cyan); color:#000;
       font-size:0.65rem; font-weight:900;
-      display:flex; align-items:center; justify-content:center;
-      flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
     }
     .card-head .head-label { flex:1; }
     .edit-btn {
@@ -137,7 +133,7 @@
     }
     @keyframes spin { to { transform:rotate(360deg); } }
 
-    /* ── DAY / METHOD BUTTONS ── */
+    /* ── BUTTONS ── */
     .btn-grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
     .btn-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
     @media(max-width:580px){ .btn-grid-4{grid-template-columns:repeat(2,1fr);} .btn-grid-3{grid-template-columns:1fr;} }
@@ -148,24 +144,18 @@
       font-family:var(--font-h); font-size:0.72rem; font-weight:700;
       letter-spacing:0.12em; transition:all .2s; text-align:center;
     }
-    .day-btn {
-      border:1px solid rgba(0,212,255,.25); color:var(--text);
-    }
+    .day-btn { border:1px solid rgba(0,212,255,.25); color:var(--text); }
     .day-btn:hover {
       border-color:var(--cyan); color:var(--cyan);
-      background:rgba(0,212,255,.08);
-      box-shadow:0 0 18px rgba(0,212,255,.18);
+      background:rgba(0,212,255,.08); box-shadow:0 0 18px rgba(0,212,255,.18);
     }
-    .method-btn {
-      border:1px solid rgba(255,0,170,.25); color:var(--text);
-    }
+    .method-btn { border:1px solid rgba(255,0,170,.25); color:var(--text); }
     .method-btn:hover {
       border-color:var(--magenta); color:var(--magenta);
-      background:rgba(255,0,170,.07);
-      box-shadow:0 0 18px rgba(255,0,170,.18);
+      background:rgba(255,0,170,.07); box-shadow:0 0 18px rgba(255,0,170,.18);
     }
 
-    /* ── SEARCH INPUT ── */
+    /* ── SEARCH ── */
     .search-input {
       width:100%; padding:10px 14px; margin-bottom:12px;
       background:rgba(255,255,255,.04);
@@ -176,13 +166,12 @@
     .search-input::placeholder { color:var(--muted); }
     .search-input:focus { border-color:var(--cyan); box-shadow:0 0 10px rgba(0,212,255,.12); }
 
-    /* ── SELECTION BAR ── */
+    /* ── SEL BAR ── */
     .sel-bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
     .count-pill {
       background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(123,0,255,.18));
       border:1px solid rgba(0,212,255,.3); color:var(--cyan);
-      border-radius:20px; padding:4px 12px;
-      font-size:0.78rem; font-weight:600;
+      border-radius:20px; padding:4px 12px; font-size:0.78rem; font-weight:600;
     }
     .ghost-btn {
       padding:4px 12px; border:1px solid rgba(255,255,255,.14);
@@ -199,7 +188,6 @@
     .neon-list::-webkit-scrollbar { width:4px; }
     .neon-list::-webkit-scrollbar-track { background:transparent; }
     .neon-list::-webkit-scrollbar-thumb { background:rgba(0,212,255,.25); border-radius:2px; }
-
     .list-item {
       display:flex; align-items:center; gap:12px;
       padding:11px 14px; border-radius:8px;
@@ -215,11 +203,10 @@
       color:var(--cyan); box-shadow:inset 3px 0 0 var(--cyan);
     }
     .list-item input[type="checkbox"] {
-      width:15px; height:15px; accent-color:var(--cyan);
-      flex-shrink:0; cursor:pointer;
+      width:15px; height:15px; accent-color:var(--cyan); flex-shrink:0; cursor:pointer;
     }
 
-    /* ── STICKY CONTINUE ── */
+    /* ── CONTINUE ── */
     .continue-bar {
       position:sticky; bottom:0; padding:18px 0 4px; text-align:center;
       background:linear-gradient(to top,rgba(4,0,26,.97) 65%,transparent);
@@ -249,7 +236,6 @@
     }
     .preview-box p { font-size:0.88rem; line-height:1.9; }
     .warn-text { color:var(--gold); font-size:0.8rem; }
-
     .form-group { margin-bottom:16px; }
     .form-label {
       display:block; font-size:0.7rem; font-weight:500;
@@ -266,8 +252,8 @@
     .form-select {
       cursor:pointer; appearance:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat:no-repeat; background-position:right 12px center;
-      background-size:12px;
+      background-repeat:no-repeat; background-position:right 12px center; background-size:12px;
+      background-color:rgba(255,255,255,.04);
     }
     .form-textarea { resize:vertical; }
     .form-input:focus,.form-select:focus,.form-textarea:focus {
@@ -275,7 +261,7 @@
     }
     .form-input::placeholder,.form-textarea::placeholder { color:var(--muted); }
 
-    /* ── BIG CREATE BUTTON ── */
+    /* ── CREATE ── */
     .create-wrap { text-align:center; margin:8px 0 24px; }
     .create-btn {
       padding:17px 56px;
@@ -291,15 +277,10 @@
     }
 
     /* ── PROGRESS ── */
-    .prog-track {
-      height:5px; background:rgba(255,255,255,.06);
-      border-radius:3px; overflow:hidden; margin:16px 0;
-    }
+    .prog-track { height:5px; background:rgba(255,255,255,.06); border-radius:3px; overflow:hidden; margin:16px 0; }
     .prog-bar {
-      height:100%;
-      background:linear-gradient(90deg,var(--cyan),var(--magenta));
-      border-radius:3px; transition:width .5s ease;
-      box-shadow:0 0 10px var(--cyan);
+      height:100%; background:linear-gradient(90deg,var(--cyan),var(--magenta));
+      border-radius:3px; transition:width .5s ease; box-shadow:0 0 10px var(--cyan);
     }
     .prog-status { text-align:center; color:var(--muted); font-size:0.85rem; }
 
@@ -311,8 +292,7 @@
       background:#1db954; border:none; border-radius:50px;
       color:#fff; font-family:var(--font-h); font-size:0.72rem; font-weight:700;
       letter-spacing:0.1em; cursor:pointer; text-decoration:none;
-      transition:all .2s; margin:6px;
-      box-shadow:0 0 22px rgba(29,185,84,.3);
+      transition:all .2s; margin:6px; box-shadow:0 0 22px rgba(29,185,84,.3);
     }
     .spotify-btn:hover { transform:translateY(-2px); box-shadow:0 0 34px rgba(29,185,84,.5); color:#fff; }
     .reset-btn {
@@ -327,12 +307,7 @@
     .spotify-code p { color:var(--muted); font-size:0.8rem; margin-bottom:10px; }
     .spotify-code img { max-width:280px; border-radius:8px; }
 
-    /* ── FOOTER / SECRET BTN ── */
-    footer {
-      position:relative; z-index:1;
-      text-align:center; padding:32px 20px 24px;
-      color:var(--muted); font-size:0.72rem; letter-spacing:0.1em;
-    }
+    /* ── SECRET BTN ── */
     #secretBtn {
       position:fixed; bottom:18px; right:22px;
       background:transparent; border:none;
@@ -341,21 +316,14 @@
       transition:color .4s,text-shadow .4s;
       animation:secret-pulse 5s ease-in-out infinite;
     }
-    #secretBtn:hover {
-      color:rgba(0,212,255,.65);
-      text-shadow:0 0 12px var(--cyan);
-    }
-    @keyframes secret-pulse {
-      0%,100%{opacity:.35;} 50%{opacity:.7;}
-    }
+    #secretBtn:hover { color:rgba(0,212,255,.65); text-shadow:0 0 12px var(--cyan); }
+    @keyframes secret-pulse { 0%,100%{opacity:.35;} 50%{opacity:.7;} }
 
-    /* ── SUBTEXT HELPERS ── */
     .text-muted-sm { color:var(--muted); font-size:0.82rem; margin-top:4px; }
   </style>
 </head>
 <body>
 
-  <!-- Aurora BG -->
   <div class="aurora">
     <div class="aurora-blob a1"></div>
     <div class="aurora-blob a2"></div>
@@ -363,32 +331,28 @@
     <div class="aurora-blob a4"></div>
   </div>
 
-  <!-- FX Canvas -->
   <canvas id="fxCanvas"></canvas>
 
   <div class="page">
 
-    <!-- ── HERO ── -->
     <header class="hero">
       <div class="hero-edc">EDC</div>
-      <div class="hero-sub">LAS VEGAS &nbsp;<span>2025</span></div>
+      <div class="hero-sub">LAS VEGAS &nbsp;<span>2026</span></div>
       <div class="hero-tag">Playlist Creator</div>
       <div class="hero-rule"></div>
       <p class="hero-desc">Build a custom Spotify playlist from the full EDC lineup — no login required.</p>
     </header>
 
-    <!-- ── LOADING ── -->
     <div id="loadingSection">
       <div class="card">
         <div class="card-head"><div class="head-label">Loading Lineup</div></div>
         <div class="card-body" style="text-align:center;">
           <div class="loader"></div>
-          <p id="loadingMessage" class="text-muted-sm">Loading EDC 2025 artist data…</p>
+          <p id="loadingMessage" class="text-muted-sm">Loading EDC 2026 artist data…</p>
         </div>
       </div>
     </div>
 
-    <!-- ── MAIN APP ── -->
     <div id="mainApp" style="display:none;">
 
       <!-- Step 0: Day -->
@@ -483,7 +447,7 @@
         </div>
       </div>
 
-      <!-- Step 3: Playlist Options -->
+      <!-- Step 3: Options -->
       <div class="card" id="playlistOptions" style="display:none;">
         <div class="card-head">
           <div class="step-dot">3</div>
@@ -496,7 +460,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="playlistName">Playlist Name</label>
-            <input type="text" class="form-input" id="playlistName" placeholder="My EDC 2025 Playlist">
+            <input type="text" class="form-input" id="playlistName" placeholder="My EDC 2026 Playlist">
           </div>
           <div class="form-group">
             <label class="form-label" for="playlistDesc">Description (Optional)</label>
@@ -504,7 +468,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="tracksPerArtist">Tracks per Artist</label>
-            <select class="form-input form-select" id="tracksPerArtist" onchange="updatePreview()">
+            <select class="form-select" id="tracksPerArtist" onchange="updatePreview()">
               <option value="3">3 tracks</option>
               <option value="5" selected>5 tracks</option>
               <option value="10">10 tracks</option>
@@ -513,7 +477,6 @@
         </div>
       </div>
 
-      <!-- Create Button -->
       <div class="create-wrap" id="createPlaylistBtn" style="display:none;">
         <button onclick="createPlaylist()" class="create-btn">CREATE PLAYLIST</button>
       </div>
@@ -545,32 +508,32 @@
         </div>
       </div>
 
-    </div><!-- /mainApp -->
-  </div><!-- /page -->
+    </div>
+  </div>
 
-  <footer>Made with ♥ for EDC Las Vegas attendees</footer>
+  <footer style="position:relative;z-index:1;text-align:center;padding:32px 20px 24px;color:var(--muted);font-size:.72rem;letter-spacing:.1em;">
+    Made with ♥ for EDC Las Vegas attendees
+  </footer>
 
-  <!-- Secret button — find me if you can ✦ -->
   <button id="secretBtn" title="✨">✦</button>
 
   <script>
   // =====================================================================
-  // FX — LASERS & FIREWORKS
+  // FX — LASERS & FIREWORKS (covers full page height)
   // =====================================================================
   const canvas = document.getElementById('fxCanvas');
   const ctx    = canvas.getContext('2d');
-  let fxRunning = false, fxAnimId = null;
-
+  let fxRunning = false, showStart = 0;
   const FX_COLORS = ['#00d4ff','#ff00aa','#ffd700','#7b00ff','#00ff88','#ff6600','#ffffff'];
 
   function resizeCanvas() {
     canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.documentElement.scrollHeight;
   }
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  /* Particle */
+  /* ── Particle ── */
   class Particle {
     constructor(x, y, color) {
       const angle = Math.random() * Math.PI * 2;
@@ -587,7 +550,7 @@
     update() {
       this.trail.push({x:this.x, y:this.y, life:this.life});
       if (this.trail.length > 6) this.trail.shift();
-      this.x  += this.vx; this.y += this.vy;
+      this.x += this.vx; this.y += this.vy;
       this.vy += 0.07; this.vx *= 0.992;
       this.life -= this.decay;
     }
@@ -609,15 +572,16 @@
     get dead() { return this.life <= 0; }
   }
 
-  /* Firework shell */
+  /* ── Firework Shell — launches from current viewport bottom ── */
   class Shell {
     constructor() {
-      const w = canvas.width, h = canvas.height;
-      this.x = w * 0.12 + Math.random() * w * 0.76;
-      this.y = h;
+      const scrollY  = window.scrollY || window.pageYOffset;
+      const vw = window.innerWidth, vh = window.innerHeight;
+      this.x = vw * 0.12 + Math.random() * vw * 0.76;
+      this.y = scrollY + vh;                                   // bottom of visible area
       this.vy = -(9 + Math.random() * 7);
-      this.targetY = h * (0.08 + Math.random() * 0.44);
-      this.color   = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.targetY = scrollY + vh * (0.08 + Math.random() * 0.44); // burst in visible area
+      this.color    = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
       this.exploded = false;
       this.particles = [];
       this.trail = [];
@@ -628,7 +592,7 @@
         this.trail.push({x:this.x, y:this.y, life:1});
         this.trail.forEach(t => t.life -= 0.14);
         this.trail = this.trail.filter(t => t.life > 0);
-        this.y  += this.vy; this.vy += 0.18;
+        this.y += this.vy; this.vy += 0.18;
         if (this.y <= this.targetY) this.explode();
       } else {
         this.particles.forEach(p => p.update());
@@ -640,7 +604,6 @@
       this.exploded = true;
       const n = 90 + Math.floor(Math.random() * 50);
       for (let i = 0; i < n; i++) this.particles.push(new Particle(this.x, this.y, this.color));
-      // multi-color burst 30% of the time
       if (Math.random() < 0.3) {
         const c2 = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
         for (let i = 0; i < 40; i++) this.particles.push(new Particle(this.x, this.y, c2));
@@ -662,75 +625,73 @@
     }
   }
 
-  /* Laser beam */
+  /* ── Laser — spans visible viewport area, pinned to scroll position ── */
   class Laser {
     constructor() {
-      const w = canvas.width, h = canvas.height;
+      const scrollY = window.scrollY || window.pageYOffset;
+      const vw = window.innerWidth, vh = window.innerHeight;
+      const vTop = scrollY, vBot = scrollY + vh;
       const pts = [
-        [0,0],[w*0.25,0],[w*0.5,0],[w*0.75,0],[w,0],
-        [0,h*0.5],[w,h*0.5],
-        [0,h],[w*0.25,h],[w*0.5,h],[w*0.75,h],[w,h]
+        [0,vTop],[vw*.25,vTop],[vw*.5,vTop],[vw*.75,vTop],[vw,vTop],
+        [0,(vTop+vBot)/2],[vw,(vTop+vBot)/2],
+        [0,vBot],[vw*.25,vBot],[vw*.5,vBot],[vw*.75,vBot],[vw,vBot]
       ];
       const i1 = Math.floor(Math.random() * pts.length);
       let i2; do { i2 = Math.floor(Math.random() * pts.length); } while (i2 === i1);
-      const jitter = (v, s) => v + (Math.random()-.5)*s;
-      this.x1 = jitter(pts[i1][0], w*.25); this.y1 = jitter(pts[i1][1], h*.25);
-      this.x2 = jitter(pts[i2][0], w*.25); this.y2 = jitter(pts[i2][1], h*.25);
-      this.color  = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
-      this.life   = 1;
-      this.phase  = 'in';
-      this.tick   = 0;
+      const jit = (v,s) => v + (Math.random()-.5)*s;
+      this.x1 = jit(pts[i1][0], vw*.25); this.y1 = jit(pts[i1][1], vh*.25);
+      this.x2 = jit(pts[i2][0], vw*.25); this.y2 = jit(pts[i2][1], vh*.25);
+      this.color = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.life  = 1; this.phase = 'in'; this.tick = 0;
     }
     update() {
       this.tick++;
-      if      (this.phase === 'in'   && this.tick > 10) { this.phase = 'hold'; this.tick = 0; }
-      else if (this.phase === 'hold' && this.tick > 22) { this.phase = 'out';  this.tick = 0; }
-      else if (this.phase === 'out') this.life -= 0.055;
+      if      (this.phase==='in'   && this.tick>10) { this.phase='hold'; this.tick=0; }
+      else if (this.phase==='hold' && this.tick>22) { this.phase='out';  this.tick=0; }
+      else if (this.phase==='out') this.life -= 0.055;
     }
     draw() {
-      const alpha = this.phase === 'in' ? this.tick/10 : this.life;
+      const alpha = this.phase==='in' ? this.tick/10 : this.life;
       ctx.save();
-      ctx.globalAlpha = Math.max(0, alpha * 0.35);
+      ctx.globalAlpha = Math.max(0, alpha*.35);
       ctx.strokeStyle = this.color; ctx.shadowColor = this.color; ctx.shadowBlur = 40;
       ctx.lineWidth = 7;
       ctx.beginPath(); ctx.moveTo(this.x1,this.y1); ctx.lineTo(this.x2,this.y2); ctx.stroke();
-      ctx.globalAlpha = Math.max(0, alpha * 0.75);
+      ctx.globalAlpha = Math.max(0, alpha*.75);
       ctx.lineWidth = 2; ctx.shadowBlur = 18; ctx.stroke();
-      ctx.globalAlpha = Math.max(0, alpha * 0.9);
+      ctx.globalAlpha = Math.max(0, alpha*.9);
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke();
       ctx.restore();
     }
     get dead() { return this.life <= 0; }
   }
 
-  /* Show orchestration */
+  /* ── Show orchestration ── */
   const shells = [], lasers = [];
 
   function startShow() {
     if (fxRunning) return;
     fxRunning = true;
-    resizeCanvas();
+    resizeCanvas(); // Capture full page height at show time
 
-    const addShell  = () => shells.push(new Shell());
-    const addLaser  = () => lasers.push(new Laser());
+    const addShell = () => shells.push(new Shell());
+    const addLaser = () => lasers.push(new Laser());
 
-    // Immediate opening salvo
     addShell(); addShell();
     for (let i = 0; i < 10; i++) setTimeout(addLaser, i * 120);
 
     const shellTimes = [200,500,850,1200,1700,2200,2800,3300,3900,4400,5000,5500,6100,6600,7100];
     const laserTimes = [600,1100,1600,2100,2600,3100,3600,4100,4600,5100,5600,6100];
     shellTimes.forEach(t => setTimeout(addShell, t));
-    laserTimes.forEach(t => setTimeout(() => { if(fxRunning) addLaser(); }, t));
+    laserTimes.forEach(t => setTimeout(() => { if (fxRunning) addLaser(); }, t));
 
+    showStart = 0;
     requestAnimationFrame(fxLoop);
   }
 
-  let showStart = 0;
   function fxLoop(ts) {
     if (!showStart) showStart = ts;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     for (let i = lasers.length-1; i >= 0; i--) {
       lasers[i].update(); lasers[i].draw();
       if (lasers[i].dead) lasers.splice(i,1);
@@ -739,10 +700,9 @@
       shells[i].update(); shells[i].draw();
       if (shells[i].gone) shells.splice(i,1);
     }
-
     const elapsed = ts - showStart;
     if (elapsed < 8000 || shells.length > 0 || lasers.length > 0) {
-      fxAnimId = requestAnimationFrame(fxLoop);
+      requestAnimationFrame(fxLoop);
     } else {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       fxRunning = false; showStart = 0;
@@ -757,7 +717,6 @@
   let artists = {};
   let cachedLists = null;
   let genreIndex  = null;
-
   let sel = { day:'all', mode:null, stages:[], genres:[], artistNames:[] };
 
   // =====================================================================
@@ -848,7 +807,7 @@
     sel.day = day;
     buildCachesForDay();
     document.getElementById('daySelectionBody').style.display = 'none';
-    const label = day==='all'?'All Days':day;
+    const label = day==='all' ? 'All Days' : day;
     document.querySelector('#daySelection .head-label').innerHTML =
       `SELECT FESTIVAL DAY &nbsp;— <span class="success-text">${label}</span>
        <button onclick="editDaySelection()" class="edit-btn">Edit</button>`;
@@ -902,7 +861,7 @@
   }
   function hideAllStep2() {
     ['stageSelection','genreSelection','artistSelection','playlistOptions','createPlaylistBtn']
-      .forEach(id => document.getElementById(id).style.display='none');
+      .forEach(id => document.getElementById(id).style.display = 'none');
   }
 
   // =====================================================================
@@ -919,33 +878,35 @@
   }
 
   function populateStagesList() {
-    const list = document.getElementById('stagesList'); list.innerHTML='';
+    const list = document.getElementById('stagesList'); list.innerHTML = '';
     cachedLists.stages.forEach(stage => {
       list.appendChild(makeListItem(stage, checked => {
         sel.stages = checked ? [...sel.stages, stage] : sel.stages.filter(s=>s!==stage);
         document.getElementById('stageSelectedCount').textContent = `${sel.stages.length} selected`;
-        document.getElementById('stageContinueBtn').style.display = sel.stages.length ? 'block':'none';
+        document.getElementById('stageContinueBtn').style.display = sel.stages.length ? 'block' : 'none';
       }));
     });
   }
   function populateGenresList() {
-    const list = document.getElementById('genresList'); list.innerHTML='';
+    const list = document.getElementById('genresList'); list.innerHTML = '';
     cachedLists.genres.forEach(genre => {
       list.appendChild(makeListItem(genre, checked => {
         sel.genres = checked ? [...sel.genres, genre] : sel.genres.filter(g=>g!==genre);
         document.getElementById('genreSelectedCount').textContent = `${sel.genres.length} selected`;
-        document.getElementById('genreContinueBtn').style.display = sel.genres.length ? 'block':'none';
+        document.getElementById('genreContinueBtn').style.display = sel.genres.length ? 'block' : 'none';
       }));
     });
   }
   function populateArtistsList() {
-    const list = document.getElementById('artistsList'); list.innerHTML='';
+    const list = document.getElementById('artistsList'); list.innerHTML = '';
     cachedLists.allArtists.forEach(artist => {
-      const label = artist.stage ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${artist.stage}</span>` : artist.name;
+      const label = artist.stage
+        ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${artist.stage}</span>`
+        : artist.name;
       list.appendChild(makeListItem(label, checked => {
         sel.artistNames = checked ? [...sel.artistNames, artist.name] : sel.artistNames.filter(n=>n!==artist.name);
         document.getElementById('artistSelectedCount').textContent = `${sel.artistNames.length} selected`;
-        document.getElementById('artistContinueBtn').style.display = sel.artistNames.length ? 'block':'none';
+        document.getElementById('artistContinueBtn').style.display = sel.artistNames.length ? 'block' : 'none';
       }));
     });
   }
@@ -955,33 +916,33 @@
   // =====================================================================
   function clearStageSelection() {
     document.querySelectorAll('#stagesList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
-    sel.stages=[];
-    document.getElementById('stageSelectedCount').textContent='0 selected';
-    document.getElementById('stageContinueBtn').style.display='none';
+    sel.stages = [];
+    document.getElementById('stageSelectedCount').textContent = '0 selected';
+    document.getElementById('stageContinueBtn').style.display = 'none';
   }
   function selectAllStages() {
     document.querySelectorAll('#stagesList .list-item').forEach(i=>{ i.classList.add('active'); const c=i.querySelector('input'); if(c) c.checked=true; });
-    sel.stages=[...cachedLists.stages];
-    document.getElementById('stageSelectedCount').textContent=`${sel.stages.length} selected`;
-    document.getElementById('stageContinueBtn').style.display='block';
+    sel.stages = [...cachedLists.stages];
+    document.getElementById('stageSelectedCount').textContent = `${sel.stages.length} selected`;
+    document.getElementById('stageContinueBtn').style.display = 'block';
   }
   function clearGenreSelection() {
     document.querySelectorAll('#genresList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
-    sel.genres=[];
-    document.getElementById('genreSelectedCount').textContent='0 selected';
-    document.getElementById('genreContinueBtn').style.display='none';
+    sel.genres = [];
+    document.getElementById('genreSelectedCount').textContent = '0 selected';
+    document.getElementById('genreContinueBtn').style.display = 'none';
   }
   function selectAllGenres() {
     document.querySelectorAll('#genresList .list-item').forEach(i=>{ i.classList.add('active'); const c=i.querySelector('input'); if(c) c.checked=true; });
-    sel.genres=[...cachedLists.genres];
-    document.getElementById('genreSelectedCount').textContent=`${sel.genres.length} selected`;
-    document.getElementById('genreContinueBtn').style.display='block';
+    sel.genres = [...cachedLists.genres];
+    document.getElementById('genreSelectedCount').textContent = `${sel.genres.length} selected`;
+    document.getElementById('genreContinueBtn').style.display = 'block';
   }
   function clearArtistSelection() {
     document.querySelectorAll('#artistsList .list-item').forEach(i=>{ i.classList.remove('active'); const c=i.querySelector('input'); if(c) c.checked=false; });
-    sel.artistNames=[];
-    document.getElementById('artistSelectedCount').textContent='0 selected';
-    document.getElementById('artistContinueBtn').style.display='none';
+    sel.artistNames = [];
+    document.getElementById('artistSelectedCount').textContent = '0 selected';
+    document.getElementById('artistContinueBtn').style.display = 'none';
   }
 
   // =====================================================================
@@ -1005,41 +966,41 @@
     const withId   = filtered.filter(a=>a.id);
     const noId     = filtered.filter(a=>!a.id);
     const tpa      = parseInt(document.getElementById('tracksPerArtist').value);
-    const est      = withId.length * tpa;
     const dayLabel = sel.day==='all' ? 'All Days' : sel.day;
     let html = `<strong>Day:</strong> ${dayLabel}<br>
                 <strong>${filtered.length}</strong> artist${filtered.length!==1?'s':''} selected<br>
-                <strong>~${est}</strong> total tracks estimated`;
-    if (noId.length > 0) html += `<br><span class="warn-text">⚠ ${noId.length} artist${noId.length!==1?'s':''} missing Spotify ID (will be skipped)</span>`;
+                <strong>~${withId.length * tpa}</strong> total tracks estimated`;
+    if (noId.length > 0)
+      html += `<br><span class="warn-text">⚠ ${noId.length} artist${noId.length!==1?'s':''} missing Spotify ID (will be skipped)</span>`;
     document.getElementById('previewContent').innerHTML = html;
   }
 
   function showStep3() {
-    // Collapse step 2 header
+    // Collapse step 2 header with current selection summary
     if (sel.mode==='stage') {
       const label = sel.stages.length===cachedLists.stages.length ? 'All Stages'
                   : sel.stages.length===1 ? sel.stages[0] : `${sel.stages.length} stages`;
-      document.getElementById('stageSelBody').style.display='none';
-      document.getElementById('stageSelLabel').innerHTML=
+      document.getElementById('stageSelBody').style.display = 'none';
+      document.getElementById('stageSelLabel').innerHTML =
         `SELECT STAGE(S) &nbsp;— <span class="success-text">${label}</span>
          <button onclick="editStep2()" class="edit-btn">Edit</button>`;
     } else if (sel.mode==='genre') {
       const label = sel.genres.length===1 ? sel.genres[0] : `${sel.genres.length} genres`;
-      document.getElementById('genreSelBody').style.display='none';
-      document.getElementById('genreSelLabel').innerHTML=
+      document.getElementById('genreSelBody').style.display = 'none';
+      document.getElementById('genreSelLabel').innerHTML =
         `SELECT GENRE(S) &nbsp;— <span class="success-text">${label}</span>
          <button onclick="editStep2()" class="edit-btn">Edit</button>`;
     } else if (sel.mode==='artist') {
       const label = sel.artistNames.length===1 ? sel.artistNames[0] : `${sel.artistNames.length} artists`;
-      document.getElementById('artistSelBody').style.display='none';
-      document.getElementById('artistSelLabel').innerHTML=
+      document.getElementById('artistSelBody').style.display = 'none';
+      document.getElementById('artistSelLabel').innerHTML =
         `SELECT ARTISTS &nbsp;— <span class="success-text">${label}</span>
          <button onclick="editStep2()" class="edit-btn">Edit</button>`;
     }
-    document.getElementById('playlistOptions').style.display='block';
-    document.getElementById('createPlaylistBtn').style.display='block';
+    document.getElementById('playlistOptions').style.display = 'block';
+    document.getElementById('createPlaylistBtn').style.display = 'block';
     updatePreview();
-    // Default name
+    // Default playlist name
     const ni = document.getElementById('playlistName');
     if (sel.mode==='stage' && sel.stages.length)
       ni.value = sel.stages.length===1 ? `EDC ${sel.stages[0]} Playlist` : `EDC ${sel.stages.length} Stages Playlist`;
@@ -1047,23 +1008,27 @@
       ni.value = sel.genres.length===1 ? `EDC ${sel.genres[0]} Playlist` : `EDC ${sel.genres.length} Genres Playlist`;
     else if (sel.mode==='artist' && sel.artistNames.length)
       ni.value = sel.artistNames.length===1 ? `EDC ${sel.artistNames[0]} Playlist` : `EDC ${sel.artistNames.length} Artists Playlist`;
-    else ni.value = 'My EDC 2025 Playlist';
+    else ni.value = 'My EDC 2026 Playlist';
   }
 
+  // FIX: editStep2 no longer clears sel — preserves all selections so
+  // the state array stays in sync with the checked checkboxes.
   function editStep2() {
-    resetFromStep2();
+    document.getElementById('playlistOptions').style.display = 'none';
+    document.getElementById('createPlaylistBtn').style.display = 'none';
     if (sel.mode==='stage') {
-      document.getElementById('stageSelBody').style.display='block';
-      document.getElementById('stageSelLabel').textContent='SELECT STAGE(S)';
+      document.getElementById('stageSelBody').style.display = 'block';
+      document.getElementById('stageSelLabel').textContent = 'SELECT STAGE(S)';
+      document.getElementById('stageContinueBtn').style.display = sel.stages.length ? 'block' : 'none';
     } else if (sel.mode==='genre') {
-      document.getElementById('genreSelBody').style.display='block';
-      document.getElementById('genreSelLabel').textContent='SELECT GENRE(S)';
+      document.getElementById('genreSelBody').style.display = 'block';
+      document.getElementById('genreSelLabel').textContent = 'SELECT GENRE(S)';
+      document.getElementById('genreContinueBtn').style.display = sel.genres.length ? 'block' : 'none';
     } else if (sel.mode==='artist') {
-      document.getElementById('artistSelBody').style.display='block';
-      document.getElementById('artistSelLabel').textContent='SELECT ARTISTS';
+      document.getElementById('artistSelBody').style.display = 'block';
+      document.getElementById('artistSelLabel').textContent = 'SELECT ARTISTS';
+      document.getElementById('artistContinueBtn').style.display = sel.artistNames.length ? 'block' : 'none';
     }
-    document.getElementById('playlistOptions').style.display='none';
-    document.getElementById('createPlaylistBtn').style.display='none';
   }
 
   // =====================================================================
@@ -1078,9 +1043,9 @@
     const filtered = getFilteredArtists();
     if (!filtered.length) { alert('Please select at least one artist'); return; }
 
-    document.getElementById('playlistOptions').style.display='none';
-    document.getElementById('createPlaylistBtn').style.display='none';
-    document.getElementById('progressSection').style.display='block';
+    document.getElementById('playlistOptions').style.display = 'none';
+    document.getElementById('createPlaylistBtn').style.display = 'none';
+    document.getElementById('progressSection').style.display = 'block';
     setProgress(10, 'Creating your playlist…');
 
     try {
@@ -1091,8 +1056,8 @@
       setProgress(30, `Sending ${artistsData.length} artist${artistsData.length!==1?'s':''} to Spotify…${skipped>0?` (${skipped} skipped)`:''}`);
 
       const res = await fetch('/.netlify/functions/create-playlist', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({artists:artistsData, playlistName:name, playlistDescription:desc, tracksPerArtist:tpa})
       });
 
@@ -1104,27 +1069,29 @@
 
       setProgress(100, 'Done!');
       setTimeout(() => {
-        document.getElementById('progressSection').style.display='none';
-        document.getElementById('resultsSection').style.display='block';
+        document.getElementById('progressSection').style.display = 'none';
+        document.getElementById('resultsSection').style.display = 'block';
         let msg = `"${data.playlist.name}" created with ${data.playlist.trackCount} tracks!`;
-        if (skipped>0) msg += ` (${skipped} artist${skipped!==1?'s':''} without Spotify IDs skipped)`;
+        if (skipped > 0) msg += ` (${skipped} artist${skipped!==1?'s':''} without Spotify IDs skipped)`;
         document.getElementById('resultsMessage').textContent = msg;
         document.getElementById('playlistLink').href = data.playlist.url;
         if (data.playlist.uri) {
-          document.getElementById('spotifyCodeImg').src = `https://scannables.scdn.co/uri/plain/png/000000/white/640/${data.playlist.uri}`;
-          document.getElementById('spotifyCodeSection').style.display='block';
+          document.getElementById('spotifyCodeImg').src =
+            `https://scannables.scdn.co/uri/plain/png/000000/white/640/${data.playlist.uri}`;
+          document.getElementById('spotifyCodeSection').style.display = 'block';
         }
+        startShow(); // 🎉 Celebration!
       }, 600);
     } catch(e) {
-      document.getElementById('progressSection').style.display='none';
+      document.getElementById('progressSection').style.display = 'none';
       alert(`Error: ${e.message}`);
-      document.getElementById('playlistOptions').style.display='block';
-      document.getElementById('createPlaylistBtn').style.display='block';
+      document.getElementById('playlistOptions').style.display = 'block';
+      document.getElementById('createPlaylistBtn').style.display = 'block';
     }
   }
 
   function setProgress(pct, msg) {
-    document.getElementById('progressBar').style.width = pct+'%';
+    document.getElementById('progressBar').style.width = pct + '%';
     document.getElementById('statusMessage').textContent = msg;
   }
 
@@ -1133,42 +1100,37 @@
   // =====================================================================
   function resetFromDay() {
     sel.mode=null; sel.stages=[]; sel.genres=[]; sel.artistNames=[];
-    document.getElementById('step1Body').style.display='block';
-    document.getElementById('step1Label').textContent='CHOOSE YOUR FILTER';
+    document.getElementById('step1Body').style.display = 'block';
+    document.getElementById('step1Label').textContent = 'CHOOSE YOUR FILTER';
     resetStep2Cards();
-    document.getElementById('playlistOptions').style.display='none';
-    document.getElementById('createPlaylistBtn').style.display='none';
+    document.getElementById('playlistOptions').style.display = 'none';
+    document.getElementById('createPlaylistBtn').style.display = 'none';
   }
   function resetFromStep1() {
     sel.stages=[]; sel.genres=[]; sel.artistNames=[];
     resetStep2Cards();
-    document.getElementById('playlistOptions').style.display='none';
-    document.getElementById('createPlaylistBtn').style.display='none';
-  }
-  function resetFromStep2() {
-    sel.stages=[]; sel.genres=[]; sel.artistNames=[];
-    document.getElementById('playlistOptions').style.display='none';
-    document.getElementById('createPlaylistBtn').style.display='none';
+    document.getElementById('playlistOptions').style.display = 'none';
+    document.getElementById('createPlaylistBtn').style.display = 'none';
   }
   function resetStep2Cards() {
     [['stageSelection','stageSelBody','stageSelLabel','SELECT STAGE(S)','stagesList'],
      ['genreSelection','genreSelBody','genreSelLabel','SELECT GENRE(S)','genresList'],
      ['artistSelection','artistSelBody','artistSelLabel','SELECT ARTISTS','artistsList']]
-    .forEach(([cardId,bodyId,labelId,labelText,listId])=>{
-      document.getElementById(cardId).style.display='none';
-      document.getElementById(bodyId).style.display='block';
-      document.getElementById(labelId).textContent=labelText;
-      document.getElementById(listId).innerHTML='';
+    .forEach(([cardId,bodyId,labelId,labelText,listId]) => {
+      document.getElementById(cardId).style.display = 'none';
+      document.getElementById(bodyId).style.display = 'block';
+      document.getElementById(labelId).textContent  = labelText;
+      document.getElementById(listId).innerHTML     = '';
     });
   }
 
   function resetApp() {
     ['step1','stageSelection','genreSelection','artistSelection',
      'playlistOptions','createPlaylistBtn','progressSection','resultsSection']
-    .forEach(id=>document.getElementById(id).style.display='none');
-    sel = {day:'all',mode:null,stages:[],genres:[],artistNames:[]};
-    document.getElementById('daySelectionBody').style.display='block';
-    document.querySelector('#daySelection .head-label').textContent='SELECT FESTIVAL DAY';
+    .forEach(id => document.getElementById(id).style.display = 'none');
+    sel = {day:'all', mode:null, stages:[], genres:[], artistNames:[]};
+    document.getElementById('daySelectionBody').style.display = 'block';
+    document.querySelector('#daySelection .head-label').textContent = 'SELECT FESTIVAL DAY';
   }
   </script>
 </body>
