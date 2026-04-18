@@ -773,7 +773,9 @@
     return Object.keys(artists).sort((a,b)=>a.localeCompare(b)).map(n=>({name:n,...artists[n]}));
   }
   function getUniqueStagesFrom(list) {
-    return [...new Set(list.filter(a=>a.stage).map(a=>a.stage))].sort();
+    const s = new Set();
+    list.forEach(a => { if (!a.stage) return; a.stage.split(',').map(t=>t.trim()).forEach(t=>s.add(t)); });
+    return [...s].sort();
   }
   function getUniqueGenresFrom(list) {
     const s = new Set();
@@ -790,7 +792,10 @@
   }
   function filterByStages(stages) {
     const s = new Set(stages);
-    return cachedLists.allArtists.filter(a=>s.has(a.stage)).sort((a,b)=>a.name.localeCompare(b.name));
+    return cachedLists.allArtists.filter(a => {
+      if (!a.stage) return false;
+      return a.stage.split(',').map(t=>t.trim()).some(t=>s.has(t));
+    }).sort((a,b)=>a.name.localeCompare(b.name));
   }
   function filterByGenres(genres) {
     if (!genres.length) return [];
