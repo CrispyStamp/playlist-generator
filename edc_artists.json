@@ -1,1562 +1,3571 @@
 {
   "1991": {
     "id": "2IP71LH7CbwddhsEXBI0fy",
-    "genres": ["drum and bass", "liquid funk"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "drum and bass",
+      "liquid funk"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "999999999": {
     "id": "6uD2LjPHUjxrpax0se17Nc",
-    "genres": ["acid techno", "hard techno", "techno", "tekno"],
-    "stage": "Neon Garden",
-    "day": "Sunday"
+    "genres": [
+      "acid techno",
+      "hard techno",
+      "techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "A.M.C": {
     "id": "5DygptUY6coQHpmgFfISzQ",
-    "genres": ["drum and bass", "bassline"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "drum and bass",
+      "bassline"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "ABANA": {
     "id": "50IriuukwhBFpJS9WOk2a1",
-    "genres": ["jazz house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "jazz house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "ABOVE & BEYOND": {
     "id": "10gzBoINW3cLJfZUka8Zoe",
-    "genres": ["trance", "progressive trance", "progressive house"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "trance",
+      "progressive trance",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "ADIEL": {
     "id": "1yetl1fEx0mE16k164jXvw",
-    "genres": ["dub techno"],
-    "stage": "Neon Garden",
-    "day": "Sunday"
+    "genres": [
+      "dub techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "ADRI?N MILLS": {
     "id": "6H9sRmDCsXzsWK7jEg1thF",
-    "genres": ["bounce", "hard techno", "techno", "tekno", "acid techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "bounce",
+      "hard techno",
+      "techno",
+      "tekno",
+      "acid techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "ADRIATIQUE": {
     "id": "02DWGcShQivFepRvGJ7xhB",
-    "genres": ["melodic techno", "melodic house", "afro house", "techno"],
-    "stage": "Neon Garden",
-    "day": "Friday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "afro house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "ADVENTURE CLUB": {
     "id": "5CdJjUi9f0cVgo9nFuJrFa",
-    "genres": ["melodic bass", "dubstep", "edm", "chillstep", "future bass"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "melodic bass",
+      "dubstep",
+      "edm",
+      "chillstep",
+      "future bass"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "AEON:MODE": {
     "id": "41ouHqoKXNijIMFsQTmFQV",
-    "genres": ["drum and bass"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "drum and bass"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "AHEE": {
     "id": "1gbDc1TANALgP8lLvO5UEf",
-    "genres": ["dubstep", "bass music", "riddim"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "bass music",
+      "riddim"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "AHMED SPINS": {
     "id": "4jercY4pUhY6jB8eQjpVJV",
-    "genres": ["afro house", "melodic house"],
-    "stage": "Neon Garden",
-    "day": "Saturday"
+    "genres": [
+      "afro house",
+      "melodic house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "ALISON WONDERLAND": {
     "id": "11gWrKZMBsGQWmobv3oNfW",
-    "genres": ["edm trap", "future bass", "edm"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "edm trap",
+      "future bass",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "ALVES": {
     "id": "5IuRJkF6BqSdfGykaHfslU",
-    "genres": ["tech house", "latin house"],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "tech house",
+      "latin house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "ALYSSA JOLEE": {
     "id": "4339Su9vxGrlufPNpkRRAO",
-    "genres": ["hard techno", "hardcore techno"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hard techno",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "ANASTAZJA": {
     "id": "3IczhDdwla9Jgo5fpGs8uw",
-    "genres": ["psytrance"],
-    "stage": "Neon Garden",
-    "day": "Friday"
+    "genres": [
+      "psytrance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "ANDREW RAYEL": {
     "id": "1UtBjqMZBAmqIPlDrKu7Tr",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "ANNA": {
     "id": "3wkaDi2HJV3eCaBJ4iH6om",
-    "genres": ["techno", "melodic techno", "acid techno", "minimal techno"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "techno",
+      "melodic techno",
+      "acid techno",
+      "minimal techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "AR/CO": {
     "id": "7mGI9Sd66FqHjIkwzkgbG7",
     "genres": [],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "ARGY": {
     "id": "1NaQOKgddaJipUtmptb7GI",
-    "genres": ["melodic techno", "melodic house", "techno"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "ARMIN VAN BUUREN": {
     "id": "0SfsnGyD8FpIN4U4WCkBZ5",
-    "genres": ["trance", "progressive trance", "progressive house", "electronica", "edm"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "trance",
+      "progressive trance",
+      "progressive house",
+      "electronica",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "ASTRIX": {
     "id": "3dUltShd2gJQc98Kc7Syit",
-    "genres": ["psytrance", "trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "psytrance",
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "ATLIENS": {
     "id": "74RET4rCZPTGzhsLjD0i3g",
-    "genres": ["riddim", "dubstep", "deathstep", "bass music", "edm"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep",
+      "bass music",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "AUDIOFREQ": {
     "id": "0hHKtZEXHNsXfgrNgU7Zkl",
-    "genres": ["hardstyle", "frenchcore", "hardcore", "happy hardcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "hardcore",
+      "happy hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "AVALON EMERSON": {
     "id": "4yrO1N273PlTaixa4BNwBz",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "AVELLO": {
     "id": "1ZR5GnPw0Jkb5M4hnBwzuZ",
-    "genres": ["melodic bass"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "melodic bass"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "BAD BOOMBOX": {
     "id": "6ZisvOKQY2LDItOkbsy2qd",
-    "genres": ["hard house", "techno", "bounce", "hard techno", "tekno"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "techno",
+      "bounce",
+      "hard techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "BASHKKA": {
     "id": "5ofWf87ImDZQO2KzwdlPSw",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "BAUGRUPPE90": {
     "id": "6pKJqozqp0jdugOsyFRGMx",
-    "genres": ["hard house", "techno"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "BELTRAN": {
     "id": "1jgSqmZTBltb5O2L7ErmEP",
-    "genres": ["tech house"],
-    "stage": "Circuit Grounds, Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "BENWAL": {
     "id": "38nG2aneQSUwlhbhXXZhxl",
-    "genres": ["hard house", "eurodance", "trance", "uk garage"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "eurodance",
+      "trance",
+      "uk garage"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "BILLY GILLIES": {
     "id": "0kmovylAP20DMJhS3BE2CO",
-    "genres": ["trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "BLACK TIGER SEX MACHINE": {
     "id": "0o9qzOHuHkGZ3xMFKpMFkC",
-    "genres": ["dubstep", "riddim", "deathstep", "edm"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "BOLO THE DJ": {
     "id": "4qaAcBXIagTIWYkJRlxYZ7",
-    "genres": ["latin house", "techengue"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "latin house",
+      "techengue"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "BOOGIE T": {
     "id": "4zlw0jXUzd4dRcqI3Y1OiY",
-    "genres": ["dubstep", "riddim", "bass music", "edm", "dub"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "bass music",
+      "edm",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "BOU": {
     "id": "35dxfY1wywqVRUEaVuMm13",
-    "genres": ["drum and bass", "bassline", "jungle"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "drum and bass",
+      "bassline",
+      "jungle"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "BOYS NOIZE": {
     "id": "62k5LKMhymqlDNo2DWOvvv",
-    "genres": ["electro house"],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "genres": [
+      "electro house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "BULLET TOOTH": {
     "id": "4KWIkeAdOJfvUgXSq0bEWC",
-    "genres": ["uk garage", "bassline", "hard house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "hard house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "BUNT.": {
     "id": "2CpLIMBoE2ZzyY3ZBCRZ7j",
-    "genres": ["stutter house"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "stutter house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "BUSHBABY": {
     "id": "6YYg4TQoF8cp50IuM2vU4C",
-    "genres": ["uk garage", "bassline", "bass house", "hard house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "bass house",
+      "hard house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "THE CARRY NATION": {
     "id": "0PDEs0724hDGxKb5vD5hj1",
-    "genres": ["acid house"],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "genres": [
+      "acid house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "CASSIAN": {
     "id": "1ChtRJ3f4rbv4vtz87i6CD",
-    "genres": ["melodic techno", "melodic house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "melodic house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "THE CHAINSMOKERS": {
     "id": "69GGBxA162lTqCwzJG5jLp",
     "genres": [],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "CHARLOTTE DE WITTE": {
     "id": "1lJhME1ZpzsEa5M0wW6Mso",
-    "genres": ["techno", "acid techno", "hard techno", "tekno"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "techno",
+      "acid techno",
+      "hard techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "CHLO? CAILLET": {
     "id": "68ywCN6ZpInbcilOfLBa3a",
     "genres": [],
-    "stage": "Neon Garden, Bionic Jungle",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      },
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "CHRIS LORENZO": {
     "id": "7tm9Tuc70geXOOyKhtZHIj",
-    "genres": ["bass house", "bassline", "house", "tech house", "g-house"],
-    "stage": "Kinetic Field, Stereobloom",
-    "day": "Friday, Sunday"
+    "genres": [
+      "bass house",
+      "bassline",
+      "house",
+      "tech house",
+      "g-house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "CHRIS STUSSY": {
     "id": "3BxjasMelf9pKaE4f7Y0So",
-    "genres": ["house", "tech house"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "house",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "CHUCKIE": {
     "id": "4x7gxsrTH3gThvSKZPPwaQ",
-    "genres": ["electro house", "melbourne bounce"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "electro house",
+      "melbourne bounce"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "CID": {
     "id": "4FCzCS0KEgb0rgySWINItO",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "CLAWZ": {
     "id": "0HUxQdvG9Db3gLJPEeWR3q",
-    "genres": ["hard techno"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "CLOONEE": {
     "id": "7MdlXmq2HViAJWo9cf30sR",
-    "genres": ["tech house", "house", "latin house"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "tech house",
+      "house",
+      "latin house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "CLOUDY": {
     "id": "6T9GuyLe3Wkw5KRhhXUMC1",
-    "genres": ["hard techno", "techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "CLUB ANGEL": {
     "id": "1reJK6xw6Lu0r1PMoTUTDj",
-    "genres": ["uk garage", "hard house", "bassline"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "uk garage",
+      "hard house",
+      "bassline"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "CODE BLACK": {
     "id": "0I5is4tdxHhT3Ft2EzPjlB",
-    "genres": ["hardstyle", "happy hardcore", "frenchcore", "hardcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "happy hardcore",
+      "frenchcore",
+      "hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "COLD BLUE": {
     "id": "3mbjJqO86kx786znlhmTrF",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "CONFIDENCE MAN": {
     "id": "0RwXnFrEoI8tltFvYpJgP6",
     "genres": [],
-    "stage": null,
-    "day": null
+    "performances": []
   },
   "COSMIC GATE": {
     "id": "6ySxYu68zTsO5ghsThpGtS",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "CRISTOPH": {
     "id": "532SqCIYmJyXEdEiCJLgYG",
-    "genres": ["melodic techno", "progressive house", "melodic house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "progressive house",
+      "melodic house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "CULTURE SHOCK": {
     "id": "6lp2VnIRXXpC9Wz7hSX6RE",
-    "genres": ["drum and bass", "liquid funk"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "drum and bass",
+      "liquid funk"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "CUTDWN": {
     "id": "0qseyNzm7lfDwALRrlNXrn",
-    "genres": ["hard techno", "techno", "hardcore techno"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "CYCLOPS": {
     "id": "1vOTVnnyLvVTeuwrZLghCN",
-    "genres": ["riddim", "dubstep", "deathstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "DA TWEEKAZ": {
     "id": "6UOk7DmvqlzWmo6gjhZvn6",
-    "genres": ["hardstyle", "frenchcore", "happy hardcore", "hardcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "happy hardcore",
+      "hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "DABIN": {
     "id": "7lZauDnRoAC3kmaYae2opv",
-    "genres": ["melodic bass", "future bass", "edm", "chillstep"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "melodic bass",
+      "future bass",
+      "edm",
+      "chillstep"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "DARREN PORTER": {
     "id": "04b2pmUXaBL8wHacSaOplA",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "DARUDE": {
     "id": "0LhHRmSd1EYM5QdNeNnCoQ",
-    "genres": ["eurodance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "eurodance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "DEAD X": {
     "id": "1viO40zvthKBg0VNEnJoma",
-    "genres": ["hardstyle", "frenchcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "DEATHPACT": {
     "id": "09C3CKFxKEw1n1Z7kvT3jb",
-    "genres": ["dubstep", "riddim", "bass music"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "DELTA HEAVY": {
     "id": "7GvVTb8yFV0ZrdI30Qce6T",
-    "genres": ["drum and bass", "dubstep", "drumstep", "liquid funk"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "drum and bass",
+      "dubstep",
+      "drumstep",
+      "liquid funk"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "DENNETT": {
     "id": "00iuR3hBqoYxY8I0XYcWN9",
-    "genres": ["riddim", "dubstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "DISTINCT MOTIVE": {
     "id": "5KfqHG8bhfI18ZuTzZSdSM",
-    "genres": ["dubstep", "riddim", "bass music", "dub"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "bass music",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "DISCIP": {
     "id": "6K16NRv0isbkftsv5lmlMT",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "DJ GIGOLA": {
     "id": "7feJmqQ32fTIPKBmPXwHXf",
-    "genres": ["techno"],
-    "stage": "Cosmic Meadow, Circuit Grounds, Neon Garden",
-    "day": "Saturday, Sunday"
+    "genres": [
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "DJ ISAAC": {
     "id": "2FmgW6Jee0JQKtb6EnBWCq",
-    "genres": ["hardstyle", "gabber", "happy hardcore", "hardcore", "frenchcore"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle",
+      "gabber",
+      "happy hardcore",
+      "hardcore",
+      "frenchcore"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "DJ MANDY": {
     "id": "4p2xDjEJLI7pgml2xOb3iT",
     "genres": [],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "DJ TENNIS": {
     "id": "6vJvFV1A2CpT8s5B1oUN6t",
-    "genres": ["melodic techno"],
-    "stage": "Neon Garden, Bionic Jungle",
-    "day": "Friday, Sunday"
+    "genres": [
+      "melodic techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "DOCTOR P": {
     "id": "0tgjwsn1Lpjj8kKEvWm0KQ",
-    "genres": ["dubstep", "dub", "riddim", "drumstep", "moombahton"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "dub",
+      "riddim",
+      "drumstep",
+      "moombahton"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "D?MINA": {
     "id": "2SaPpXmlY9agJpvlEbLMKD",
-    "genres": ["hard techno", "hardcore techno", "techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "hardcore techno",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "DREYA V": {
     "id": "4EFAuQI8Ou0bmpf5Vh1P5P",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "DYEN": {
     "id": "6LFELkZXRJs04hi8gywM2A",
-    "genres": ["hard techno", "techno", "acid techno", "tekno", "hardcore techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "acid techno",
+      "tekno",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "EAZYBAKED": {
     "id": "1ZbT8FIqEc0cktnu6mNlvv",
-    "genres": ["bass music", "dubstep"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "bass music",
+      "dubstep"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "ELI & FUR": {
     "id": "5CkVLGKUJkIc1pmSk10QP4",
-    "genres": ["melodic house", "deep house", "melodic techno", "progressive house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic house",
+      "deep house",
+      "melodic techno",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "ELI BROWN": {
     "id": "5lVNSw2GPci8kebrAQpZqU",
-    "genres": ["techno", "tech house"],
-    "stage": "Neon Garden",
-    "day": "Friday"
+    "genres": [
+      "techno",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "EPTIC": {
     "id": "4dvZ0abeUaiHm7Fu9Gj0PQ",
-    "genres": ["dubstep", "riddim", "deathstep", "bass music", "bass house", "dub"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "bass music",
+      "bass house",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "FALLEN": {
     "id": "4FQWpLnTqvKczzgi0D7w7m",
     "genres": [],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "FISHER": {
     "id": "1VJ0briNOlXRtJUAzoUJdt",
-    "genres": ["tech house", "house"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "FLUX PAVILION": {
     "id": "7muzHifhMdnfN1xncRLOqk",
-    "genres": ["dubstep", "edm", "dub"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "edm",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "FRANKIE BONES": {
     "id": "2Host7cq2V5Xf3bkzYW06Z",
-    "genres": ["acid house", "chicago house", "techno"],
-    "stage": "Neon Garden",
-    "day": "Sunday"
+    "genres": [
+      "acid house",
+      "chicago house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "FROST CHILDREN": {
     "id": "6R1kfr0GIWnwxY4zW11Vag",
-    "genres": ["hyperpop", "electroclash"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "hyperpop",
+      "electroclash"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "FUNK TRIBU": {
     "id": "1vK8NnrPlBlF34LaiFX1SK",
-    "genres": ["hard house", "techno", "phonk", "hard techno", "trance"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "hard house",
+      "techno",
+      "phonk",
+      "hard techno",
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "FUNTCASE": {
     "id": "6v1BAWFVNPbPJlnFHWR78D",
-    "genres": ["dubstep", "riddim", "deathstep", "bass music", "dub"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "bass music",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "GARETH EMERY": {
     "id": "0hprEC0nsWuQPSHag1O2Vi",
-    "genres": ["trance", "progressive trance", "progressive house"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "GETTER": {
     "id": "3QryVD03gGZOLQQXjy3EoA",
-    "genres": ["dubstep", "horrorcore"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "horrorcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "GHENGAR": {
     "id": "6g6OqIpMMbEkhhtEODZaGf",
-    "genres": ["riddim", "dubstep", "deathstep"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "GORILLAT": {
     "id": "3zcOegUrWqti1S0lu4juJz",
-    "genres": ["riddim", "dubstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "GRAVAGERZ": {
     "id": "2zoy9aYWHueNXCIqh2MStc",
     "genres": [],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "GRAVEDGR": {
     "id": "1kiZfWU37oS0pCOV7Os1Pj",
-    "genres": ["hard techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "GRIZ": {
     "id": "25oLRSUjJk4YHNUsQXk7Ut",
-    "genres": ["dubstep", "edm"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "HAAI": {
     "id": "0pkLgeB9j465x1QB2kRoy4",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "HAMDI": {
     "id": "7vvicoei9BbKpZix8qSeLg",
-    "genres": ["uk garage", "bassline", "dubstep", "bass music"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "dubstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "HANNAH LAING": {
     "id": "1QEd635szhierW6gzRiS1o",
     "genres": [],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "HARDWELL": {
     "id": "6BrvowZBreEkXzJQMpL174",
-    "genres": ["big room", "edm", "progressive house", "electronica"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "big room",
+      "edm",
+      "progressive house",
+      "electronica"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "HAYLA": {
     "id": "4yX6mpMyBGf9UfvBB8JJrc",
     "genres": [],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "HEIDI LAWDEN": {
     "id": "78kOxZT91FGSl9PJRc0YTS",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "HEYZ": {
     "id": "5X1EM1jg35YB5jmw7qVIlh",
-    "genres": ["dubstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "dubstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "HNTR": {
     "id": "3R0yz9xgTmCOLQMPcJ6MuU",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "HOL!": {
     "id": "75YeSAKC6xPhgkjnltCmGB",
-    "genres": ["riddim", "dubstep", "deathstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "HOLY PRIEST": {
     "id": "5UG2ipdnA4vk8Eevkf1s06",
-    "genres": ["hard techno", "techno", "hardcore techno", "tekno"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "hardcore techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "HYBRID MINDS": {
     "id": "05lF0DUkLJqiW5o70SScyR",
-    "genres": ["liquid funk", "drum and bass"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "liquid funk",
+      "drum and bass"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "I HATE MODELS": {
     "id": "0KqSULB80ft2H3aFg6kJmN",
-    "genres": ["techno", "hard techno", "acid techno", "tekno"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "techno",
+      "hard techno",
+      "acid techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "ILAN BLUESTONE": {
     "id": "1yoZuH2j43vVSWsOwYuQyn",
-    "genres": ["trance", "progressive trance", "progressive house"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "INDIRA PAGANOTTO": {
     "id": "0JXc5G7ZImFTwPg3y8MTfR",
-    "genres": ["psytrance", "techno", "hard techno", "acid techno"],
-    "stage": "Neon Garden",
-    "day": "Sunday"
+    "genres": [
+      "psytrance",
+      "techno",
+      "hard techno",
+      "acid techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "INFEKT": {
     "id": "3I6KMDdmPiLE5UQ4XF8Kpl",
-    "genres": ["riddim", "dubstep", "deathstep", "bass music", "dub"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep",
+      "bass music",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "INNELLEA": {
     "id": "71rqI5HtraA3qXBwatyG6e",
-    "genres": ["melodic techno", "melodic house", "techno", "progressive house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "techno",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "INTERPLANETARY CRIMINAL": {
     "id": "6uJ51uV5rYzu1MJkC4CceI",
-    "genres": ["uk garage", "breakbeat"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "uk garage",
+      "breakbeat"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "ISABELLA": {
     "id": "5bibzrFb5gzUDAm0yKtc48",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "JACKIE HOLLANDER": {
     "id": "5ykY9Uweo3gl5VFpb6z6pQ",
-    "genres": ["tech house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "JOHANNES SCHUSTER": {
     "id": "7qm7cw0DHBm1p15hvLi0TL",
-    "genres": ["hard techno", "techno", "acid techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "acid techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "JOHN SUMMIT": {
     "id": "7kNqXtgeIwFtelmRjWv205",
-    "genres": ["house", "tech house"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "house",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "JOSEPH CAPRIATI": {
     "id": "7onsqSWPufMm5ZnUCECDpf",
-    "genres": ["techno", "minimal techno", "tech house"],
-    "stage": "Neon Garden",
-    "day": "Friday"
+    "genres": [
+      "techno",
+      "minimal techno",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "JOSH BAKER": {
     "id": "4zf8Awb8y1X9qwL4oiVRd6",
-    "genres": ["house"],
-    "stage": "Stereobloom, Neon Garden",
-    "day": "Friday, Saturday"
+    "genres": [
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      },
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "JULIET MENDOZA": {
     "id": "1NeZEhcwWoLpkNzByUetzR",
     "genres": [],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "KAI WACHI": {
     "id": "2fNr4ldujwq97v1jWeqs8K",
-    "genres": ["dubstep", "deathstep", "riddim", "melodic bass", "edm", "bass music"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "dubstep",
+      "deathstep",
+      "riddim",
+      "melodic bass",
+      "edm",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "KASKADE": {
     "id": "6TQj5BFPooTa08A7pk8AQ1",
-    "genres": ["edm"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "KETTAMA": {
     "id": "3an9rnsXKPCAMlZgH4A0n4",
-    "genres": ["hard house", "uk garage", "house"],
-    "stage": "Circuit Grounds, Neon Garden",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "uk garage",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "KEVIN DE VRIES": {
     "id": "11aPF3sc8lDWNqPVInm4Zx",
-    "genres": ["melodic techno", "melodic house", "techno"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "KI/KI": {
     "id": "0UMs6dTf23FC2fHc40fXNS",
-    "genres": ["hard house", "acid techno", "techno", "trance"],
-    "stage": "Circuit Grounds, Neon Garden",
-    "day": "Saturday, Sunday"
+    "genres": [
+      "hard house",
+      "acid techno",
+      "techno",
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "KINAHAU": {
     "id": "3C7Tv0IqIGLjA9rpVaeHRB",
-    "genres": ["tech house"],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "KLANGKUENSTLER": {
     "id": "6H77vD9YyhyxHBTkRpbMBk",
-    "genres": ["hard techno", "techno", "acid techno", "tekno"],
-    "stage": "Neon Garden",
-    "day": "Sunday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "acid techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "KLO": {
     "id": "2QlABGwVVmqOu8SHMyyZMq",
-    "genres": ["stutter house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "stutter house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "KOROLOVA": {
     "id": "0I6oCyQQ1Q50q97y9B9gAx",
-    "genres": ["melodic techno", "melodic house", "progressive house"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "progressive house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "KREAM": {
     "id": "0DdDnziut7wOo6cAYWVZC5",
     "genres": [],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "KUKO": {
     "id": "4sCQPElBVBfJNFGydeWwnU",
-    "genres": ["hard techno", "techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "LADY FAITH": {
     "id": "1va2Hj3SvWvu3L6jAN6k01",
-    "genres": ["hardstyle"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "LAIDBACK LUKE": {
     "id": "53cQZtWDwDJwVCNZlfJ6Qk",
-    "genres": ["big room", "electro house"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "big room",
+      "electro house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "LAYTON GIORDANI": {
     "id": "7mC3RkNNTV6p2j9w4F8Ip4",
-    "genres": ["techno", "melodic techno", "tech house", "acid techno"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "techno",
+      "melodic techno",
+      "tech house",
+      "acid techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "LENNY DEE": {
     "id": "33O0lHsxKb6No0NBuFxFbR",
-    "genres": ["gabber", "hardcore", "frenchcore", "happy hardcore", "hardcore techno", "speedcore", "hard techno"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "gabber",
+      "hardcore",
+      "frenchcore",
+      "happy hardcore",
+      "hardcore techno",
+      "speedcore",
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "LEVEL UP": {
     "id": "1ZpDxqXS6HAvoZyCzQfKRb",
-    "genres": ["dubstep", "riddim", "deathstep", "edm"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "LEVITY": {
     "id": "1PbO7aQiVeKbGp8GYWDL9C",
-    "genres": ["dubstep"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "dubstep"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "LIL TEXAS": {
     "id": "76raIy8boaM9sf9gMGXGJ5",
-    "genres": ["hardstyle", "frenchcore", "hardcore", "gabber", "hardcore techno", "speedcore", "tekno", "hard techno"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "hardcore",
+      "gabber",
+      "hardcore techno",
+      "speedcore",
+      "tekno",
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "LILLY PALMER": {
     "id": "4h8IEOdrg60WM5XGyNOCVU",
-    "genres": ["techno", "hard techno", "acid techno"],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "genres": [
+      "techno",
+      "hard techno",
+      "acid techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "LINSKA": {
     "id": "5f7jxYF5js7lD5lMyIPUBq",
-    "genres": ["melodic techno", "tech house"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "LIQUID STRANGER": {
     "id": "4YJsSCuag8W1TFTgSeEc2k",
-    "genres": ["dubstep", "bass music", "dub", "riddim", "downtempo"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "bass music",
+      "dub",
+      "riddim",
+      "downtempo"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "LNY TNZ": {
     "id": "1x0ScxgiyFRQDKT4VwcLHa",
-    "genres": ["hardstyle"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "LU.RE": {
     "id": "4lbpVz8PpHRQaZC6vqO0EN",
-    "genres": ["uk garage", "bassline", "uk funky"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "uk funky"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "LUCIANO": {
     "id": "3CJKkU0XuElRT1z8rEtIYg",
-    "genres": ["german hip hop"],
-    "stage": "Neon Garden",
-    "day": "Saturday"
+    "genres": [
+      "german hip hop"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "LUKE ALESSI": {
     "id": "3Foat3c8Ui3HkvZghZAzQp",
-    "genres": ["indie dance"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "indie dance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "LUKE DEAN": {
     "id": "2BhXOZ96YbOdXz8F6HVUw4",
-    "genres": ["house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "LUUK VAN DIJK": {
     "id": "1KFfk3NtblIJtGEqyiR31t",
-    "genres": ["tech house", "house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "MADDIX": {
     "id": "0RMeG9M8QFzss9bAbq99KA",
-    "genres": ["big room", "techno", "hard techno", "acid techno", "hypertechno"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "big room",
+      "techno",
+      "hard techno",
+      "acid techno",
+      "hypertechno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "MALUGI": {
     "id": "50udUOTR7dQUgyPwPuCLM6",
-    "genres": ["hard house", "eurodance", "trance", "uk garage"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "eurodance",
+      "trance",
+      "uk garage"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "MARIA HEALY": {
     "id": "2BFFr1SrdrJwXm1Y1Wr4F3",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "MARTIN GARRIX": {
     "id": "60d24wfXkVzDSfLS6hyCjZ",
-    "genres": ["edm", "progressive house", "electronica"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "edm",
+      "progressive house",
+      "electronica"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "MARY DROPPINZ": {
     "id": "4tPVnr7VB15UA9TRsie3cS",
-    "genres": ["uk garage"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "uk garage"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "MASHA MAR": {
     "id": "5VuWDNXNzHEO08J2Hv3bU2",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "MASSANO": {
     "id": "6htWLP8aiuf19FYMA4VQAZ",
-    "genres": ["melodic techno", "melodic house", "techno"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "MASSIMILIANO PAGLIARA": {
     "id": "6rr6POhpIL25CJFS3o3Dym",
-    "genres": ["italo disco", "acid house", "indie dance"],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "genres": [
+      "italo disco",
+      "acid house",
+      "indie dance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "MATHAME": {
     "id": "6QSwQEz8CDMg8Rqk8dEkxS",
-    "genres": ["melodic techno", "melodic house", "techno"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "melodic techno",
+      "melodic house",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "MATTY RALPH": {
     "id": "37HNoMIyEavGIJnIPCA6Kv",
-    "genres": ["hard house", "trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "hard house",
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "MAX DEAN": {
     "id": "65TLDWbTJxYASqadmNAxvc",
-    "genres": ["house"],
-    "stage": "Cosmic Meadow, Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      },
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "MC DINO": {
     "id": "5hPdACTROoi69yZpLpSVbs",
     "genres": [],
-    "stage": "Basspod",
-    "day": "Saturday, Sunday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "MC PHANTOM": {
     "id": "73GQbKGtnkBGvttb6uwAyc",
     "genres": [],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "MCR-T": {
     "id": "4m7q9onIm2bqhwHy9utqmw",
-    "genres": ["miami bass", "gabber"],
-    "stage": "Cosmic Meadow, Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "miami bass",
+      "gabber"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      },
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "MEDUZA": {
     "id": "0xRXCcSX89eobfrshSVdyu",
     "genres": [],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "M?STIZA": {
     "id": "1l6pQ0SDItjXzbG9zloE2n",
-    "genres": ["latin house", "flamenco", "afro house", "tribal house"],
-    "stage": "Neon Garden",
-    "day": "Friday"
+    "genres": [
+      "latin house",
+      "flamenco",
+      "afro house",
+      "tribal house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "MINK": {
     "id": "021q1fOEcfqxtlCtJs868v",
     "genres": [],
-    "stage": "Neon Garden",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "MISH": {
     "id": "65kwwmTEJIlKRldGhmUM0b",
-    "genres": ["hardstyle", "frenchcore", "hardcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "MORGAN SEATREE": {
     "id": "0GInfEJXl2kGPhSsVqEqXh",
-    "genres": ["hard house", "house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "hard house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "MPH": {
     "id": "62SCu33InHVq97VaWw3eof",
-    "genres": ["uk garage", "bassline", "bass house", "rally house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "bass house",
+      "rally house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "MURPHY'S LAW": {
     "id": "3EVzblmlRt3zPoB982Gr0G",
-    "genres": ["hardcore punk", "hardcore", "punk", "skate punk"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "hardcore punk",
+      "hardcore",
+      "punk",
+      "skate punk"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "MUZZ": {
     "id": "4UNnRb4LN2hGtbtMfPzMhg",
-    "genres": ["drum and bass", "drumstep", "dubstep"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "drum and bass",
+      "drumstep",
+      "dubstep"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "NICO MORENO": {
     "id": "6fjhNhp9IoeiZpEXq9AT2S",
-    "genres": ["hard techno", "techno", "tekno", "acid techno", "hardcore techno"],
-    "stage": "Circuit Grounds, Cosmic Meadow",
-    "day": "Friday, Sunday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "tekno",
+      "acid techno",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "NIGHTSTALKER": {
     "id": "4lypnrJxM8l7ZLtLVucEvk",
-    "genres": ["stoner rock", "stoner metal", "sludge metal", "space rock"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "stoner rock",
+      "stoner metal",
+      "sludge metal",
+      "space rock"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "NOIZU": {
     "id": "3VRyybsQu0MDG0F2LBxnv7",
-    "genres": ["tech house", "house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "NOSTALGIX": {
     "id": "6CarTAUaWnQb6bp7yjP0Zz",
-    "genres": ["bass house", "g-house", "bassline"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "bass house",
+      "g-house",
+      "bassline"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "NOTION": {
     "id": "1uRVM0wBdtyEuU582EeKJM",
-    "genres": ["bassline", "bass house", "uk garage", "drum and bass"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "bassline",
+      "bass house",
+      "uk garage",
+      "drum and bass"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "OBSK?R": {
     "id": "29MTNlaVntQaQiDyj8KGwx",
-    "genres": ["rally house", "house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "rally house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "OLLIE LISHMAN": {
     "id": "266LAiHzDxPPRJldh2CPX0",
-    "genres": ["hard house", "eurodance", "hypertechno", "bounce"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "hard house",
+      "eurodance",
+      "hypertechno",
+      "bounce"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "OMAR+": {
     "id": "06HO1b1nd4kQzRakdZBTSc",
-    "genres": ["house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "OMNOM": {
     "id": "3PYRXP25JcbqhvNaJYcnWy",
-    "genres": ["bass house", "tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "bass house",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "THE OUTLAW": {
     "id": "4h2OHnVfEazkhccAdagyPE",
     "genres": [],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "PARAMIDA": {
     "id": "3bFxfwnZ1vmvzoNYz8z2vh",
-    "genres": ["acid house"],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "genres": [
+      "acid house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "PAUL OAKENFOLD": {
     "id": "5MO2kbaGGA2a8kL4c9qqHq",
-    "genres": ["trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "PAUL VAN DYK": {
     "id": "7wU1naftD3lNq7rNsiDvOR",
-    "genres": ["trance", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "PEEKABOO": {
     "id": "4Ok1Cm5YX5StCQZgH0r2xF",
-    "genres": ["dubstep", "bass music", "riddim"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "bass music",
+      "riddim"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "PEGASSI": {
     "id": "2A4uiWrfuBpVFugyvxAt4c",
-    "genres": ["hard house", "trance", "techno", "eurodance", "hypertechno", "bounce"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "hard house",
+      "trance",
+      "techno",
+      "eurodance",
+      "hypertechno",
+      "bounce"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "PEGGY GOU": {
     "id": "2mLA48B366zkELXYx7hcDN",
     "genres": [],
-    "stage": "Neon Garden, Circuit Grounds",
-    "day": "Friday, Saturday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Neon Garden"
+      },
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "PLAYER DAVE": {
     "id": "1rQItbnVgtRiJkTxHRBUc0",
     "genres": [],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "PORTER ROBINSON": {
     "id": "3dz0NnIZhtKKeXZxLOxCam",
-    "genres": ["edm", "electronic"],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "genres": [
+      "edm",
+      "electronic"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "THE PRODIGY": {
     "id": "4k1ELeJKT1ISyDv8JivPpB",
-    "genres": ["big beat", "breakbeat", "hardcore techno"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "big beat",
+      "breakbeat",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "PROSPA": {
     "id": "6HabM2PUM519iIxervGWSb",
-    "genres": ["house"],
-    "stage": "Neon Garden",
-    "day": "Saturday"
+    "genres": [
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "THE PURGE": {
     "id": "4CyjDlfEi7Sb4NLgWP0x3w",
-    "genres": ["hardstyle", "hardcore", "frenchcore", "hard techno"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle",
+      "hardcore",
+      "frenchcore",
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "RAY VOLPE": {
     "id": "2K9qsrYnsu1EWt7ZQkkuXb",
-    "genres": ["dubstep", "riddim", "deathstep", "melodic bass", "bass music", "edm"],
-    "stage": "Circuit Grounds",
-    "day": "Friday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "melodic bass",
+      "bass music",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "REBEKAH": {
     "id": "7rmuxvt1D8dIU920lNcR67",
-    "genres": ["hard techno", "techno", "acid techno", "tekno", "industrial"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "acid techno",
+      "tekno",
+      "industrial"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "REB?KE": {
     "id": "113reBz1jA6rVxbXl55mlj",
-    "genres": ["melodic techno", "techno", "tech house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "techno",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "RED AXES": {
     "id": "5Owm9QgL9BSCRQKTX6T08G",
-    "genres": ["indie dance"],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "indie dance"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "RESTRICTED": {
     "id": "7mx6iGwPF157vXwYcl1DQ3",
-    "genres": ["hard techno", "techno", "hypertechno"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "hypertechno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "RIOT": {
     "id": "2TTfkn3oA5dSvqmvVxjUxR",
-    "genres": ["speed metal", "heavy metal", "power metal", "metal"],
-    "stage": "Basspod",
-    "day": "Friday"
+    "genres": [
+      "speed metal",
+      "heavy metal",
+      "power metal",
+      "metal"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "ROB GEE": {
     "id": "64b1FzJV5njaX6Jcrg5ZEm",
-    "genres": ["gabber", "frenchcore", "happy hardcore", "hardcore", "speedcore", "hardcore techno", "hardstyle"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "gabber",
+      "frenchcore",
+      "happy hardcore",
+      "hardcore",
+      "speedcore",
+      "hardcore techno",
+      "hardstyle"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "RODDY LIMA": {
     "id": "0Bg1joLOL52mJS0kf0pIDx",
-    "genres": ["tech house", "indie dance"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "indie dance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "ROOLER": {
     "id": "2lpFs8QJyIeVDb2Sq4vZYi",
-    "genres": ["hardstyle", "frenchcore", "hardcore", "gabber", "hardcore techno"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "hardcore",
+      "gabber",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "R?Z": {
     "id": "0aULg7LximLNhI6lLzxcXI",
-    "genres": ["electro corridos"],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "genres": [
+      "electro corridos"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "THE SAINTS": {
     "id": "6OWPd5ByKaNSFAZ3TCe5AO",
-    "genres": ["proto-punk", "punk", "power pop"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "proto-punk",
+      "punk",
+      "power pop"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "SALUTE": {
     "id": "1np8xozf7ATJZDi9JX8Dx5",
-    "genres": ["uk garage", "stutter house"],
-    "stage": "Bionic Jungle",
-    "day": "Friday"
+    "genres": [
+      "uk garage",
+      "stutter house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "SAMA' ABDULHADI": {
     "id": "6aDuXoEw6Kn8QIjFZafAmm",
     "genres": [],
-    "stage": null,
-    "day": null
+    "performances": []
   },
   "SAMMY VIRJI": {
     "id": "1GuqTQbuixFHD6eBkFwVcb",
-    "genres": ["uk garage", "bassline", "bass house", "house"],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "bass house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "SAMPLIFIRE": {
     "id": "57gGqESEggWfCpE3KOzdVa",
-    "genres": ["riddim", "dubstep", "deathstep", "bass music"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "deathstep",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "SAN HOLO": {
     "id": "0jNDKefhfSbLR9sFvcPLHo",
-    "genres": ["future bass", "edm", "melodic bass"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "future bass",
+      "edm",
+      "melodic bass"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "SAN PACHO": {
     "id": "5jBerZvTAajwYvdxt3UhgU",
-    "genres": ["latin house", "tech house", "techengue", "bass house", "g-house", "house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "latin house",
+      "tech house",
+      "techengue",
+      "bass house",
+      "g-house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "SARAH DE WARREN": {
     "id": "2V431yZGG08uroH2CZAgur",
-    "genres": ["trance"],
-    "stage": "Quantum Valley",
-    "day": "Friday"
+    "genres": [
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "SEDEF ADAS?": {
     "id": "4jY1cwyuyqQATeSI16ZeYD",
-    "genres": ["acid house", "breakbeat"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "acid house",
+      "breakbeat"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "SERAFINA": {
     "id": "5LVJ8sYOyxYjnNEkL540x2",
-    "genres": ["bounce", "hard techno", "techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "bounce",
+      "hard techno",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "SEVEN LIONS": {
     "id": "6fcTRFpz0yH79qSKfof7lp",
-    "genres": ["melodic bass", "future bass", "edm", "chillstep", "dubstep", "progressive trance"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "melodic bass",
+      "future bass",
+      "edm",
+      "chillstep",
+      "dubstep",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "SHINGO NAKAMURA": {
     "id": "58zz0VTpGNHn7MGTlW2cxQ",
-    "genres": ["progressive house", "progressive trance", "melodic house", "chillstep", "trance"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "progressive house",
+      "progressive trance",
+      "melodic house",
+      "chillstep",
+      "trance"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "SHIP WREK": {
     "id": "1ic0FHNGIjXZAWH6O6Reif",
-    "genres": ["stutter house", "bass house"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "stutter house",
+      "bass house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "SIDNEY CHARLES": {
     "id": "0J6ZEXmLQfZMeHBoa4JZTH",
-    "genres": ["tech house", "house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "tech house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "SIHK": {
     "id": "0GRYh4b8TJ9LQelJhQuKh6",
-    "genres": ["happy hardcore", "gabber"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "happy hardcore",
+      "gabber"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "SILVA BUMPA": {
     "id": "2dPLkqesvPXpIlP65JoLrf",
-    "genres": ["uk garage", "bassline", "hard house"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "uk garage",
+      "bassline",
+      "hard house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "SILVIE LOTO": {
     "id": "79pt77aQRjnLUoKOGUi7Um",
-    "genres": ["tech house"],
-    "stage": "Neon Garden",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Neon Garden"
+      }
+    ]
   },
   "SIMAS": {
     "id": "6oSvQR9kDo5qO1BNGQ4PeS",
-    "genres": ["tech house"],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "SIPPY": {
     "id": "4LLYqe8ogaK9wC1xHlvR5S",
-    "genres": ["dubstep", "riddim", "bass music"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "SKREAM": {
     "id": "2jbP92oFLWqPqogflK1wlW",
-    "genres": ["dubstep", "dub"],
-    "stage": "Stereobloom",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "SLAMM": {
     "id": "1MXqVY3BMc0RaQYu05MVpn",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "SLUGG": {
     "id": "5Q2x75NUXnoDOXCKItVxZ0",
-    "genres": ["tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "SNOW STRIPPERS": {
     "id": "6TsAG8Ve1icEC8ydeHm3C8",
-    "genres": ["electroclash", "witch house"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "electroclash",
+      "witch house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "SOFI TUKKER": {
     "id": "586uxXMyD5ObPuzjtrzO1Q",
     "genres": [],
-    "stage": "Kinetic Field",
-    "day": "Friday"
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "SOLOMUN": {
     "id": "5wJK4kQAkVGjqM9x46KQOC",
-    "genres": ["melodic techno", "minimal techno", "techno", "melodic house", "deep house"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "melodic techno",
+      "minimal techno",
+      "techno",
+      "melodic house",
+      "deep house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "SPACE LACES": {
     "id": "37PZXblQTqpEWGdjctNcGP",
-    "genres": ["dubstep", "riddim", "deathstep", "bass music", "bass house", "edm", "dub"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "bass music",
+      "bass house",
+      "edm",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "SPRAY": {
     "id": "7AyNPhiTjEsBF4HBBW4gDf",
-    "genres": ["acid house", "hard house"],
-    "stage": "Bionic Jungle",
-    "day": "Saturday"
+    "genres": [
+      "acid house",
+      "hard house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "STAN CHRIST": {
     "id": "0aby7MYHsm3JS0eSifxu3I",
-    "genres": ["hard techno", "acid techno", "techno", "tekno", "hardcore techno"],
-    "stage": "Wasteland",
-    "day": "Friday"
+    "genres": [
+      "hard techno",
+      "acid techno",
+      "techno",
+      "tekno",
+      "hardcore techno"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "STEVE AOKI": {
     "id": "77AiFEVeAVj2ORpC85QVJs",
-    "genres": ["electro house", "edm"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "electro house",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "SUB FOCUS": {
     "id": "0QaSiI5TLA4N7mcsdxShDO",
-    "genres": ["drum and bass", "liquid funk"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "drum and bass",
+      "liquid funk"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "SUB ZERO PROJECT": {
     "id": "4f0OXMMSxr0r8Ztx6CdpAl",
-    "genres": ["hardstyle", "frenchcore", "hardcore"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle",
+      "frenchcore",
+      "hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "SUBTRONICS": {
     "id": "3NJ94iuAmmMjbszODYT6pO",
-    "genres": ["riddim", "dubstep", "edm", "deathstep", "bass music", "dub"],
-    "stage": "Kinetic Field",
-    "day": "Saturday"
+    "genres": [
+      "riddim",
+      "dubstep",
+      "edm",
+      "deathstep",
+      "bass music",
+      "dub"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "SUPERSTRINGS": {
     "id": "0WDwBVGmUjf7eJUKDpecYz",
-    "genres": ["trance", "hard house", "progressive trance"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "trance",
+      "hard house",
+      "progressive trance"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "T78": {
     "id": "5FgLkieOqGXPn01dnbJp9Z",
-    "genres": ["techno", "acid techno", "hard techno", "tekno"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "techno",
+      "acid techno",
+      "hard techno",
+      "tekno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "THOMAS SCHUMACHER": {
     "id": "7KkV7dFoGEXr4M3fpb1FgD",
-    "genres": ["techno", "acid techno", "minimal techno", "hard techno"],
-    "stage": "Quantum Valley",
-    "day": "Saturday"
+    "genres": [
+      "techno",
+      "acid techno",
+      "minimal techno",
+      "hard techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "TI?STO": {
     "id": "2o5jDhtHVPhrJdv3cEQ99Z",
-    "genres": ["edm", "trance", "big room", "house"],
-    "stage": "Circuit Grounds",
-    "day": "Saturday"
+    "genres": [
+      "edm",
+      "trance",
+      "big room",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "TIGA": {
     "id": "5l9wiTZVfqQTfMDOt0HtwC",
-    "genres": ["electroclash"],
-    "stage": "Bionic Jungle",
-    "day": "Sunday"
+    "genres": [
+      "electroclash"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Bionic Jungle"
+      }
+    ]
   },
   "TINLICKER": {
     "id": "5EmEZjq8eHEC6qFnT63Lza",
-    "genres": ["melodic house", "progressive house", "melodic techno"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic house",
+      "progressive house",
+      "melodic techno"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "TOMAN": {
     "id": "7A0eeETj5gjPjvXLnskbfG",
-    "genres": ["tech house", "latin house"],
-    "stage": "Stereobloom",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "latin house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "TONESHIFTERZ": {
     "id": "4LBa6kTLaQHiONCfTfTaXV",
-    "genres": ["hardstyle", "frenchcore"],
-    "stage": "Wasteland",
-    "day": "Saturday"
+    "genres": [
+      "hardstyle",
+      "frenchcore"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "TRACE": {
     "id": "4T0QPJFV83O1j9w8y5apQX",
-    "genres": ["tech house", "latin house", "tribal house"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "tech house",
+      "latin house",
+      "tribal house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "UNDERWORLD": {
     "id": "1PXHzxRDiLnjqNrRn2Xbsa",
-    "genres": ["big beat", "electronica"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "big beat",
+      "electronica"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "VIEZE ASBAK": {
     "id": "66FZq0wsY6770bc4O9Dlig",
-    "genres": ["hard techno", "techno", "tekno", "gabber", "hardcore techno", "hardcore"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hard techno",
+      "techno",
+      "tekno",
+      "gabber",
+      "hardcore techno",
+      "hardcore"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "VINTAGE CULTURE": {
     "id": "28uJnu5EsrGml2tBd7y8ts",
-    "genres": ["brazilian bass", "electronic", "electro"],
-    "stage": "Circuit Grounds",
-    "day": "Sunday"
+    "genres": [
+      "brazilian bass",
+      "electronic",
+      "electro"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Circuit Grounds"
+      }
+    ]
   },
   "VIPERACTIVE": {
     "id": "7HeSEuZA4D7EtdygBjCbi9",
-    "genres": ["dubstep", "riddim", "bass music", "edm trap", "deathstep"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "bass music",
+      "edm trap",
+      "deathstep"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "VIRTUAL RIOT": {
     "id": "4FXGRMSHh2JjHxVwS8dhH1",
-    "genres": ["dubstep", "riddim", "deathstep", "bass music", "future bass", "edm", "dub", "drumstep"],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "genres": [
+      "dubstep",
+      "riddim",
+      "deathstep",
+      "bass music",
+      "future bass",
+      "edm",
+      "dub",
+      "drumstep"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "VNSSA": {
     "id": "6fjbZ7zQBYEy3kvB5JL5PM",
-    "genres": ["tech house", "bass house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "bass house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "VTSS": {
     "id": "0zo109NM3S7CqHpvlXwqEN",
-    "genres": ["acid techno", "techno"],
-    "stage": "Cosmic Meadow",
-    "day": "Saturday"
+    "genres": [
+      "acid techno",
+      "techno"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "WALKER & ROYCE": {
     "id": "1lAwVq9MxNJkB0dEY6xNoV",
-    "genres": ["tech house", "bass house", "house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "bass house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "WARFACE": {
     "id": "1wuQQfTDZhgNb4GJyhThUs",
-    "genres": ["hardstyle", "hardcore", "frenchcore", "gabber"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle",
+      "hardcore",
+      "frenchcore",
+      "gabber"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "WARUNG": {
     "id": "2V1Ub5tTf23y9LkBjLT5hz",
-    "genres": ["melodic house", "progressive house", "melodic techno", "deep house"],
-    "stage": "Quantum Valley",
-    "day": "Sunday"
+    "genres": [
+      "melodic house",
+      "progressive house",
+      "melodic techno",
+      "deep house"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Quantum Valley"
+      }
+    ]
   },
   "WAX MOTIF": {
     "id": "7zm3aSdmGiOkTt0aZFSO8R",
-    "genres": ["bass house", "g-house", "tech house"],
-    "stage": "Stereobloom",
-    "day": "Saturday"
+    "genres": [
+      "bass house",
+      "g-house",
+      "tech house"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Stereobloom"
+      }
+    ]
   },
   "WESTEND": {
     "id": "4epc3Bd0DOBA0kDywkRAsu",
-    "genres": ["tech house", "latin house", "house"],
-    "stage": "Cosmic Meadow",
-    "day": "Friday"
+    "genres": [
+      "tech house",
+      "latin house",
+      "house"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "WHETHAN": {
     "id": "0vqJkZ0RpLZixt3lTmD8vP",
     "genres": [],
-    "stage": "Basspod",
-    "day": "Sunday"
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "WILLIAM BLACK": {
     "id": "7d5SfGXKpgS3JK8BFIq59h",
-    "genres": ["melodic bass", "future bass", "edm"],
-    "stage": "Cosmic Meadow",
-    "day": "Sunday"
+    "genres": [
+      "melodic bass",
+      "future bass",
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Cosmic Meadow"
+      }
+    ]
   },
   "WOOLI": {
     "id": "1Uyqa2sdHm1bL5JK4IC4zc",
-    "genres": ["dubstep", "melodic bass", "riddim", "edm", "deathstep", "future bass", "bass music"],
-    "stage": "Circuit Grounds, Kinetic Field",
-    "day": "Friday, Sunday"
+    "genres": [
+      "dubstep",
+      "melodic bass",
+      "riddim",
+      "edm",
+      "deathstep",
+      "future bass",
+      "bass music"
+    ],
+    "performances": [
+      {
+        "day": "Friday",
+        "stage": "Circuit Grounds"
+      },
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   },
   "YDG": {
     "id": "286Ranmy5NZOVyIwNwAUE4",
-    "genres": ["dubstep", "riddim"],
-    "stage": "Basspod",
-    "day": "Saturday"
+    "genres": [
+      "dubstep",
+      "riddim"
+    ],
+    "performances": [
+      {
+        "day": "Saturday",
+        "stage": "Basspod"
+      }
+    ]
   },
   "YOSUF": {
     "id": "0pceb68in41LfgvQbkvCzg",
-    "genres": ["hardstyle"],
-    "stage": "Wasteland",
-    "day": "Sunday"
+    "genres": [
+      "hardstyle"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Wasteland"
+      }
+    ]
   },
   "ZEDD": {
     "id": "2qxJFvFYMEDqd7ui6kSAcq",
-    "genres": ["edm"],
-    "stage": "Kinetic Field",
-    "day": "Sunday"
+    "genres": [
+      "edm"
+    ],
+    "performances": [
+      {
+        "day": "Sunday",
+        "stage": "Kinetic Field"
+      }
+    ]
   }
 }
