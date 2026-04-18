@@ -1216,7 +1216,11 @@
 
       setProgress(75, 'Adding tracks…');
 
-      if (!res.ok) { const e=await res.json(); throw new Error(e.error||`Server error ${res.status}`); }
+      if (!res.ok) {
+        let errMsg = `Server error ${res.status}`;
+        try { const e = await res.json(); errMsg = e.error || e.details || errMsg; } catch {}
+        throw new Error(errMsg);
+      }
       const data = await res.json();
       if (!data.success||!data.playlist) throw new Error('Failed to create playlist');
 
