@@ -140,12 +140,22 @@ exports.handler = async (event, context) => {
       });
     }
 
-    // ── Add all tracks in parallel chunks of 100 ────────────────────────
+    // ── Add tracks sequentially in chunks of 100 ────────────────────────
+    // Sequential (not parallel) to avoid Spotify rate limits on the write endpoint.
+    // With the cache, track lookup is instant so this is still fast end-to-end.
+    let tracksAdded = 0;
     if (allTrackUris.length > 0) {
       const chunks = [];
       for (let i = 0; i < allTrackUris.length; i += 100) chunks.push(allTrackUris.slice(i, i + 100));
-      console.log(`Adding ${allTrackUris.length} tracks in ${chunks.length} parallel chunks…`);
-      await Promise.all(chunks.map(chunk => addChunkToPlaylist(accessToken, playlist.id, chunk)));
+      console.log(`Adding ${allTrackUris.length} tracks in ${chunks.length} sequential chunks…`);
+      for (const chunk of chunks) {
+        try {
+          await addChunkToPlaylist(accessToken, playlist.id, chunk);
+          tracksAdded += chunk.length;
+        } catch (err) {
+          console.warn(`Chunk add failed (${chunk.length} tracks skipped): ${err.message}`);
+        }
+      }
     }
 
     console.log(`✓ Playlist created: ${playlist.external_urls.spotify}`);
@@ -160,7 +170,7 @@ exports.handler = async (event, context) => {
           name:       playlist.name,
           url:        playlist.external_urls.spotify,
           uri:        playlist.uri,
-          trackCount: allTrackUris.length
+          trackCount: tracksAdded
         }
       })
     };
