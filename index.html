@@ -349,16 +349,26 @@
     .spotify-code img { max-width:280px; border-radius:8px; }
 
     /* ── SECRET BTN ── */
-    #secretBtn {
-      position:fixed; bottom:18px; right:22px;
-      background:transparent; border:none;
-      font-size:1.1rem; cursor:pointer; z-index:100;
-      color:rgba(0,212,255,.1); padding:6px;
-      transition:color .4s,text-shadow .4s;
-      animation:secret-pulse 5s ease-in-out infinite;
+    #secretBtnWrap {
+      position:fixed; bottom:14px; right:18px;
+      display:flex; flex-direction:column; align-items:center;
+      z-index:100; gap:2px;
     }
-    #secretBtn:hover { color:rgba(0,212,255,.65); text-shadow:0 0 12px var(--cyan); }
-    @keyframes secret-pulse { 0%,100%{opacity:.35;} 50%{opacity:.7;} }
+    #secretBtn {
+      background:transparent; border:none;
+      font-size:1.1rem; cursor:pointer;
+      color:rgba(0,212,255,.35); padding:6px;
+      transition:color .4s,text-shadow .4s;
+      animation:secret-pulse 4s ease-in-out infinite;
+    }
+    #secretBtn:hover { color:rgba(0,212,255,.9); text-shadow:0 0 14px var(--cyan); }
+    #plurLabel {
+      font-size:0.55rem; letter-spacing:.18em; font-weight:600;
+      color:rgba(0,212,255,.45); animation:secret-pulse 4s ease-in-out infinite;
+      transition:color .4s; user-select:none; cursor:pointer;
+    }
+    #secretBtnWrap:hover #plurLabel { color:rgba(0,212,255,.9); }
+    @keyframes secret-pulse { 0%,100%{opacity:.55; text-shadow:none;} 50%{opacity:1; text-shadow:0 0 14px #00d4ff, 0 0 28px #00d4ff;} }
 
     .text-muted-sm { color:var(--muted); font-size:0.82rem; margin-top:4px; }
   </style>
@@ -565,7 +575,10 @@
     Made with ♥ for EDC Las Vegas attendees
   </footer>
 
-  <button id="secretBtn" title="✨">✦</button>
+  <div id="secretBtnWrap">
+    <button id="secretBtn" title="✨">✦</button>
+    <span id="plurLabel">P.L.U.R.</span>
+  </div>
 
   <script>
   // =====================================================================
@@ -643,7 +656,8 @@
         this.trail.forEach(t => t.life -= 0.14);
         this.trail = this.trail.filter(t => t.life > 0);
         this.y += this.vy; this.vy += 0.18;
-        if (this.y <= this.targetY) this.explode();
+        // Explode at target OR at apex (vy flips positive = falling back down)
+        if (this.y <= this.targetY || this.vy >= 0) this.explode();
       } else {
         this.particles.forEach(p => p.update());
         this.particles = this.particles.filter(p => !p.dead);
@@ -716,24 +730,104 @@
     get dead() { return this.life <= 0; }
   }
 
+  /* ── Strobe flash ── */
+  const strobes = [];
+  class Strobe {
+    constructor() {
+      this.color = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.alpha = 0.18 + Math.random() * 0.22;
+      this.life  = 1;
+    }
+    update() { this.life -= 0.12; }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.life * this.alpha);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(0, window.scrollY, canvas.width, window.innerHeight);
+      ctx.restore();
+    }
+    get dead() { return this.life <= 0; }
+  }
+
+  /* ── Spotlight cone ── */
+  const spots = [];
+  class Spotlight {
+    constructor() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const vw = window.innerWidth, vh = window.innerHeight;
+      this.originX = Math.random() < 0.5 ? vw * 0.1 : vw * 0.9;
+      this.originY = scrollY + vh;
+      this.angle   = -Math.PI / 2 + (Math.random() - 0.5) * 1.2;
+      this.spread  = 0.08 + Math.random() * 0.1;
+      this.len     = vh * 1.1;
+      this.color   = FX_COLORS[Math.floor(Math.random() * FX_COLORS.length)];
+      this.life    = 1;
+      this.spin    = (Math.random() - 0.5) * 0.025;
+    }
+    update() { this.angle += this.spin; this.life -= 0.013; }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.life * 0.18);
+      const tip1 = this.angle - this.spread;
+      const tip2 = this.angle + this.spread;
+      ctx.beginPath();
+      ctx.moveTo(this.originX, this.originY);
+      ctx.lineTo(this.originX + Math.cos(tip1) * this.len, this.originY + Math.sin(tip1) * this.len);
+      ctx.lineTo(this.originX + Math.cos(tip2) * this.len, this.originY + Math.sin(tip2) * this.len);
+      ctx.closePath();
+      const grad = ctx.createRadialGradient(this.originX, this.originY, 0, this.originX, this.originY, this.len);
+      grad.addColorStop(0, this.color);
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.restore();
+    }
+    get dead() { return this.life <= 0; }
+  }
+
   /* ── Show orchestration ── */
   const shells = [], lasers = [];
 
   function startShow() {
     if (fxRunning) return;
     fxRunning = true;
-    resizeCanvas(); // Capture full page height at show time
+    resizeCanvas();
 
-    const addShell = () => shells.push(new Shell());
-    const addLaser = () => lasers.push(new Laser());
+    const addShell  = (n=1) => { for (let i=0;i<n;i++) shells.push(new Shell()); };
+    const addLaser  = () => lasers.push(new Laser());
+    const addStrobe = () => strobes.push(new Strobe());
+    const addSpot   = () => spots.push(new Spotlight());
 
-    addShell(); addShell();
+    // Opening salvo
+    addShell(3);
     for (let i = 0; i < 10; i++) setTimeout(addLaser, i * 120);
+    for (let i = 0; i < 4; i++) setTimeout(addSpot,  i * 300);
 
-    const shellTimes = [200,500,850,1200,1700,2200,2800,3300,3900,4400,5000,5500,6100,6600,7100];
-    const laserTimes = [600,1100,1600,2100,2600,3100,3600,4100,4600,5100,5600,6100];
-    shellTimes.forEach(t => setTimeout(addShell, t));
+    // Dense shell schedule — many bursts throughout the show
+    const shellTimes = [
+      150,300,500,700,
+      850,1050,1200,1400,
+      1700,1900,2100,2300,
+      2500,2800,3000,3200,
+      3500,3700,3900,4100,
+      4400,4600,4800,5000,
+      5300,5500,5700,5900,
+      6200,6400,6600,6800,
+      7000,7200,7400,7600
+    ];
+    // Double-burst at a few dramatic moments
+    [1200,2800,4400,6200].forEach(t => setTimeout(() => { if(fxRunning) addShell(2); }, t+80));
+
+    shellTimes.forEach(t => setTimeout(() => { if(fxRunning) addShell(); }, t));
+
+    const laserTimes = [600,1000,1400,1800,2200,2600,3000,3400,3800,4200,4600,5000,5400,5800,6200,6600,7000];
     laserTimes.forEach(t => setTimeout(() => { if (fxRunning) addLaser(); }, t));
+
+    const strobeTimes = [800,1600,2400,3200,4000,4800,5600,6400];
+    strobeTimes.forEach(t => setTimeout(() => { if (fxRunning) addStrobe(); }, t));
+
+    const spotTimes = [1500,3000,4500,6000];
+    spotTimes.forEach(t => setTimeout(() => { if (fxRunning) addSpot(); }, t));
 
     showStart = 0;
     requestAnimationFrame(fxLoop);
@@ -742,6 +836,14 @@
   function fxLoop(ts) {
     if (!showStart) showStart = ts;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = strobes.length-1; i >= 0; i--) {
+      strobes[i].update(); strobes[i].draw();
+      if (strobes[i].dead) strobes.splice(i,1);
+    }
+    for (let i = spots.length-1; i >= 0; i--) {
+      spots[i].update(); spots[i].draw();
+      if (spots[i].dead) spots.splice(i,1);
+    }
     for (let i = lasers.length-1; i >= 0; i--) {
       lasers[i].update(); lasers[i].draw();
       if (lasers[i].dead) lasers.splice(i,1);
@@ -751,7 +853,8 @@
       if (shells[i].gone) shells.splice(i,1);
     }
     const elapsed = ts - showStart;
-    if (elapsed < 8000 || shells.length > 0 || lasers.length > 0) {
+    const allDone = shells.length === 0 && lasers.length === 0 && strobes.length === 0 && spots.length === 0;
+    if (elapsed < 9000 || !allDone) {
       requestAnimationFrame(fxLoop);
     } else {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -759,7 +862,7 @@
     }
   }
 
-  document.getElementById('secretBtn').addEventListener('click', startShow);
+  document.getElementById('secretBtnWrap').addEventListener('click', startShow);
 
   // =====================================================================
   // APP STATE
