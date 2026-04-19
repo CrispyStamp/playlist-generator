@@ -310,12 +310,20 @@
     }
 
     /* ── PROGRESS ── */
-    .prog-track { height:5px; background:rgba(255,255,255,.06); border-radius:3px; overflow:hidden; margin:16px 0; }
+    .prog-track { height:8px; background:rgba(255,255,255,.06); border-radius:4px; overflow:hidden; margin:16px 0; }
     .prog-bar {
-      height:100%; background:linear-gradient(90deg,var(--cyan),var(--magenta));
-      border-radius:3px; transition:width .5s ease; box-shadow:0 0 10px var(--cyan);
+      height:100%; border-radius:4px;
+      background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--gold),var(--purple),var(--cyan));
+      background-size:300% 100%;
+      box-shadow:0 0 14px var(--cyan);
+      animation:prog-shimmer 2s linear infinite;
+    }
+    @keyframes prog-shimmer {
+      0%   { background-position:100% 0; }
+      100% { background-position:0%   0; }
     }
     .prog-status { text-align:center; color:var(--muted); font-size:0.85rem; }
+    .prog-timer  { text-align:center; color:rgba(232,232,255,.3); font-size:0.75rem; margin-top:6px; font-variant-numeric:tabular-nums; }
 
     /* ── RESULTS ── */
     .results-inner { text-align:center; padding:24px 0; }
@@ -527,9 +535,10 @@
         <div class="card-head"><div class="head-label">CREATING YOUR PLAYLIST…</div></div>
         <div class="card-body">
           <div class="prog-track">
-            <div class="prog-bar" id="progressBar" style="width:0%"></div>
+            <div class="prog-bar" id="progressBar" style="width:0%;transition:none;"></div>
           </div>
           <p id="statusMessage" class="prog-status">Preparing…</p>
+          <p id="progressTimer" class="prog-timer">0.0s</p>
         </div>
       </div>
 
@@ -1199,14 +1208,16 @@
     document.getElementById('playlistOptions').style.display = 'none';
     document.getElementById('createPlaylistBtn').style.display = 'none';
     document.getElementById('progressSection').style.display = 'block';
-    setProgress(10, 'Creating your playlist…');
+    resetProgress();
+    startProgressAnimation();
+    setStatus('Creating your playlist…');
 
     try {
       const artistsData = filtered.map(a=>({name:a.name,spotifyId:a.id})).filter(a=>a.spotifyId);
       if (!artistsData.length) throw new Error('No artists found with Spotify IDs.');
       const skipped = filtered.length - artistsData.length;
 
-      setProgress(30, `Sending ${artistsData.length} artist${artistsData.length!==1?'s':''} to Spotify…${skipped>0?` (${skipped} skipped)`:''}`);
+      setStatus(`Sending ${artistsData.length} artist${artistsData.length!==1?'s':''} to Spotify…${skipped>0?` (${skipped} skipped)`:''}`);
 
       const res = await fetch('/.netlify/functions/create-playlist', {
         method: 'POST',
@@ -1214,7 +1225,7 @@
         body: JSON.stringify({artists:artistsData, playlistName:name, playlistDescription:desc, tracksPerArtist:tpa})
       });
 
-      setProgress(75, 'Adding tracks…');
+      setStatus('Building playlist…');
 
       if (!res.ok) {
         let errMsg = `Server error ${res.status}`;
@@ -1224,9 +1235,10 @@
       const data = await res.json();
       if (!data.success||!data.playlist) throw new Error('Failed to create playlist');
 
-      setProgress(100, 'Done!');
+      finishProgress('Done!');
       setTimeout(() => {
         document.getElementById('progressSection').style.display = 'none';
+        resetProgress();
         document.getElementById('resultsSection').style.display = 'block';
         let msg = `"${data.playlist.name}" created with ${data.playlist.trackCount} tracks!`;
         if (skipped > 0) msg += ` (${skipped} artist${skipped!==1?'s':''} without Spotify IDs skipped)`;
@@ -1240,6 +1252,7 @@
         startShow(); // 🎉 Celebration!
       }, 600);
     } catch(e) {
+      resetProgress();
       document.getElementById('progressSection').style.display = 'none';
       alert(`Error: ${e.message}`);
       document.getElementById('playlistOptions').style.display = 'block';
@@ -1247,8 +1260,45 @@
     }
   }
 
-  function setProgress(pct, msg) {
-    document.getElementById('progressBar').style.width = pct + '%';
+  // ── Progress animation ─────────────────────────────────────────────────
+  let _progAnimId = null, _timerIntervalId = null, _progStartTime = null;
+
+  function startProgressAnimation() {
+    _progStartTime = Date.now();
+
+    // Elapsed timer — updates every 100ms
+    const timerEl = document.getElementById('progressTimer');
+    timerEl.textContent = '0.0s';
+    _timerIntervalId = setInterval(() => {
+      timerEl.textContent = ((Date.now() - _progStartTime) / 1000).toFixed(1) + 's';
+    }, 100);
+
+    // Smooth bar — exponential approach to 92%, never quite gets there until done
+    function tick() {
+      const elapsed = (Date.now() - _progStartTime) / 1000;
+      const pct = 92 * (1 - Math.exp(-elapsed / 5));
+      document.getElementById('progressBar').style.width = pct + '%';
+      _progAnimId = requestAnimationFrame(tick);
+    }
+    _progAnimId = requestAnimationFrame(tick);
+  }
+
+  function finishProgress(msg) {
+    cancelAnimationFrame(_progAnimId); _progAnimId = null;
+    clearInterval(_timerIntervalId);   _timerIntervalId = null;
+    document.getElementById('progressBar').style.width = '100%';
+    document.getElementById('statusMessage').textContent = msg || 'Done!';
+  }
+
+  function resetProgress() {
+    cancelAnimationFrame(_progAnimId); _progAnimId = null;
+    clearInterval(_timerIntervalId);   _timerIntervalId = null;
+    document.getElementById('progressBar').style.width = '0%';
+    document.getElementById('statusMessage').textContent = 'Preparing…';
+    document.getElementById('progressTimer').textContent = '0.0s';
+  }
+
+  function setStatus(msg) {
     document.getElementById('statusMessage').textContent = msg;
   }
 
