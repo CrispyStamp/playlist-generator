@@ -70,6 +70,21 @@
       color:var(--cyan);
       text-shadow:0 0 20px var(--cyan),0 0 60px rgba(0,212,255,.45),0 0 120px rgba(0,212,255,.2);
       cursor:default; user-select:none;
+      transition: color .3s, text-shadow .3s;
+    }
+    @keyframes edc-celebrate {
+      0%   { color:var(--cyan);    text-shadow:0 0 20px var(--cyan),0 0 60px rgba(0,212,255,.45),0 0 120px rgba(0,212,255,.2); }
+      8%   { color:#ffffff;        text-shadow:0 0 30px #fff,0 0 70px var(--cyan),0 0 120px var(--cyan),0 0 200px var(--cyan); }
+      20%  { color:var(--magenta); text-shadow:0 0 30px var(--magenta),0 0 80px var(--magenta),0 0 160px rgba(255,0,204,.5); }
+      35%  { color:#ffffff;        text-shadow:0 0 30px #fff,0 0 70px var(--cyan),0 0 120px var(--cyan),0 0 200px var(--cyan); }
+      50%  { color:var(--gold);    text-shadow:0 0 30px var(--gold),0 0 80px var(--gold),0 0 160px rgba(255,215,0,.5); }
+      65%  { color:#ffffff;        text-shadow:0 0 30px #fff,0 0 70px var(--cyan),0 0 120px var(--cyan),0 0 200px var(--cyan); }
+      80%  { color:var(--magenta); text-shadow:0 0 30px var(--magenta),0 0 80px var(--magenta),0 0 160px rgba(255,0,204,.5); }
+      92%  { color:#ffffff;        text-shadow:0 0 30px #fff,0 0 70px var(--cyan),0 0 120px var(--cyan),0 0 200px var(--cyan); }
+      100% { color:var(--cyan);    text-shadow:0 0 20px var(--cyan),0 0 60px rgba(0,212,255,.45),0 0 120px rgba(0,212,255,.2); }
+    }
+    .hero-edc.edc-celebrating {
+      animation: edc-celebrate 1.6s ease-in-out 0s 7 alternate;
     }
     .hero-sub {
       font-family:var(--font-h); font-weight:400;
@@ -793,6 +808,15 @@
     fxRunning = true;
     resizeCanvas();
 
+    // Animate the EDC hero text
+    const edcEl = document.querySelector('.hero-edc');
+    if (edcEl) {
+      edcEl.classList.remove('edc-celebrating');
+      void edcEl.offsetWidth; // force reflow to restart animation
+      edcEl.classList.add('edc-celebrating');
+      edcEl.addEventListener('animationend', () => edcEl.classList.remove('edc-celebrating'), { once: true });
+    }
+
     const addShell  = (n=1) => { for (let i=0;i<n;i++) shells.push(new Shell()); };
     const addLaser  = () => lasers.push(new Laser());
     const addStrobe = () => strobes.push(new Strobe());
@@ -854,7 +878,7 @@
     }
     const elapsed = ts - showStart;
     const allDone = shells.length === 0 && lasers.length === 0 && strobes.length === 0 && spots.length === 0;
-    if (elapsed < 9000 || !allDone) {
+    if (elapsed < 12000 || !allDone) {
       requestAnimationFrame(fxLoop);
     } else {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
