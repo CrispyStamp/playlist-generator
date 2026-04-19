@@ -165,6 +165,10 @@
       border-color:var(--cyan); color:var(--cyan);
       background:rgba(0,212,255,.08); box-shadow:0 0 18px rgba(0,212,255,.18);
     }
+    .day-btn.active {
+      border-color:var(--cyan); color:var(--cyan);
+      background:rgba(0,212,255,.14); box-shadow:0 0 20px rgba(0,212,255,.22);
+    }
     .method-btn { border:1px solid rgba(255,0,170,.25); color:var(--text); }
     .method-btn:hover {
       border-color:var(--magenta); color:var(--magenta);
@@ -408,7 +412,7 @@
       <div class="hero-sub">LAS VEGAS &nbsp;<span>2026</span></div>
       <div class="hero-tag">Playlist Creator</div>
       <div class="hero-rule"></div>
-      <p class="hero-desc">Build a custom Spotify playlist from the full EDC lineup — no login required.</p>
+      <p class="hero-desc">Build a custom Spotify playlist from the full EDC lineup. No login required.</p>
     </header>
 
     <div id="loadingSection">
@@ -423,27 +427,30 @@
 
     <div id="mainApp" style="display:none;">
 
-      <!-- Step 0: Day -->
+      <!-- Step 1: Day -->
       <div class="card" id="daySelection">
         <div class="card-head">
-          <div class="step-dot">0</div>
+          <div class="step-dot">1</div>
           <div class="head-label">SELECT FESTIVAL DAY</div>
         </div>
         <div class="card-body" id="daySelectionBody">
-          <p class="text-muted-sm" style="margin-bottom:16px;">Which night are you going?</p>
+          <p class="text-muted-sm" style="margin-bottom:16px;">Which day(s) are you going?</p>
           <div class="btn-grid-4">
-            <button onclick="selectDay('all')"      class="day-btn">All Days</button>
-            <button onclick="selectDay('Friday')"   class="day-btn">Friday</button>
-            <button onclick="selectDay('Saturday')" class="day-btn">Saturday</button>
-            <button onclick="selectDay('Sunday')"   class="day-btn">Sunday</button>
+            <button id="dayBtn-all"      onclick="toggleDay('all')"      class="day-btn">All Days</button>
+            <button id="dayBtn-Friday"   onclick="toggleDay('Friday')"   class="day-btn">Friday</button>
+            <button id="dayBtn-Saturday" onclick="toggleDay('Saturday')" class="day-btn">Saturday</button>
+            <button id="dayBtn-Sunday"   onclick="toggleDay('Sunday')"   class="day-btn">Sunday</button>
+          </div>
+          <div class="continue-bar" id="dayContinueBtn" style="display:none;">
+            <button onclick="confirmDaySelection()" class="neon-btn">Continue →</button>
           </div>
         </div>
       </div>
 
-      <!-- Step 1: Method -->
+      <!-- Step 2: Method -->
       <div class="card" id="step1" style="display:none;">
         <div class="card-head">
-          <div class="step-dot">1</div>
+          <div class="step-dot">2</div>
           <div class="head-label" id="step1Label">CHOOSE YOUR FILTER</div>
         </div>
         <div class="card-body" id="step1Body">
@@ -459,7 +466,7 @@
       <!-- Step 2a: Stage -->
       <div class="card" id="stageSelection" style="display:none;">
         <div class="card-head">
-          <div class="step-dot">2</div>
+          <div class="step-dot">3</div>
           <div class="head-label" id="stageSelLabel">SELECT STAGE(S)</div>
         </div>
         <div class="card-body" id="stageSelBody">
@@ -479,7 +486,7 @@
       <!-- Step 2b: Genre -->
       <div class="card" id="genreSelection" style="display:none;">
         <div class="card-head">
-          <div class="step-dot">2</div>
+          <div class="step-dot">3</div>
           <div class="head-label" id="genreSelLabel">SELECT GENRE(S)</div>
         </div>
         <div class="card-body" id="genreSelBody">
@@ -499,7 +506,7 @@
       <!-- Step 2c: Artist -->
       <div class="card" id="artistSelection" style="display:none;">
         <div class="card-head">
-          <div class="step-dot">2</div>
+          <div class="step-dot">3</div>
           <div class="head-label" id="artistSelLabel">SELECT ARTISTS</div>
         </div>
         <div class="card-body" id="artistSelBody">
@@ -519,7 +526,7 @@
       <!-- Step 3: Options -->
       <div class="card" id="playlistOptions" style="display:none;">
         <div class="card-head">
-          <div class="step-dot">3</div>
+          <div class="step-dot">4</div>
           <div class="head-label">CUSTOMIZE YOUR PLAYLIST</div>
         </div>
         <div class="card-body">
@@ -908,7 +915,7 @@
   let artists = {};
   let cachedLists = null;
   let genreIndex  = null;
-  let sel = { day:'all', mode:null, stages:[], genres:[], artistNames:[], excludedArtists: new Set() };
+  let sel = { days:[], mode:null, stages:[], genres:[], artistNames:[], excludedArtists: new Set() };
 
   // =====================================================================
   // INIT
@@ -944,7 +951,7 @@
   }
 
   function buildCachesForDay() {
-    const all = getAllArtists().filter(a => matchesDay(a, sel.day));
+    const all = getAllArtists().filter(a => matchesDay(a, sel.days));
     cachedLists = {
       stages:     getUniqueStagesFrom(all),
       genres:     getUniqueGenresFrom(all),
@@ -965,9 +972,14 @@
     return [];
   }
 
-  function matchesDay(artist, day) {
-    if (day === 'all') return true;
-    return getPerformances(artist).some(p => p.day === day);
+  function matchesDay(artist, days) {
+    if (!days.length || days.length >= 3) return true;
+    return getPerformances(artist).some(p => days.includes(p.day));
+  }
+
+  function getDayLabel() {
+    if (!sel.days.length || sel.days.length >= 3) return 'All Days';
+    return sel.days.join(', ');
   }
 
   function getAllArtists() {
@@ -979,7 +991,7 @@
     const s = new Set();
     list.forEach(a => {
       getPerformances(a)
-        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .filter(p => !sel.days.length || sel.days.length >= 3 || sel.days.includes(p.day))
         .forEach(p => { if (p.stage) s.add(p.stage); });
     });
     return [...s].sort();
@@ -1011,7 +1023,7 @@
     const s = new Set(stages);
     return cachedLists.allArtists.filter(a =>
       getPerformances(a).some(p =>
-        (sel.day === 'all' || p.day === sel.day) && s.has(p.stage)
+        (!sel.days.length || sel.days.length >= 3 || sel.days.includes(p.day)) && s.has(p.stage)
       )
     ).sort((a,b) => a.name.localeCompare(b.name));
   }
@@ -1027,13 +1039,32 @@
   // =====================================================================
   // DAY SELECTION
   // =====================================================================
-  function selectDay(day) {
-    sel.day = day;
+  function toggleDay(day) {
+    if (day === 'all') {
+      sel.days = sel.days.length === 3 ? [] : ['Friday', 'Saturday', 'Sunday'];
+    } else {
+      const idx = sel.days.indexOf(day);
+      if (idx === -1) sel.days.push(day);
+      else sel.days.splice(idx, 1);
+    }
+    updateDayButtons();
+  }
+
+  function updateDayButtons() {
+    ['Friday','Saturday','Sunday'].forEach(d => {
+      const btn = document.getElementById('dayBtn-' + d);
+      if (btn) btn.classList.toggle('active', sel.days.includes(d));
+    });
+    const allBtn = document.getElementById('dayBtn-all');
+    if (allBtn) allBtn.classList.toggle('active', sel.days.length === 3);
+    document.getElementById('dayContinueBtn').style.display = sel.days.length > 0 ? 'block' : 'none';
+  }
+
+  function confirmDaySelection() {
     buildCachesForDay();
     document.getElementById('daySelectionBody').style.display = 'none';
-    const label = day==='all' ? 'All Days' : day;
     document.querySelector('#daySelection .head-label').innerHTML =
-      `SELECT FESTIVAL DAY &nbsp;— <span class="success-text">${label}</span>
+      `SELECT FESTIVAL DAY &nbsp;— <span class="success-text">${getDayLabel()}</span>
        <button onclick="editDaySelection()" class="edit-btn">Edit</button>`;
     document.getElementById('step1').style.display = 'block';
   }
@@ -1041,6 +1072,8 @@
   function editDaySelection() {
     document.getElementById('daySelectionBody').style.display = 'block';
     document.querySelector('#daySelection .head-label').textContent = 'SELECT FESTIVAL DAY';
+    sel.days = [];
+    updateDayButtons();
     resetFromDay();
     document.getElementById('step1').style.display = 'none';
     hideAllStep2();
@@ -1126,7 +1159,7 @@
     cachedLists.allArtists.forEach(artist => {
       // Show only the stage(s) relevant to the selected day
       const stageLabel = getPerformances(artist)
-        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .filter(p => !sel.days.length || sel.days.length >= 3 || sel.days.includes(p.day))
         .map(p => p.stage).filter(Boolean).join(', ');
       const label = stageLabel
         ? `${artist.name} <span style="color:var(--muted);font-size:.8em">${stageLabel}</span>`
@@ -1201,7 +1234,7 @@
     const withId   = filtered.filter(a=>a.id);
     const noId     = filtered.filter(a=>!a.id);
     const tpa      = parseInt(document.getElementById('tracksPerArtist').value);
-    const dayLabel = sel.day==='all' ? 'All Days' : sel.day;
+    const dayLabel = getDayLabel();
     let html = `<strong>Day:</strong> ${dayLabel}<br>
                 <strong>${filtered.length}</strong> artist${filtered.length!==1?'s':''} selected<br>
                 <strong>~${withId.length * tpa}</strong> total tracks estimated`;
@@ -1243,7 +1276,7 @@
 
       // Stage label relevant to the selected day
       const stageLabel = getPerformances(artist)
-        .filter(p => sel.day === 'all' || p.day === sel.day)
+        .filter(p => !sel.days.length || sel.days.length >= 3 || sel.days.includes(p.day))
         .map(p => p.stage).filter(Boolean).join(', ');
 
       item.innerHTML = `<input type="checkbox" ${excluded ? '' : 'checked'} onclick="event.stopPropagation()">
@@ -1264,7 +1297,7 @@
         const withId2   = filtered2.filter(a=>a.id);
         const noId2     = filtered2.filter(a=>!a.id);
         const tpa2      = parseInt(document.getElementById('tracksPerArtist').value);
-        const dayLabel2 = sel.day==='all' ? 'All Days' : sel.day;
+        const dayLabel2 = getDayLabel();
         let html2 = `<strong>Day:</strong> ${dayLabel2}<br>
                      <strong>${filtered2.length}</strong> artist${filtered2.length!==1?'s':''} selected<br>
                      <strong>~${withId2.length * tpa2}</strong> total tracks estimated`;
@@ -1472,13 +1505,77 @@
     });
   }
 
+  // =====================================================================
+  // BACKGROUND STARS
+  // =====================================================================
+  (function() {
+    const sc = document.createElement('canvas');
+    sc.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;';
+    document.body.insertBefore(sc, document.body.firstChild);
+    const ctx2 = sc.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    sc.width = W; sc.height = H;
+
+    window.addEventListener('resize', () => { W = window.innerWidth; H = window.innerHeight; sc.width = W; sc.height = H; });
+
+    let scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
+    window.addEventListener('scroll', () => {
+      const now = performance.now();
+      const dy  = window.scrollY - lastScrollY;
+      const dt  = Math.max(now - lastScrollT, 8);
+      scrollVel  = (dy / dt) * 16;
+      lastScrollY = window.scrollY;
+      lastScrollT = now;
+    });
+
+    const stars = Array.from({length: 90}, () => ({
+      x:  Math.random() * window.innerWidth,
+      y:  Math.random() * window.innerHeight,
+      r:  0.4 + Math.random() * 1.4,
+      bvx: (Math.random() - 0.5) * 0.1,
+      bvy: (Math.random() - 0.5) * 0.1,
+      op: 0.25 + Math.random() * 0.5,
+      ts: 0.006 + Math.random() * 0.01,
+      to: Math.random() * Math.PI * 2,
+    }));
+
+    function frame(t) {
+      requestAnimationFrame(frame);
+      ctx2.clearRect(0, 0, W, H);
+      scrollVel *= 0.90;
+
+      stars.forEach(s => {
+        s.x += s.bvx;
+        s.y += s.bvy + scrollVel * 0.035;
+        if (s.x < -2) s.x = W + 2;
+        if (s.x > W + 2) s.x = -2;
+        if (s.y < -2) s.y = H + 2;
+        if (s.y > H + 2) s.y = -2;
+
+        const twinkle = s.op * (0.65 + 0.35 * Math.sin(t * s.ts + s.to));
+        ctx2.beginPath();
+        ctx2.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx2.fillStyle = `rgba(200,220,255,${twinkle})`;
+        ctx2.fill();
+        if (s.r > 1.1) {
+          ctx2.beginPath();
+          ctx2.arc(s.x, s.y, s.r * 2.8, 0, Math.PI * 2);
+          ctx2.fillStyle = `rgba(140,195,255,${twinkle * 0.12})`;
+          ctx2.fill();
+        }
+      });
+    }
+    requestAnimationFrame(frame);
+  })();
+
   function resetApp() {
     ['step1','stageSelection','genreSelection','artistSelection',
      'playlistOptions','createPlaylistBtn','progressSection','resultsSection']
     .forEach(id => document.getElementById(id).style.display = 'none');
-    sel = {day:'all', mode:null, stages:[], genres:[], artistNames:[], excludedArtists:new Set()};
+    sel = {days:[], mode:null, stages:[], genres:[], artistNames:[], excludedArtists:new Set()};
     document.getElementById('daySelectionBody').style.display = 'block';
     document.querySelector('#daySelection .head-label').textContent = 'SELECT FESTIVAL DAY';
+    updateDayButtons();
   }
   </script>
 </body>
