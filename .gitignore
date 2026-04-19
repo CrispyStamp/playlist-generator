@@ -4,3 +4,6 @@
 # Environment variables — never commit these
 .env
 .env.local
+
+# Local Claude context (contains credentials)
+CLAUDE.md
